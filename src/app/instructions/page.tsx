@@ -8,7 +8,7 @@ import { instructionLinks } from "@/data/portfolioLinks";
 
 const instructionAsset = getAssetsForProject("instructions")[0];
 const instructionChartSrc =
-  "/assets/instructions/images/INTSRUCTIONS%20V1.png?v=20260527204344";
+  "/assets/instructions/images/INTSRUCTIONS%20V1.png?v=20260531201006";
 const guideVideoSrc = "/assets/instructions/videos/IO%20GUIDE%20VID.mp4";
 const threeNaturesQrSrc =
   "/assets/instructions/images/3%20NATURE%20VIDEO.png?v=20260529023029";
@@ -25,10 +25,6 @@ export default function InstructionsPage() {
           {instructions.intro.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
-
-          <div className="manual-copy__primary-transition">
-            <BackToHubLink />
-          </div>
 
           <div className="manual-instruction-grid">
             <section className="manual-copy__need" aria-labelledby="need-title">
@@ -88,6 +84,11 @@ export default function InstructionsPage() {
             </section>
 
             <div className="instruction-media-column">
+              <aside className="instruction-continue" aria-label="Continue to transition">
+                <p>Continue here after training.</p>
+                <BackToHubLink />
+              </aside>
+
               <figure className="instruction-video" aria-labelledby="instruction-video-caption">
                 <div className="instruction-video__frame">
                   <video

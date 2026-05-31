@@ -430,6 +430,7 @@ summary:focus-visible {
   gap: clamp(1.4rem, 3vw, 2.1rem);
   justify-content: center;
   margin-top: clamp(2.6rem, 4vw, 3.4rem);
+  text-align: center;
 }
 
 .landing__readout,
@@ -598,11 +599,6 @@ summary:focus-visible {
   font-size: clamp(1.05rem, 1.5vw, 1.25rem);
 }
 
-.manual-copy__primary-transition {
-  display: flex;
-  margin-top: clamp(1.4rem, 3vw, 2.1rem);
-}
-
 .instruction-chart,
 .external-transmission {
   margin: 0;
@@ -621,6 +617,36 @@ summary:focus-visible {
   justify-self: stretch;
   max-width: 54rem;
   width: 100%;
+}
+
+.instruction-continue {
+  align-items: end;
+  background:
+    linear-gradient(90deg, rgba(76, 141, 255, 0.04), transparent 42%),
+    var(--color-black);
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 0.8rem;
+  justify-self: stretch;
+  margin: 0;
+  padding: clamp(1rem, 2vw, 1.25rem);
+}
+
+.instruction-continue p {
+  color: var(--muted);
+  font-family: var(--font-technical);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.instruction-continue .transmission-link {
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  justify-self: start;
+  min-height: 3.2rem;
+  padding-block: 0.9rem;
 }
 
 .instruction-chart__frame {

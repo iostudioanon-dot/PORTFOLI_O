@@ -39,7 +39,7 @@ export const landing = {
   instructionsAriaLabel: "Instructions entry",
   title: globalLabels.identity,
   identity: globalLabels.creator.toUpperCase(),
-  systemBrand: ["LUKE HILLHOUSE", "MULTIMEDIA ARCHIVE", "NODE 001"],
+  systemBrand: ["LUKE HILLHOUSE", "MULTIMEDIA ARCHIVE", "I/O PROJECT"],
   systemReadout: [
     "SIGNAL ACTIVE",
     "I/O NETWORK",
@@ -54,7 +54,7 @@ export const landing = {
   coordinates: ["LAT 53.3925", "LON -3.0350", "MERSEYSIDE NODE"],
   timeline: ["170,000 BC", "1498", "1939", "1968", "1986", "2026"],
   primaryAction: "BEGIN TRANSMISSI/ON",
-  secondaryAction: "ACCESS INSTRUCTI/ONS",
+  secondaryAction: "INSTRUCTI/ONS",
 };
 
 export const instructions = {

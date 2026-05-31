@@ -1,0 +1,59 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+desktop.ini
+*.tmp.*
+*.png~
+*.mp4
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# oversized local media originals
+# Keep these available locally, but do not commit them to GitHub's normal git storage.
+public/assets/io3-ionospheric-intersection/Stalking Chernobyl_ Exploration After Apocalypse _ Documentary.mp4
+public/assets/io3-ionospheric-intersection/The Night Chernobyl Reactor 4 Exploded  _ The Chernobyl Disaster.mp4
+public/assets/io3-ionospheric-intersection/New Project.mp4
+public/assets/io2-hypogeal-landscape/videos/invideo-ai-1080 Where Water Writes Code_ Inside Fallingw 2026-03-29.mp4
+public/assets/io2-hypogeal-landscape/images/io2 landscape (1).png
+public/assets/io3-ionospheric-intersection/invideo-ai-1080 Earth’s Electric Edge_ The Ionosphere 2026-05-07.mp4
+public/assets/io3-ionospheric-intersection/final wire fra1alme.png
+public/assets/io1-sentinel/da vinci/IMG_1134 - Copy (1).png
+public/assets/io1-sentinel/popan yamamam/IMG_0933-Picsart-AiImageEnhancer (2).png
+public/assets/io1-sentinel/morysetta/IMG_0747 (1) (1).png
+public/assets/io1-sentinel/popan yamamam/popan yam 3RD FINAL.png

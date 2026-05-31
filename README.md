@@ -11,10 +11,13 @@ The local site is running as a modular archive operating system with:
 - cinematic landing transmission interface
 - instructions page with archive chart, guide video, and QR transmission node
 - layered environmental hub
-- IO project routes
+- I/O project routes and I/O1/I/O2 subsection archives
 - Timeline I/O route
 - structured content and asset registries
+- auto-detected image archive viewer for project asset folders
+- auto-detected local MP4/PDF archive records
 - lightweight CSS motion, scanlines, subtle glitch hover states, and reduced-motion support
+- GitHub CI, issue templates, PR template, and planning documents
 
 ## Local Development
 
@@ -42,16 +45,33 @@ npm run lint
 npm run build
 ```
 
+GitHub Actions runs the same checks on push and pull request.
+
 ## Main Routes
 
 - `/`
 - `/instructions`
 - `/hub`
 - `/io1`
+- `/io1/sentinel`
+- `/io1/kubrick`
+- `/io1/mouresette`
+- `/io1/da-vinci`
 - `/io2`
+- `/io2-hypogeal-landscape`
+- `/io2-hypogeal-landscape/landscape`
+- `/io2-hypogeal-landscape/julien-opie`
+- `/io2-hypogeal-landscape/architecture`
+- `/io2-hypogeal-landscape/fallingwater`
 - `/io3`
 - `/io4`
 - `/xfm`
+
+See the full linking map:
+
+```text
+docs/ROUTE_AND_ASSET_MAP.md
+```
 
 ## Content Structure
 
@@ -91,6 +111,12 @@ Static assets:
 public/assets
 ```
 
+GitHub restructure and planning:
+
+```text
+docs/GITHUB_RESTRUCTURE_PLAN.md
+```
+
 ## Hosting Space
 
 GitHub repository:
@@ -99,4 +125,16 @@ GitHub repository:
 https://github.com/iostudioanon-dot/POERTFOLI_O
 ```
 
-Recommended first deployment path: connect this repository to Vercel and use the default Next.js build settings after the full local source has been pushed into the repo.
+Recommended first deployment path: connect this repository to Vercel and use the default Next.js build settings.
+
+## GitHub Project System
+
+This repository includes:
+
+- `.github/workflows/ci.yml` for lint and build checks
+- `.github/ISSUE_TEMPLATE/portfolio-content.yml` for new archive/media items
+- `.github/ISSUE_TEMPLATE/site-improvement.yml` for interface, structure, performance, and deployment work
+- `.github/pull_request_template.md` for consistent review checks
+- `HOSTING.md` and `PROJECT_STATUS.md` for deployment planning and current state notes
+
+Use GitHub issues as the planning layer. Use the data files and asset folders as the content layer.

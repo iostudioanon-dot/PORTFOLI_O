@@ -1,0 +1,49 @@
+name: Portfolio content entry
+description: Add or update a PORTFOL I/O archive item, media record, or project note.
+title: "Content: "
+labels:
+  - content
+body:
+  - type: dropdown
+    id: zone
+    attributes:
+      label: Archive zone
+      options:
+        - Landing
+        - Instructions
+        - IO1 / The Sentinel
+        - IO2 / Hypogeal Landscape
+        - IO3 / Ionospheric Intersection
+        - IO4 / Productive Failure
+        - Timeline I/O
+    validations:
+      required: true
+  - type: dropdown
+    id: media_type
+    attributes:
+      label: Media type
+      options:
+        - image
+        - video
+        - audio
+        - game
+        - website
+        - pdf
+        - research
+        - external
+        - archive
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What should change?
+      description: Describe the content, where it should appear, and any external link or file path.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Done when
+      description: List the visible result that should confirm this is complete.
+      placeholder: "Example: The IO1 archive shows the new image record and the build passes."

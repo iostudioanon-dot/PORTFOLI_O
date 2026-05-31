@@ -1,0 +1,45 @@
+name: Site structure or interface improvement
+description: Improve the PORTFOL I/O interface, archive system, responsiveness, or performance.
+title: "Site improvement: "
+labels:
+  - site
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Routing
+        - Data structure
+        - Assets
+        - Navigation
+        - Mobile layout
+        - Visual system
+        - Performance
+        - Accessibility
+        - Deployment
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Current problem
+      description: Explain what feels broken, unclear, slow, or visually weak.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed change
+      description: Keep the PORTFOL I/O visual language restrained, cinematic, and archive-led.
+    validations:
+      required: true
+  - type: textarea
+    id: checks
+    attributes:
+      label: Checks
+      value: |
+        - [ ] Routes still work
+        - [ ] Mobile layout checked
+        - [ ] npm run lint passes
+        - [ ] npm run build passes

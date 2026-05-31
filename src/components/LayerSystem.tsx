@@ -28,9 +28,6 @@ export function LayerSystem() {
             {activeProject.navLabel} / {activeProject.title}
           </strong>
         </div>
-      </div>
-
-      <div className="layer-system__main">
         <div className="layer-system__intro">
           <MetadataLabel>{globalLabels.activeStack}</MetadataLabel>
           <h1 className="display-type" id="layer-system-title">
@@ -38,7 +35,9 @@ export function LayerSystem() {
           </h1>
           <p>{transition.description}</p>
         </div>
+      </div>
 
+      <div className="layer-system__main">
         <div className="hub-gif-panel">
           <HeaderGifBlock gif={transitionGif} />
         </div>

@@ -26,6 +26,7 @@ desktop.ini
 *.tmp.*
 *.png~
 *.mp4
+!public/assets/instructions/videos/IO GUIDE VID.mp4
 *.pem
 
 # debug

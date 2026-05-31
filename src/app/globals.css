@@ -172,6 +172,14 @@ summary:focus-visible {
     -1px 0 0 var(--io-glitch-red);
 }
 
+.memory-slip {
+  transform: translate3d(0, 0, 0);
+}
+
+.memory-slip.is-memory-slipping img {
+  animation: memory-slip-return 120ms ease-out both;
+}
+
 .site-shell {
   background: var(--background);
   isolation: isolate;
@@ -2509,6 +2517,21 @@ details p {
   }
   100% {
     filter: none;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes memory-slip-return {
+  0% {
+    filter: contrast(1) blur(0);
+    transform: translate3d(0, 0, 0);
+  }
+  42% {
+    filter: contrast(0.992) blur(0.14px);
+    transform: translate3d(1px, 0, 0);
+  }
+  100% {
+    filter: contrast(1) blur(0);
     transform: translate3d(0, 0, 0);
   }
 }

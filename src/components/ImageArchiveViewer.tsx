@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import type { ImageRecord } from "@/data/imageRegistry";
+import { MemorySlip } from "./MemorySlip";
 
 type ImageArchiveViewerProps = {
   images: ImageRecord[];
@@ -55,7 +56,7 @@ export function ImageArchiveViewer({
         <span>{imageCountLabel}</span>
       </div>
 
-      <div className="image-archive-viewer__stage">
+      <MemorySlip className="image-archive-viewer__stage">
         <Image
           alt={`${activeImage.title} visual archive record`}
           fill
@@ -64,7 +65,7 @@ export function ImageArchiveViewer({
           style={{ objectFit: "contain" }}
           unoptimized
         />
-      </div>
+      </MemorySlip>
 
       {images.length > 1 ? (
         <div className="image-archive-viewer__rail" aria-label="Visual record index">

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { AtmosphericFrame } from "@/components/AtmosphericFrame";
 import { BackToHubLink } from "@/components/BackToHubLink";
+import { MemorySlip } from "@/components/MemorySlip";
 import { MetadataLabel } from "@/components/MetadataLabel";
 import { getAssetsForProject } from "@/data/archiveRegistry";
 import { instructions } from "@/data/siteContent";
@@ -111,7 +112,7 @@ export default function InstructionsPage() {
 
               <figure className="instruction-chart" aria-labelledby="instruction-chart-caption">
                 <div className="instruction-chart__frame">
-                  <div className="instruction-chart__image-slot">
+                  <MemorySlip className="instruction-chart__image-slot">
                     <Image
                       alt={instructions.chartAlt}
                       fill
@@ -120,7 +121,7 @@ export default function InstructionsPage() {
                       style={{ objectFit: "contain" }}
                       unoptimized
                     />
-                  </div>
+                  </MemorySlip>
                 </div>
                 <figcaption id="instruction-chart-caption">
                   {instructions.chartCaption}

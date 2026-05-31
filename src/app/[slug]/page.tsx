@@ -3,6 +3,7 @@ import type { ProjectRecord } from "../../../data/projects";
 import { ArchiveCard } from "@/components/ArchiveCard";
 import { AtmosphericFrame } from "@/components/AtmosphericFrame";
 import { BackToHubLink } from "@/components/BackToHubLink";
+import { HeaderGifBlock } from "@/components/HeaderGifBlock";
 import { ImageArchiveViewer } from "@/components/ImageArchiveViewer";
 import { MetadataLabel } from "@/components/MetadataLabel";
 import { ProjectPageTemplate } from "@/components/ProjectPageTemplate";
@@ -15,6 +16,12 @@ type ProjectPageProps = {
   params: Promise<{
     slug: string;
   }>;
+};
+
+const timelineHeroGif = {
+  src: "/assets/timeline/videos/104%20FLY%20GIF.gif",
+  alt: "Animated Timeline I/O text and motion transmission.",
+  caption: "104 FLY GIF",
 };
 
 export function generateStaticParams() {
@@ -76,6 +83,7 @@ function XfmTimelinePage({ project }: { project: ProjectRecord }) {
         </h1>
         <p className="project-hero__subtitle">{project.subtitle}</p>
         <p>{project.description}</p>
+        <HeaderGifBlock gif={timelineHeroGif} />
         <div className="project-status-strip" aria-label="Timeline system status">
           <span>STATUS / {project.status.replaceAll("_", " ")}</span>
           <span>SIGNAL / {project.signalStrength}%</span>

@@ -3,12 +3,18 @@
 import Link from "next/link";
 import { useState } from "react";
 import { projects } from "../../data/projects";
+import { HeaderGifBlock } from "./HeaderGifBlock";
 import { LayerNavigationBand } from "./LayerNavigationBand";
 import { MetadataLabel } from "./MetadataLabel";
 import { globalLabels, hub, transition } from "@/data/siteContent";
 
 const hubProjects = projects.filter((project) => project.id !== "xfm");
 const xfmProject = projects.find((project) => project.id === "xfm");
+const transitionGif = {
+  src: "/assets/navigation/videos/MISC%2011%20GIF.gif",
+  alt: "Animated transition signal study for the I/O environmental navigation stack.",
+  caption: "MISC 11 GIF",
+};
 
 export function LayerSystem() {
   const [activeProject, setActiveProject] = useState(hubProjects[0]);
@@ -22,21 +28,30 @@ export function LayerSystem() {
             {activeProject.navLabel} / {activeProject.title}
           </strong>
         </div>
-        <MetadataLabel>{globalLabels.activeStack}</MetadataLabel>
-        <h1 className="display-type" id="layer-system-title">
-          {transition.title}
-        </h1>
-        <p>{transition.description}</p>
       </div>
 
-      <div className="environment-stack" aria-label={hub.ariaLabel}>
-        {hubProjects.map((project) => (
-          <LayerNavigationBand
-            project={project}
-            key={project.id}
-            onActivate={setActiveProject}
-          />
-        ))}
+      <div className="layer-system__main">
+        <div className="layer-system__intro">
+          <MetadataLabel>{globalLabels.activeStack}</MetadataLabel>
+          <h1 className="display-type" id="layer-system-title">
+            {transition.title}
+          </h1>
+          <p>{transition.description}</p>
+        </div>
+
+        <div className="hub-gif-panel">
+          <HeaderGifBlock gif={transitionGif} />
+        </div>
+
+        <div className="environment-stack" aria-label={hub.ariaLabel}>
+          {hubProjects.map((project) => (
+            <LayerNavigationBand
+              project={project}
+              key={project.id}
+              onActivate={setActiveProject}
+            />
+          ))}
+        </div>
       </div>
 
       {xfmProject ? (

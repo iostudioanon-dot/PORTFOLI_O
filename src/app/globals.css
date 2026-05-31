@@ -56,12 +56,22 @@ html {
   background: var(--background);
 }
 
+html.atmospheric-pressure {
+  --architectural-shadow: rgba(0, 0, 0, 0.73);
+  --architectural-recess: rgba(0, 0, 0, 0.43);
+}
+
 body {
   min-height: 100%;
   margin: 0;
   background: var(--background);
   color: var(--foreground);
+  filter: contrast(1);
   font-family: var(--font-body);
+}
+
+html.atmospheric-pressure body {
+  filter: contrast(0.99);
 }
 
 a {

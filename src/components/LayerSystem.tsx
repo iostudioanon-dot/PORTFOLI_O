@@ -35,13 +35,12 @@ export function LayerSystem() {
           </h1>
           <p>{transition.description}</p>
         </div>
-      </div>
-
-      <div className="layer-system__main">
         <div className="hub-gif-panel">
           <HeaderGifBlock gif={transitionGif} />
         </div>
+      </div>
 
+      <div className="layer-system__main">
         <div className="environment-stack" aria-label={hub.ariaLabel}>
           {hubProjects.map((project) => (
             <LayerNavigationBand

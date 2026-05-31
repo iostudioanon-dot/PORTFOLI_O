@@ -1153,8 +1153,6 @@ a.instruction-qr__frame:hover {
 
 .layer-system__main {
   display: grid;
-  gap: clamp(1.6rem, 3vw, 2.5rem);
-  grid-template-columns: minmax(12rem, 22rem) minmax(0, 1fr);
 }
 
 .layer-system__intro {
@@ -1201,13 +1199,14 @@ a.instruction-qr__frame:hover {
 .hub-gif-panel {
   align-self: start;
   justify-self: start;
-  max-width: min(36rem, 100%);
+  margin-top: clamp(1.5rem, 3vw, 2.4rem);
+  max-width: min(22rem, 100%);
   width: 100%;
 }
 
 .hub-gif-panel .header-gif-block {
   margin-block: 0;
-  max-width: min(22rem, 100%);
+  max-width: 100%;
 }
 
 .hub-gif-panel .header-gif-block__frame {
@@ -1220,6 +1219,10 @@ a.instruction-qr__frame:hover {
   max-height: none;
   object-fit: contain;
   width: 100%;
+}
+
+.hub-gif-panel .header-gif-block figcaption {
+  display: none;
 }
 
 .system-readout {
@@ -2361,10 +2364,6 @@ details p {
   .manual-page,
   .layer-system,
   .project-section-stack {
-    grid-template-columns: 1fr;
-  }
-
-  .layer-system__main {
     grid-template-columns: 1fr;
   }
 

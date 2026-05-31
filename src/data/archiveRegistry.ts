@@ -26,7 +26,12 @@ export type ArchiveAsset = {
   access: "INTERNAL" | "EXTERNAL" | "LOCKED" | "PENDING";
   archiveLabel: "INPUT" | "PROCESS" | "OUTPUT" | "REFERENCE" | "RECOVERED";
   transmissionNote: string;
-  action: "INITIATE SEQUENCE" | "OPEN TRANSMISSION" | "ACCESS FILE" | "VIEW ARCHIVE";
+  action:
+    | "INITIATE SEQUENCE"
+    | "OPEN TRANSMISSION"
+    | "ACCESS FILE"
+    | "VIEW ARCHIVE"
+    | "OPEN FIELD STUDY";
   qrImage?: {
     src: string;
     alt: string;
@@ -87,6 +92,22 @@ export const archiveRegistry: ArchiveAsset[] = [
       alt: "QR code for the recovered Sputnik audio transmission.",
       caption: "SCAN TO ACCESS AUDIO TRANSMISSION",
     },
+  },
+  {
+    id: "io3-final-piece-site",
+    projectId: "io3",
+    title: "I/O3 Final Artwork Field Study",
+    type: "website",
+    status: "EXTERNAL_TRANSMISSION",
+    url: "https://iostudioanon-dot.github.io/IO3-INFO-ART/",
+    description:
+      "In-depth external study of the I/O3 final artwork, atmospheric systems, and ionospheric image field.",
+    signalStrength: 91,
+    format: "WEB ARCHIVE",
+    access: "EXTERNAL",
+    archiveLabel: "OUTPUT",
+    transmissionNote: "Final artwork site recovered as an external ionospheric transmission.",
+    action: "OPEN FIELD STUDY",
   },
   {
     id: "io3-radar-reference",

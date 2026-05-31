@@ -17,6 +17,9 @@ type ProjectPageTemplateProps = {
 export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
   const assets = getAssetsForProject(project.id);
   const images = getImagesForProject(project.id);
+  const io3FinalArtwork = project.id === "io3"
+    ? assets.find((asset) => asset.id === "io3-final-piece-site")
+    : undefined;
 
   return (
     <>
@@ -36,7 +39,20 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
           <span>ACCESS / {project.accessLevel}</span>
           <span>ENVIRONMENT / {project.environment}</span>
         </div>
-        <BackToHubLink />
+        <div className="project-hero__actions">
+          {io3FinalArtwork ? (
+            <a
+              aria-label="Open I/O3 final artwork field study"
+              className="transmission-link transmission-link--lime io-link io-glitch-hover display-type"
+              href={io3FinalArtwork.url}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {io3FinalArtwork.action}
+            </a>
+          ) : null}
+          <BackToHubLink />
+        </div>
       </section>
 
       {project.id === "io1" ? <IO1SecondaryNav /> : null}

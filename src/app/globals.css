@@ -1156,6 +1156,32 @@ a.instruction-qr__frame:hover {
   margin: 1rem 0;
 }
 
+.hub-active-zone {
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: clamp(1.1rem, 2vw, 1.6rem);
+  padding-bottom: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+.hub-active-zone span,
+.hub-active-zone strong {
+  font-family: var(--font-technical);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hub-active-zone span {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.hub-active-zone strong {
+  color: var(--foreground);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
 .system-readout {
   border-top: 1px solid var(--line);
   color: var(--muted);

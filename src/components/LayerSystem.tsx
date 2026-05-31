@@ -16,49 +16,17 @@ export function LayerSystem() {
   return (
     <section className="layer-system" aria-labelledby="layer-system-title">
       <div className="layer-system__panel">
+        <div className="hub-active-zone" aria-label="Active zone">
+          <span>{hub.consoleFields.zone}</span>
+          <strong>
+            {activeProject.navLabel} / {activeProject.title}
+          </strong>
+        </div>
         <MetadataLabel>{globalLabels.activeStack}</MetadataLabel>
         <h1 className="display-type" id="layer-system-title">
           {transition.title}
         </h1>
         <p>{transition.description}</p>
-        <div className="system-readout" aria-label="System readout">
-          {transition.readout.map((line) => (
-            <span key={line}>{line}</span>
-          ))}
-        </div>
-        <aside className="hub-console" aria-label="Active zone signal console">
-          <MetadataLabel>{hub.consoleTitle}</MetadataLabel>
-          <dl>
-            <div>
-              <dt>{hub.consoleFields.zone}</dt>
-              <dd>{activeProject.navLabel} / {activeProject.title}</dd>
-            </div>
-            <div>
-              <dt>{hub.consoleFields.status}</dt>
-              <dd>{activeProject.status.replaceAll("_", " ")}</dd>
-            </div>
-            <div>
-              <dt>{hub.consoleFields.coordinates}</dt>
-              <dd>{activeProject.coordinates}</dd>
-            </div>
-            <div>
-              <dt>{hub.consoleFields.signalStrength}</dt>
-              <dd>{activeProject.signalStrength}%</dd>
-            </div>
-            <div>
-              <dt>{hub.consoleFields.mediaTypes}</dt>
-              <dd>{activeProject.mediaTypes.join(" / ").toUpperCase()}</dd>
-            </div>
-            <div>
-              <dt>{hub.consoleFields.accessLevel}</dt>
-              <dd>{activeProject.accessLevel}</dd>
-            </div>
-            <div>
-              <dt>{hub.consoleFields.lastTransmission}</dt>
-              <dd>{activeProject.lastTransmission}</dd>
-            </div>
-          </dl>
-        </aside>
       </div>
 
       <div className="environment-stack" aria-label={hub.ariaLabel}>

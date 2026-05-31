@@ -19,6 +19,9 @@
   --environment-void: rgba(0, 0, 0, 0.68);
   --environment-floor: rgba(245, 245, 240, 0.032);
   --environment-archive-line: rgba(245, 245, 240, 0.05);
+  --architectural-shadow: rgba(0, 0, 0, 0.72);
+  --architectural-recess: rgba(0, 0, 0, 0.42);
+  --architectural-edge: rgba(245, 245, 240, 0.018);
   --space-page: clamp(1rem, 5vw, 4rem);
   --space-section: clamp(4rem, 9vw, 8rem);
   --motion-slow: 1400ms;
@@ -160,10 +163,7 @@ summary:focus-visible {
 }
 
 .site-shell {
-  background:
-    linear-gradient(180deg, rgba(245, 245, 240, 0.012), transparent 22rem),
-    linear-gradient(90deg, rgba(245, 245, 240, 0.018), transparent 18%, transparent 82%, rgba(245, 245, 240, 0.014)),
-    var(--background);
+  background: var(--background);
   isolation: isolate;
   min-height: 100vh;
   overflow-x: clip;
@@ -171,11 +171,12 @@ summary:focus-visible {
 }
 
 .site-shell::before {
-  background:
-    linear-gradient(180deg, transparent 0 44%, var(--environment-floor) 44.2%, transparent 56%),
-    linear-gradient(90deg, transparent 0 7%, var(--environment-archive-line) 7.1%, transparent 7.2% 92.8%, var(--environment-archive-line) 92.9%, transparent 93%),
-    radial-gradient(ellipse at 50% 78%, rgba(245, 245, 240, 0.04), transparent 38rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.026), transparent 34%);
+  border-inline: 1px solid var(--architectural-edge);
+  box-shadow:
+    inset 18vw 0 24vw -22vw var(--architectural-shadow),
+    inset -18vw 0 24vw -22vw var(--architectural-shadow),
+    inset 0 20vh 30vh -30vh rgba(245, 245, 240, 0.055),
+    inset 0 -24vh 34vh -28vh var(--architectural-recess);
   content: "";
   inset: 0;
   pointer-events: none;
@@ -183,38 +184,48 @@ summary:focus-visible {
   z-index: -3;
 }
 
+.site-shell::after {
+  border: 1px solid rgba(245, 245, 240, 0.012);
+  box-shadow:
+    inset 0 0 0 1px rgba(245, 245, 240, 0.01),
+    inset 10vw 0 12vw -12vw rgba(245, 245, 240, 0.018),
+    inset -10vw 0 12vw -12vw rgba(245, 245, 240, 0.014),
+    0 0 18rem 6rem rgba(0, 0, 0, 0.46);
+  content: "";
+  height: calc(100% + 18rem);
+  left: clamp(1rem, 4vw, 4rem);
+  opacity: 0.78;
+  pointer-events: none;
+  position: fixed;
+  right: clamp(1rem, 4vw, 4rem);
+  top: -9rem;
+  z-index: -2;
+}
+
 .site-shell--hub::before {
-  background:
-    linear-gradient(180deg, rgba(143, 29, 29, 0.08), transparent 24%, rgba(137, 245, 138, 0.055) 38%, transparent 58%, rgba(41, 216, 255, 0.07)),
-    linear-gradient(90deg, transparent 0 7%, var(--environment-archive-line) 7.1%, transparent 7.2% 92.8%, var(--environment-archive-line) 92.9%, transparent 93%),
-    radial-gradient(ellipse at 50% 78%, rgba(245, 245, 240, 0.035), transparent 38rem),
-    var(--environment-void);
+  border-inline: 1px solid rgba(245, 245, 240, 0.02);
+  box-shadow:
+    inset 17vw 0 22vw -20vw rgba(143, 29, 29, 0.2),
+    inset -17vw 0 22vw -20vw rgba(41, 216, 255, 0.14),
+    inset 0 34vh 30vh -38vh rgba(137, 245, 138, 0.1),
+    inset 0 -26vh 36vh -30vh var(--architectural-recess);
 }
 
 .site-shell--void::before {
-  background:
-    linear-gradient(180deg, transparent 0 42%, rgba(245, 245, 240, 0.024) 42.2%, transparent 55%),
-    linear-gradient(90deg, rgba(245, 245, 240, 0.018), transparent 22%, transparent 78%, rgba(245, 245, 240, 0.014)),
-    radial-gradient(ellipse at 50% 74%, rgba(76, 141, 255, 0.026), transparent 34rem),
-    radial-gradient(ellipse at 78% 34%, rgba(143, 29, 29, 0.02), transparent 24rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.022), transparent 38%);
+  box-shadow:
+    inset 19vw 0 26vw -22vw rgba(0, 0, 0, 0.9),
+    inset -19vw 0 26vw -22vw rgba(0, 0, 0, 0.86),
+    inset 0 18vh 28vh -30vh rgba(245, 245, 240, 0.038),
+    inset 0 -30vh 38vh -30vh rgba(0, 0, 0, 0.82);
 }
 
 .site-shell--void::after {
-  background:
-    linear-gradient(90deg, transparent 0 49.9%, rgba(245, 245, 240, 0.035) 50%, transparent 50.1%),
-    linear-gradient(0deg, transparent 0 49.9%, rgba(245, 245, 240, 0.026) 50%, transparent 50.1%),
-    radial-gradient(circle at 50% 50%, transparent 0 33%, rgba(255, 255, 255, 0.026) 33.2%, transparent 33.4%);
-  content: "";
-  height: min(72vw, 52rem);
-  left: 50%;
-  opacity: 0.32;
-  pointer-events: none;
-  position: fixed;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: min(72vw, 52rem);
-  z-index: -2;
+  box-shadow:
+    inset 0 0 0 1px rgba(245, 245, 240, 0.008),
+    inset 12vw 0 14vw -14vw rgba(245, 245, 240, 0.014),
+    inset -12vw 0 14vw -14vw rgba(245, 245, 240, 0.01),
+    0 0 20rem 8rem rgba(0, 0, 0, 0.58);
+  opacity: 0.7;
 }
 
 .noise-field,

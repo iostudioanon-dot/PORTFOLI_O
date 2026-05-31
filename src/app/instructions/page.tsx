@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { AtmosphericFrame } from "@/components/AtmosphericFrame";
 import { BackToHubLink } from "@/components/BackToHubLink";
+import { InstructionVideo } from "@/components/InstructionVideo";
 import { MemorySlip } from "@/components/MemorySlip";
 import { MetadataLabel } from "@/components/MetadataLabel";
 import { getAssetsForProject } from "@/data/archiveRegistry";
@@ -91,25 +92,7 @@ export default function InstructionsPage() {
                 <BackToHubLink />
               </aside>
 
-              <figure className="instruction-video" aria-labelledby="instruction-video-caption">
-                <div className="instruction-video__frame">
-                  <video
-                    aria-label={instructions.guideVideoCaption}
-                    autoPlay
-                    controls
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                  >
-                    <source src={guideVideoSrc} type="video/mp4" />
-                    Your browser does not support this instruction video.
-                  </video>
-                </div>
-                <figcaption id="instruction-video-caption">
-                  {instructions.guideVideoCaption}
-                </figcaption>
-              </figure>
+              <InstructionVideo caption={instructions.guideVideoCaption} src={guideVideoSrc} />
 
               <figure className="instruction-chart" aria-labelledby="instruction-chart-caption">
                 <div className="instruction-chart__frame">

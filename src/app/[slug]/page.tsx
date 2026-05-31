@@ -74,42 +74,24 @@ function XfmTimelinePage({ project }: { project: ProjectRecord }) {
   return (
     <>
       <section className="project-hero xfm-hero" aria-labelledby="project-title">
-        <div className="project-hero__meta">
-          <span>{project.coordinates}</span>
-          <span>{project.theme}</span>
-        </div>
-        <h1 className="display-type section-title" id="project-title">
-          TIMELINE I/O
-        </h1>
-        <p className="project-hero__subtitle">{project.subtitle}</p>
-        <p>{project.description}</p>
-        <HeaderGifBlock gif={timelineHeroGif} />
-        <div className="project-status-strip" aria-label="Timeline system status">
-          <span>STATUS / {project.status.replaceAll("_", " ")}</span>
-          <span>SIGNAL / {project.signalStrength}%</span>
-          <span>ACCESS / {project.accessLevel}</span>
-          <span>ENVIRONMENT / {project.environment}</span>
+        <div className="xfm-hero__grid">
+          <div className="xfm-hero__copy">
+            <div className="project-hero__meta">
+              <span>{project.coordinates}</span>
+              <span>{project.theme}</span>
+            </div>
+            <h1 className="display-type section-title" id="project-title">
+              TIMELINE I/O
+            </h1>
+            <p className="project-hero__subtitle">{project.subtitle}</p>
+            <p>{project.description}</p>
+          </div>
+          <div className="xfm-hero__media">
+            <HeaderGifBlock gif={timelineHeroGif} />
+          </div>
         </div>
         <BackToHubLink />
       </section>
-
-      <section className="project-section xfm-records" aria-labelledby="xfm-records-title">
-        <MetadataLabel>SIGNAL RECORDS</MetadataLabel>
-        <h2 id="xfm-records-title">Chronology Archive Records</h2>
-        <div className="archive-card-grid">
-          {assets.map((asset) => (
-            <ArchiveCard asset={asset} key={asset.id} />
-          ))}
-        </div>
-      </section>
-
-      {images.length > 0 ? (
-        <section className="project-section xfm-records" aria-labelledby="xfm-visual-records-title">
-          <MetadataLabel>VISUAL RECORDS</MetadataLabel>
-          <h2 id="xfm-visual-records-title">Timeline Image Archive</h2>
-          <ImageArchiveViewer images={images} label="TIMELINE VISUAL RECORDS" />
-        </section>
-      ) : null}
 
       <section className="timeline-system" aria-labelledby="timeline-title">
         <MetadataLabel>MEDIA ARCHAEOLOGY MAP</MetadataLabel>
@@ -131,6 +113,30 @@ function XfmTimelinePage({ project }: { project: ProjectRecord }) {
         <div className="timeline-list">
           {project.timeline?.map((entry, index) => (
             <TimelineNode entry={entry} index={index} key={entry.title} />
+          ))}
+        </div>
+      </section>
+
+      {images.length > 0 ? (
+        <section className="project-section xfm-records" aria-labelledby="xfm-visual-records-title">
+          <MetadataLabel>VISUAL RECORDS</MetadataLabel>
+          <h2 id="xfm-visual-records-title">Timeline Image Archive</h2>
+          <ImageArchiveViewer images={images} label="TIMELINE VISUAL RECORDS" />
+        </section>
+      ) : null}
+
+      <section className="project-section xfm-records" aria-labelledby="xfm-records-title">
+        <MetadataLabel>SIGNAL RECORDS</MetadataLabel>
+        <h2 id="xfm-records-title">Chronology Archive Records</h2>
+        <div className="project-status-strip" aria-label="Timeline system status">
+          <span>STATUS / {project.status.replaceAll("_", " ")}</span>
+          <span>SIGNAL / {project.signalStrength}%</span>
+          <span>ACCESS / {project.accessLevel}</span>
+          <span>ENVIRONMENT / {project.environment}</span>
+        </div>
+        <div className="archive-card-grid">
+          {assets.map((asset) => (
+            <ArchiveCard asset={asset} key={asset.id} />
           ))}
         </div>
       </section>

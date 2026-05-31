@@ -23,15 +23,28 @@ export function InstructionVideo({ caption, src }: InstructionVideoProps) {
       });
     };
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          startVideo();
+        }
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(video);
+    document.addEventListener("visibilitychange", startVideo);
+
     if (video.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA) {
       startVideo();
-      return;
+    } else {
+      video.addEventListener("canplay", startVideo, { once: true });
     }
-
-    video.addEventListener("canplay", startVideo, { once: true });
 
     return () => {
       video.removeEventListener("canplay", startVideo);
+      document.removeEventListener("visibilitychange", startVideo);
+      observer.disconnect();
     };
   }, []);
 

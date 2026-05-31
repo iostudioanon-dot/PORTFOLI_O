@@ -1709,6 +1709,45 @@ a.instruction-qr__frame:hover {
   text-decoration: none;
 }
 
+.archive-card--active,
+.external-transmission-node:not(.external-transmission-node--disabled),
+.io1-secondary-nav__link,
+.io2-secondary-nav__link,
+.timeline-node,
+.evidence-panel {
+  filter: contrast(0.96);
+  opacity: 0.95;
+  transition:
+    filter 560ms ease,
+    opacity 560ms ease;
+}
+
+.archive-card--active,
+.external-transmission-node:not(.external-transmission-node--disabled),
+.io1-secondary-nav__link,
+.io2-secondary-nav__link,
+.evidence-panel {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.archive-card--active:hover,
+.archive-card--active:focus-visible,
+.external-transmission-node:not(.external-transmission-node--disabled):hover,
+.external-transmission-node:not(.external-transmission-node--disabled):focus-visible,
+.io1-secondary-nav__link:hover,
+.io1-secondary-nav__link:focus-visible,
+.io1-secondary-nav__link[data-active="true"],
+.io2-secondary-nav__link:hover,
+.io2-secondary-nav__link:focus-visible,
+.io2-secondary-nav__link[data-active="true"],
+.timeline-node:hover,
+.timeline-node:focus-within,
+.evidence-panel:hover,
+.evidence-panel:focus-within {
+  filter: contrast(1);
+  opacity: 1;
+}
+
 .archive-card--active::before,
 .external-transmission-node:not(.external-transmission-node--disabled)::before {
   background:
@@ -1731,9 +1770,6 @@ a.instruction-qr__frame:hover {
 .archive-card--active:hover,
 .external-transmission-node:not(.external-transmission-node--disabled):hover {
   border-color: var(--project-primary, var(--line-strong));
-  box-shadow:
-    1px 0 0 rgba(76, 141, 255, 0.24),
-    -1px 0 0 rgba(143, 29, 29, 0.2);
 }
 
 @media (hover: hover) and (pointer: fine) {

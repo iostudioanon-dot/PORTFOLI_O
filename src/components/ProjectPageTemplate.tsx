@@ -3,6 +3,7 @@ import { getAssetsForProject } from "@/data/archiveRegistry";
 import { ArchiveCard } from "./ArchiveCard";
 import { BackToHubLink } from "./BackToHubLink";
 import { EvidencePanel } from "./EvidencePanel";
+import { HeaderGifBlock } from "./HeaderGifBlock";
 import { ImageArchiveViewer } from "./ImageArchiveViewer";
 import { IO1SecondaryNav } from "./IO1SecondaryNav";
 import { IO2SecondaryNav } from "./IO2SecondaryNav";
@@ -33,6 +34,7 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
         </h1>
         <p className="project-hero__subtitle">{project.subtitle}</p>
         <p>{project.description}</p>
+        {project.headerGif ? <HeaderGifBlock gif={project.headerGif} /> : null}
         <div className="project-status-strip" aria-label="Project system status">
           <span>STATUS / {project.status.replaceAll("_", " ")}</span>
           <span>SIGNAL / {project.signalStrength}%</span>

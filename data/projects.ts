@@ -39,6 +39,11 @@ export type ProjectRecord = {
     field: string;
   };
   description: string;
+  headerGif?: {
+    src: string;
+    alt: string;
+    caption: string;
+  };
   coordinates: string;
   status: ProjectStatus;
   signalStrength: number;
@@ -71,6 +76,11 @@ export const projects: ProjectRecord[] = [
     coordinates: "ORBITAL LAYER / 51.5072N 00.1276W / SIGNAL 01",
     description:
       "Cold, cosmic, speculative, and isolated: a suspended study of distance, watching, and the architecture of post-human orbit. The project treats the satellite as both instrument and witness.",
+    headerGif: {
+      src: "/assets/io1-sentinel/videos/FXIO1%20GIF%20SPACE.gif",
+      alt: "Animated I/O1 space transmission study.",
+      caption: "FXIO1 GIF SPACE",
+    },
     status: "EXTERNAL_TRANSMISSION",
     signalStrength: 78,
     accessLevel: "LEVEL_01",
@@ -108,6 +118,11 @@ export const projects: ProjectRecord[] = [
     coordinates: "IONOSPHERIC LAYER / 9.8HZ / SIGNAL 03",
     description:
       "Ionospheric, tense, surveillant, and atmospheric: a transmission zone concerned with radar, aurora, Cold War signal systems, and invisible architectures moving through the sky.",
+    headerGif: {
+      src: "/assets/io3-ionospheric-intersection/videos/FXIO3%20GIF%20FLY.gif",
+      alt: "Animated I/O3 ionospheric flight transmission study.",
+      caption: "FXIO3 GIF FLY",
+    },
     status: "IN_DEVELOPMENT",
     signalStrength: 87,
     accessLevel: "LEVEL_03",
@@ -145,6 +160,11 @@ export const projects: ProjectRecord[] = [
     coordinates: "GROUND LAYER / PROCESS FIELD / SIGNAL 04",
     description:
       "Fractured, unstable, material, and exposed: a terrestrial system for process fragments, failed models, landscape operations, and architectural evidence where instability becomes method.",
+    headerGif: {
+      src: "/assets/io4-final-outcome/videos/FXIO4%20GIF%20WORLD.gif",
+      alt: "Animated I/O4 world transmission study.",
+      caption: "FXIO4 GIF WORLD",
+    },
     status: "ARCHIVE_LOCKED",
     signalStrength: 64,
     accessLevel: "LEVEL_04",
@@ -182,6 +202,11 @@ export const projects: ProjectRecord[] = [
     coordinates: "SUBTERRANEAN LAYER / WATER TABLE / SIGNAL 02",
     description:
       "Subterranean, geological, architectural, hidden, and immersive: a descent into underground infrastructure, geological architectures, blue machine light, and the systems beneath visible landscape.",
+    headerGif: {
+      src: "/assets/io2-hypogeal-landscape/videos/FXIO2%20GIF%20BLOCKS.gif",
+      alt: "Animated I/O2 block and hypogeal landscape transmission study.",
+      caption: "FXIO2 GIF BLOCKS",
+    },
     status: "ARCHIVE_LOCKED",
     signalStrength: 71,
     accessLevel: "LEVEL_02",

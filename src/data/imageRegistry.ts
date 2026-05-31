@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { ProjectId } from "../../data/projects";
+import { assetPath } from "@/lib/assetPath";
 
 export type ImageRecord = {
   id: string;
@@ -43,10 +44,10 @@ function labelFromFolder(folder: string) {
 }
 
 function toPublicAssetUrl(relativePath: string) {
-  return `/assets/${relativePath
+  return assetPath(`/assets/${relativePath
     .split(path.sep)
     .map((segment) => encodeURIComponent(segment))
-    .join("/")}`;
+    .join("/")}`);
 }
 
 function collectImages(root: string, projectId: ProjectId, folder: string): ImageRecord[] {

@@ -6,13 +6,14 @@ import { MetadataLabel } from "@/components/MetadataLabel";
 import { getAssetsForProject } from "@/data/archiveRegistry";
 import { instructions } from "@/data/siteContent";
 import { instructionLinks } from "@/data/portfolioLinks";
+import { assetPath } from "@/lib/assetPath";
 
 const instructionAsset = getAssetsForProject("instructions")[0];
 const instructionChartSrc =
-  "/assets/instructions/images/INTSRUCTIONS%20V1.png?v=20260531201006";
-const guideVideoSrc = "/assets/instructions/videos/IO%20GUIDE%20VID.mp4";
+  assetPath("/assets/instructions/images/INTSRUCTIONS%20V1.png?v=20260531201006");
+const guideVideoSrc = assetPath("/assets/instructions/videos/IO%20GUIDE%20VID.mp4");
 const threeNaturesQrSrc =
-  "/assets/instructions/images/3%20NATURE%20VIDEO.png?v=20260529023029";
+  assetPath("/assets/instructions/images/3%20NATURE%20VIDEO.png?v=20260529023029");
 
 export default function InstructionsPage() {
   return (

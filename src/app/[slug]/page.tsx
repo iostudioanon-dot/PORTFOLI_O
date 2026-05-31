@@ -10,6 +10,7 @@ import { ProjectPageTemplate } from "@/components/ProjectPageTemplate";
 import { TimelineNode } from "@/components/TimelineNode";
 import { getAssetsForProject } from "@/data/archiveRegistry";
 import { getImagesForProject } from "@/data/imageRegistry";
+import { assetPath } from "@/lib/assetPath";
 import { projectMap, projects } from "../../../data/projects";
 
 type ProjectPageProps = {
@@ -19,7 +20,7 @@ type ProjectPageProps = {
 };
 
 const timelineHeroGif = {
-  src: "/assets/timeline/videos/104%20FLY%20GIF.gif",
+  src: assetPath("/assets/timeline/videos/104%20FLY%20GIF.gif"),
   alt: "Animated Timeline I/O text and motion transmission.",
   caption: "104 FLY GIF",
 };

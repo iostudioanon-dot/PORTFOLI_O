@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { ProjectId, ProjectStatus } from "../../data/projects";
+import { assetPath } from "@/lib/assetPath";
 
 export type ArchiveAssetType =
   | "audio"
@@ -88,7 +89,7 @@ export const archiveRegistry: ArchiveAsset[] = [
     transmissionNote: "Recovered Sputnik audio transmission.",
     action: "ACCESS FILE",
     qrImage: {
-      src: "/assets/io1-sentinel/links/sputnik-qr.png",
+      src: assetPath("/assets/io1-sentinel/links/sputnik-qr.png"),
       alt: "QR code for the recovered Sputnik audio transmission.",
       caption: "SCAN TO ACCESS AUDIO TRANSMISSION",
     },
@@ -193,10 +194,10 @@ function titleFromAssetName(fileName: string) {
 }
 
 function toPublicAssetUrl(relativePath: string) {
-  return `/assets/${relativePath
+  return assetPath(`/assets/${relativePath
     .split(path.sep)
     .map((segment) => encodeURIComponent(segment))
-    .join("/")}`;
+    .join("/")}`);
 }
 
 function localAssetType(extension: string): ArchiveAssetType {

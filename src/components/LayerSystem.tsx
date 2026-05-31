@@ -7,11 +7,12 @@ import { HeaderGifBlock } from "./HeaderGifBlock";
 import { LayerNavigationBand } from "./LayerNavigationBand";
 import { MetadataLabel } from "./MetadataLabel";
 import { globalLabels, hub, transition } from "@/data/siteContent";
+import { assetPath } from "@/lib/assetPath";
 
 const hubProjects = projects.filter((project) => project.id !== "xfm");
 const xfmProject = projects.find((project) => project.id === "xfm");
 const transitionGif = {
-  src: "/assets/navigation/videos/MISC%2011%20GIF.gif",
+  src: assetPath("/assets/navigation/videos/MISC%2011%20GIF.gif"),
   alt: "Animated transition signal study for the I/O environmental navigation stack.",
   caption: "MISC 11 GIF",
 };

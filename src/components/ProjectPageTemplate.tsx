@@ -24,17 +24,25 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
 
   return (
     <>
-      <section className="project-hero" aria-labelledby="project-title">
-        <div className="project-hero__meta">
-          <span>{project.coordinates}</span>
-          <span>{project.theme}</span>
+      <section className="project-hero io-project-hero" aria-labelledby="project-title">
+        <div className="io-project-hero__grid">
+          <div className="io-project-copy">
+            <div className="project-hero__meta">
+              <span>{project.coordinates}</span>
+              <span>{project.theme}</span>
+            </div>
+            <h1 className="display-type section-title" id="project-title">
+              {project.navLabel} / {project.title}
+            </h1>
+            <p className="project-hero__subtitle">{project.subtitle}</p>
+            <p>{project.description}</p>
+          </div>
+          {project.headerGif ? (
+            <div className="io-project-media">
+              <HeaderGifBlock gif={project.headerGif} />
+            </div>
+          ) : null}
         </div>
-        <h1 className="display-type section-title" id="project-title">
-          {project.navLabel} / {project.title}
-        </h1>
-        <p className="project-hero__subtitle">{project.subtitle}</p>
-        <p>{project.description}</p>
-        {project.headerGif ? <HeaderGifBlock gif={project.headerGif} /> : null}
         <div className="project-status-strip" aria-label="Project system status">
           <span>STATUS / {project.status.replaceAll("_", " ")}</span>
           <span>SIGNAL / {project.signalStrength}%</span>

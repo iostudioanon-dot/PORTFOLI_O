@@ -29,7 +29,12 @@ export default function Home() {
             <p className="landing__statement">{landing.intro}</p>
           </div>
           <div className="landing__actions" aria-label="Entry actions">
-            <AtmosphericButton href="/instructions" secondary>
+            <AtmosphericButton
+              className="landing-primary-route-link"
+              dataText={landing.secondaryAction}
+              href="/instructions"
+              secondary
+            >
               {landing.secondaryAction}
             </AtmosphericButton>
           </div>

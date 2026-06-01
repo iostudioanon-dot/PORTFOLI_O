@@ -2,7 +2,6 @@ import Image from "next/image";
 import { AtmosphericFrame } from "@/components/AtmosphericFrame";
 import { BackToHubLink } from "@/components/BackToHubLink";
 import { InstructionVideo } from "@/components/InstructionVideo";
-import { MemorySlip } from "@/components/MemorySlip";
 import { MetadataLabel } from "@/components/MetadataLabel";
 import { getAssetsForProject } from "@/data/archiveRegistry";
 import { instructions } from "@/data/siteContent";
@@ -10,8 +9,8 @@ import { instructionLinks } from "@/data/portfolioLinks";
 import { assetPath } from "@/lib/assetPath";
 
 const instructionAsset = getAssetsForProject("instructions")[0];
-const instructionChartSrc =
-  assetPath("/assets/instructions/images/INTSRUCTIONS%20V1.png?v=20260531201006");
+const instructionQrCodeSrc =
+  assetPath("/assets/instructions/images/instructions%20v2.png");
 const guideVideoSrc = assetPath("/assets/instructions/videos/IO%20GUIDE%20VID.mp4");
 const threeNaturesQrSrc =
   assetPath("/assets/instructions/images/3%20NATURE%20VIDEO.png?v=20260529023029");
@@ -94,31 +93,22 @@ export default function InstructionsPage() {
 
               <InstructionVideo caption={instructions.guideVideoCaption} src={guideVideoSrc} />
 
-              <figure className="instruction-chart" aria-labelledby="instruction-chart-caption">
-                <div className="instruction-chart__frame">
-                  <MemorySlip className="instruction-chart__image-slot">
-                    <Image
-                      alt={instructions.chartAlt}
-                      fill
-                      sizes="(max-width: 768px) 92vw, (max-width: 1200px) 62vw, 760px"
-                      src={instructionChartSrc}
-                      style={{ objectFit: "contain" }}
-                      unoptimized
-                    />
-                  </MemorySlip>
-                </div>
-                <figcaption id="instruction-chart-caption">
-                  {instructions.chartCaption}
-                </figcaption>
-                <a
-                  className="instruction-chart__full-size io-link io-glitch-hover"
-                  href={instructionChartSrc}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {instructions.fullSizeAction}
-                </a>
-              </figure>
+              <a
+                aria-label="Open I/O guide video"
+                className="instruction-qr-frame io-link io-glitch-hover"
+                href={guideVideoSrc}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Image
+                  alt="Instructions QR code"
+                  className="instruction-qr-image"
+                  height={900}
+                  src={instructionQrCodeSrc}
+                  unoptimized
+                  width={900}
+                />
+              </a>
             </div>
           </div>
         </section>

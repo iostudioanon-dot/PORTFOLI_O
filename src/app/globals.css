@@ -747,23 +747,44 @@ summary:focus-visible {
 }
 
 .instruction-continue .transmission-link {
-  border: 1px solid var(--line-strong);
+  animation: route-signal-breath 2.4s ease-in-out infinite;
+  border: 1px solid rgba(160, 35, 25, 0.54);
+  box-shadow: 0 0 1.55rem rgba(160, 35, 25, 0.1);
+  color: #9f2f25;
   font-size: clamp(1.3rem, 2.2vw, 1.75rem);
   justify-content: center;
   justify-self: stretch;
   min-height: 4.1rem;
   padding: 1rem 1.25rem;
   text-align: center;
+  text-shadow: 0 0 18px rgba(160, 35, 25, 0.22);
+  transition:
+    border-color 2.1s ease,
+    box-shadow 2.1s ease,
+    color 2.1s ease,
+    text-shadow 2.1s ease,
+    transform 220ms ease;
 }
 
 .instruction-continue .transmission-link::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(160, 35, 25, 0.65),
+    transparent
+  );
   left: 1.25rem;
+  opacity: 0.68;
   right: 1.25rem;
+  transform: scaleX(0.76);
 }
 
 .instruction-continue .transmission-link:hover,
 .instruction-continue .transmission-link:focus-visible {
-  border-color: rgba(245, 245, 240, 0.58);
+  border-color: rgba(160, 35, 25, 0.72);
+  box-shadow: 0 0 1.8rem rgba(160, 35, 25, 0.16);
+  color: #b7473d;
+  text-shadow: 0 0 24px rgba(160, 35, 25, 0.34);
 }
 
 .instruction-video {

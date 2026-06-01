@@ -12,6 +12,7 @@ const instructionAsset = getAssetsForProject("instructions")[0];
 const instructionQrCodeSrc =
   assetPath("/assets/instructions/images/instructions%20v2.png");
 const guideVideoSrc = assetPath("/assets/instructions/videos/IO%20GUIDE%20VID.mp4");
+const instructionQrHref = "https://www.youtube.com/watch?v=XgUie3WoanA";
 const threeNaturesQrSrc =
   assetPath("/assets/instructions/images/3%20NATURE%20VIDEO.png?v=20260529023029");
 
@@ -96,7 +97,7 @@ export default function InstructionsPage() {
               <a
                 aria-label="Open I/O guide video"
                 className="instruction-qr-frame io-link io-glitch-hover"
-                href={guideVideoSrc}
+                href={instructionQrHref}
                 rel="noopener noreferrer"
                 target="_blank"
               >

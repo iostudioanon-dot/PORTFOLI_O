@@ -740,6 +740,41 @@ summary:focus-visible {
   width: fit-content;
 }
 
+.instructions-transition-link {
+  margin-bottom: clamp(1rem, 2vw, 1.45rem);
+}
+
+.instructions-transition-link .transmission-link {
+  animation: route-signal-breath 2.4s ease-in-out infinite;
+  border-color: rgba(160, 35, 25, 0.54);
+  box-shadow: 0 0 1.15rem rgba(160, 35, 25, 0.08);
+  color: #9f2f25;
+  font-size: clamp(0.95rem, 1vw, 1.08rem);
+  min-height: 2.55rem;
+  min-width: 0;
+  padding: 0.55rem 0;
+  text-shadow: 0 0 14px rgba(160, 35, 25, 0.2);
+}
+
+.instructions-transition-link .transmission-link::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(160, 35, 25, 0.65),
+    transparent
+  );
+  opacity: 0.68;
+  transform: scaleX(0.76);
+}
+
+.instructions-transition-link .transmission-link:hover,
+.instructions-transition-link .transmission-link:focus-visible {
+  border-color: rgba(160, 35, 25, 0.72);
+  box-shadow: 0 0 1.35rem rgba(160, 35, 25, 0.14);
+  color: #b7473d;
+  text-shadow: 0 0 20px rgba(160, 35, 25, 0.3);
+}
+
 .manual-page,
 .layer-system,
 .project-page {
@@ -786,28 +821,48 @@ summary:focus-visible {
 .manual-instruction-grid {
   align-items: start;
   display: grid;
-  gap: clamp(2rem, 4vw, 3.5rem);
-  grid-template-columns: minmax(13rem, 0.32fr) minmax(0, 0.68fr);
+  gap: clamp(0.8rem, 1.5vw, 1.15rem);
+  grid-template-columns:
+    minmax(10rem, 0.5fr)
+    minmax(13rem, 0.72fr)
+    minmax(19rem, 1.08fr);
   margin: clamp(2.4rem, 6vw, 4.5rem) 0;
 }
 
 .manual-copy__need {
-  border-top: 1px solid var(--line);
+  background: var(--color-black);
+  border: 1px solid rgba(245, 245, 240, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0;
-  max-width: 24rem;
-  padding-top: 1rem;
+  min-height: clamp(13rem, 20vw, 16rem);
+  min-width: 0;
+  padding: clamp(0.9rem, 1.55vw, 1.15rem);
 }
 
 .manual-copy__need h2 {
   color: var(--foreground);
-  font-size: clamp(1.55rem, 3vw, 2.4rem);
+  font-size: clamp(1.25rem, 1.7vw, 1.55rem);
   letter-spacing: 0;
-  margin-bottom: 1.3rem;
+  line-height: 1.05;
+  margin: 0 0 0.85rem;
 }
 
 .manual-copy__need li {
   color: var(--foreground);
-  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-size: clamp(0.9rem, 1vw, 0.98rem);
+  line-height: 1.35;
+}
+
+.manual-copy__need ul {
+  margin-bottom: 0.85rem;
+}
+
+.manual-copy__need p {
+  font-size: clamp(0.82rem, 0.95vw, 0.9rem);
+  line-height: 1.38;
+  margin: 0;
 }
 
 .external-transmission {
@@ -817,10 +872,79 @@ summary:focus-visible {
 
 .instruction-media-column {
   display: grid;
-  gap: clamp(1.3rem, 3vw, 2rem);
+  gap: 0;
   justify-self: stretch;
   max-width: 54rem;
+  min-height: clamp(13rem, 20vw, 16rem);
+  min-width: 0;
   width: 100%;
+}
+
+.instruction-guide-qr {
+  align-self: start;
+  display: grid;
+  gap: 0.55rem;
+  justify-items: start;
+  margin: 0;
+  min-height: clamp(13rem, 20vw, 16rem);
+  min-width: 0;
+  width: 100%;
+}
+
+.manual-instruction-grid > .external-transmission--inline {
+  grid-column: 1 / span 2;
+  margin-top: clamp(0.35rem, 1vw, 0.65rem);
+  max-width: 100%;
+}
+
+.manual-instruction-grid > .external-transmission--inline .instruction-transmission-panel {
+  background: var(--color-black);
+  border-color: rgba(245, 245, 240, 0.12);
+  box-shadow: none;
+  gap: clamp(0.95rem, 1.6vw, 1.2rem);
+  padding: clamp(0.9rem, 1.6vw, 1.1rem);
+}
+
+.manual-instruction-grid > .external-transmission--inline .instruction-transmission-panel::before {
+  opacity: 0.08;
+}
+
+.instruction-guide-qr .instruction-qr-frame {
+  aspect-ratio: 1 / 1;
+  background: #020202;
+  border-color: rgba(245, 245, 240, 0.14);
+  box-shadow: none;
+  min-height: 0;
+  padding: clamp(0.55rem, 1.2vw, 0.85rem);
+}
+
+.instruction-guide-qr .instruction-qr-frame:hover,
+.instruction-guide-qr .instruction-qr-frame:focus-visible {
+  border-color: rgba(245, 245, 240, 0.2);
+  box-shadow: none;
+}
+
+.instruction-guide-qr .instruction-qr-frame::after {
+  content: none;
+}
+
+.instruction-guide-qr .instruction-qr-frame:hover img,
+.instruction-guide-qr .instruction-qr-frame:focus-visible img {
+  animation: none;
+}
+
+.instruction-guide-qr .instruction-qr-image {
+  width: min(86%, 13rem);
+}
+
+.instruction-guide-qr figcaption {
+  color: var(--muted);
+  font-family: var(--font-technical);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 .instruction-continue {
@@ -888,20 +1012,24 @@ summary:focus-visible {
 }
 
 .instruction-video {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   margin: 0;
   max-width: none;
   width: 100%;
 }
 
 .instruction-video__frame {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
-    var(--color-black);
-  border: 1px solid var(--line);
-  box-shadow:
-    1px 0 0 rgba(76, 141, 255, 0.16),
-    -1px 0 0 rgba(143, 29, 29, 0.12);
-  padding: clamp(0.55rem, 1.2vw, 0.8rem);
+  align-items: center;
+  background: var(--color-black);
+  border: 1px solid rgba(245, 245, 240, 0.12);
+  box-shadow: none;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  min-height: 0;
+  padding: clamp(0.45rem, 1vw, 0.65rem);
   position: relative;
 }
 
@@ -910,7 +1038,7 @@ summary:focus-visible {
     180deg,
     transparent,
     transparent 7px,
-    rgba(255, 255, 255, 0.028) 8px
+    rgba(255, 255, 255, 0.018) 8px
   );
   content: "";
   inset: 0;
@@ -923,7 +1051,7 @@ summary:focus-visible {
   background: var(--color-black);
   display: block;
   height: auto;
-  max-height: 22rem;
+  max-height: 100%;
   object-fit: contain;
   position: relative;
   width: 100%;
@@ -942,17 +1070,15 @@ summary:focus-visible {
 .instruction-qr-frame {
   align-items: center;
   background: #030303;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow:
-    1px 0 0 rgba(76, 141, 255, 0.12),
-    -1px 0 0 rgba(143, 29, 29, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: none;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  min-height: clamp(18rem, 30vw, 25rem);
+  min-height: clamp(10rem, 16vw, 13rem);
   max-width: 100%;
   overflow: hidden;
-  padding: clamp(32px, 6vw, 72px);
+  padding: clamp(1rem, 2vw, 1.5rem);
   position: relative;
   text-decoration: none;
   transition:
@@ -963,11 +1089,8 @@ summary:focus-visible {
 
 .instruction-qr-frame:hover,
 .instruction-qr-frame:focus-visible {
-  border-color: rgba(245, 245, 240, 0.34);
-  box-shadow:
-    1px 0 0 rgba(76, 141, 255, 0.2),
-    -1px 0 0 rgba(143, 29, 29, 0.16),
-    0 0 1.7rem rgba(245, 245, 240, 0.045);
+  border-color: rgba(245, 245, 240, 0.22);
+  box-shadow: none;
 }
 
 .instruction-qr-frame::after {
@@ -975,7 +1098,7 @@ summary:focus-visible {
     180deg,
     transparent,
     transparent 7px,
-    rgba(255, 255, 255, 0.026) 8px
+    rgba(255, 255, 255, 0.016) 8px
   );
   content: "";
   inset: 0;
@@ -1116,6 +1239,22 @@ summary:focus-visible {
   padding: clamp(1rem, 2.4vw, 1.25rem);
 }
 
+.manual-copy > .external-transmission--inline {
+  max-width: 46rem;
+}
+
+.manual-copy > .external-transmission--inline .instruction-transmission-panel {
+  background: var(--color-black);
+  border-color: rgba(245, 245, 240, 0.12);
+  box-shadow: none;
+  gap: clamp(1rem, 2vw, 1.35rem);
+  padding: clamp(0.95rem, 1.8vw, 1.2rem);
+}
+
+.manual-copy > .external-transmission--inline .instruction-transmission-panel::before {
+  opacity: 0.08;
+}
+
 .external-transmission--inline .external-link-card__title {
   font-size: clamp(0.9rem, 1.15vw, 1rem);
   line-height: 1.16;
@@ -1136,6 +1275,59 @@ summary:focus-visible {
   max-width: min(100%, 12.5rem);
   position: relative;
   width: 100%;
+}
+
+.instruction-transmission-media {
+  align-items: stretch;
+  display: grid;
+  gap: clamp(0.8rem, 1.6vw, 1.15rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+}
+
+.instruction-transmission-media .instruction-qr {
+  max-width: 100%;
+}
+
+.instruction-transmission-gif {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.instruction-transmission-gif__frame {
+  align-items: center;
+  align-self: start;
+  aspect-ratio: 9 / 16;
+  background: #030303;
+  border: 1px solid rgba(245, 245, 240, 0.12);
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  max-height: 100%;
+  overflow: hidden;
+  padding: 0;
+  width: min(100%, 10.5rem);
+}
+
+.instruction-transmission-gif img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.instruction-transmission-gif figcaption {
+  color: var(--muted);
+  font-family: var(--font-technical);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  margin-top: 0.8rem;
+  text-transform: uppercase;
 }
 
 .manual-copy__need .instruction-transmission-panel__copy .external-link-card__title {
@@ -2499,6 +2691,12 @@ details p {
   padding: 3rem 0;
 }
 
+.timeline-external-link {
+  justify-self: start;
+  margin-bottom: -0.2rem;
+  width: fit-content;
+}
+
 .xfm-records {
   border-bottom: 1px solid var(--line);
   padding: 3rem 0;
@@ -2876,6 +3074,15 @@ details p {
     grid-template-columns: 1fr;
   }
 
+  .manual-instruction-grid > .external-transmission--inline {
+    grid-column: auto;
+  }
+
+  .instruction-transmission-media {
+    grid-template-columns: 1fr;
+    max-width: 18rem;
+  }
+
   .instruction-signal-grid {
     grid-template-columns: 1fr;
   }
@@ -3014,6 +3221,12 @@ details p {
     justify-content: center;
     min-width: min(18rem, 100%);
     text-align: center;
+  }
+
+  .instructions-transition-link .transmission-link {
+    justify-content: flex-start;
+    min-width: 0;
+    text-align: left;
   }
 
   .landing__timeline {

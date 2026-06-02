@@ -97,7 +97,14 @@ function XfmTimelinePage({ project }: { project: ProjectRecord }) {
       </section>
 
       <section className="timeline-system" aria-labelledby="timeline-title">
-        <MetadataLabel>MEDIA ARCHAEOLOGY MAP</MetadataLabel>
+        <a
+          className="timeline-external-link transmission-link io-link io-glitch-hover display-type"
+          href="https://iostudioanon-dot.github.io/IOCAVE/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          EVOLUTI/ON
+        </a>
         <h2 id="timeline-title">Fragmented Chronology</h2>
         <div className="timeline-categories" aria-label="Timeline categories">
           {[

@@ -40,7 +40,7 @@ export const landing = {
   title: globalLabels.identity,
   identity: globalLabels.creator.toUpperCase(),
   systemBrand: ["I/O PROJECT", "RESTART"],
-  systemReadout: ["MULTIMEDIA PORTFOLI/O", "BY", "LUKE HILLHOUSE"],
+  systemReadout: ["MULTIMEDIA PORTFOLI/O", "BY LUKE HILLHOUSE"],
   natureStack: ["FIRST NATURE", "SECOND NATURE", "THIRD NATURE"],
   systemAxis: "NATURE / ARCHITECTURE / DIGITAL SYSTEMS",
   systemAxisMobile: "Nature · Architecture · Digital Systems",

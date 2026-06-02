@@ -27,6 +27,9 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
       <section className="project-hero io-project-hero" aria-labelledby="project-title">
         <div className="io-project-hero__grid">
           <div className="io-project-copy">
+            <div className="page-transition-link">
+              <BackToHubLink />
+            </div>
             <div className="project-hero__meta">
               <span>{project.coordinates}</span>
               <span>{project.theme}</span>
@@ -49,8 +52,8 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
           <span>ACCESS / {project.accessLevel}</span>
           <span>ENVIRONMENT / {project.environment}</span>
         </div>
-        <div className="project-hero__actions">
-          {io3FinalArtwork ? (
+        {io3FinalArtwork ? (
+          <div className="project-hero__actions">
             <a
               aria-label="Open I/O3 final artwork field study"
               className="transmission-link transmission-link--lime io-link io-glitch-hover display-type"
@@ -60,9 +63,8 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
             >
               {io3FinalArtwork.action}
             </a>
-          ) : null}
-          <BackToHubLink />
-        </div>
+          </div>
+        ) : null}
       </section>
 
       {project.id === "io1" ? <IO1SecondaryNav /> : null}

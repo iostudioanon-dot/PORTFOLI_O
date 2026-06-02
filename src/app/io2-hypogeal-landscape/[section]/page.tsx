@@ -51,6 +51,9 @@ export default async function IO2ArchivePage({ params }: IO2ArchivePageProps) {
         }
       >
         <section className="project-hero io2-archive-hero" aria-labelledby="io2-archive-title">
+          <div className="page-transition-link">
+            <BackToHubLink />
+          </div>
           <div className="project-hero__meta">
             <span>{archiveSection.label}</span>
             <span>{archiveSection.subtitle}</span>
@@ -69,7 +72,6 @@ export default async function IO2ArchivePage({ params }: IO2ArchivePageProps) {
             <span>ENVIRONMENT / SUBTERRANEAN</span>
             <span>PALETTE / BLACK WHITE BLUE</span>
           </div>
-          <BackToHubLink />
         </section>
 
         <IO2SecondaryNav activeId={archiveSection.id} />

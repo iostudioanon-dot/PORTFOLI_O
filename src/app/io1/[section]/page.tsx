@@ -49,6 +49,9 @@ export default async function IO1ArchivePage({ params }: IO1ArchivePageProps) {
         }
       >
         <section className="project-hero io1-archive-hero" aria-labelledby="io1-archive-title">
+          <div className="page-transition-link">
+            <BackToHubLink />
+          </div>
           <div className="project-hero__meta">
             <span>{archiveSection.label}</span>
             <span>{archiveSection.subtitle}</span>
@@ -67,7 +70,6 @@ export default async function IO1ArchivePage({ params }: IO1ArchivePageProps) {
             <span>ENVIRONMENT / ORBITAL</span>
             <span>PALETTE / BLACK WHITE RED</span>
           </div>
-          <BackToHubLink />
         </section>
 
         <IO1SecondaryNav activeId={archiveSection.id} />

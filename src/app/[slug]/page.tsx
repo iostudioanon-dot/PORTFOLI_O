@@ -77,6 +77,9 @@ function XfmTimelinePage({ project }: { project: ProjectRecord }) {
       <section className="project-hero xfm-hero" aria-labelledby="project-title">
         <div className="xfm-hero__grid">
           <div className="xfm-hero__copy">
+            <div className="page-transition-link">
+              <BackToHubLink />
+            </div>
             <div className="project-hero__meta">
               <span>{project.coordinates}</span>
               <span>{project.theme}</span>
@@ -91,7 +94,6 @@ function XfmTimelinePage({ project }: { project: ProjectRecord }) {
             <HeaderGifBlock gif={timelineHeroGif} />
           </div>
         </div>
-        <BackToHubLink />
       </section>
 
       <section className="timeline-system" aria-labelledby="timeline-title">

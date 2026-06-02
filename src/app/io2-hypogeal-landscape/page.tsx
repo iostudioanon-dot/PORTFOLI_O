@@ -30,6 +30,9 @@ export default function IO2SystemPage() {
         }
       >
         <section className="project-hero io2-archive-hero" aria-labelledby="io2-system-title">
+          <div className="page-transition-link">
+            <BackToHubLink />
+          </div>
           <div className="project-hero__meta">
             <span>{archiveSection.label}</span>
             <span>{archiveSection.subtitle}</span>
@@ -50,7 +53,6 @@ export default function IO2SystemPage() {
             <span>ENVIRONMENT / SUBTERRANEAN</span>
             <span>PALETTE / BLACK WHITE BLUE</span>
           </div>
-          <BackToHubLink />
         </section>
 
         <IO2SecondaryNav activeId="system" />

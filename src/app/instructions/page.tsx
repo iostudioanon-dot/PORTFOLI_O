@@ -21,6 +21,9 @@ export default function InstructionsPage() {
     <AtmosphericFrame mode="manual">
       <main className="manual-page" id="main-content">
         <section className="manual-copy" aria-labelledby="instructions-title">
+          <div className="page-transition-link">
+            <BackToHubLink />
+          </div>
           <MetadataLabel>{instructions.eyebrow}</MetadataLabel>
           <h1 className="display-type section-title" id="instructions-title">
             {instructions.title}
@@ -87,11 +90,6 @@ export default function InstructionsPage() {
             </section>
 
             <div className="instruction-media-column">
-              <aside className="instruction-continue" aria-label="Continue to transition">
-                <p>Continue here after training.</p>
-                <BackToHubLink />
-              </aside>
-
               <InstructionVideo caption={instructions.guideVideoCaption} src={guideVideoSrc} />
 
               <a

@@ -730,6 +730,16 @@ summary:focus-visible {
   );
 }
 
+.page-transition-link {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: clamp(1.35rem, 3vw, 2.4rem);
+}
+
+.page-transition-link .transmission-link {
+  width: fit-content;
+}
+
 .manual-page,
 .layer-system,
 .project-page {
@@ -1634,7 +1644,7 @@ a.instruction-qr__frame:hover {
 .project-hero {
   border-bottom: 1px solid var(--line);
   min-height: 34rem;
-  padding: 5rem 0 3rem;
+  padding: 0 0 3rem;
 }
 
 .io-project-hero {
@@ -2777,6 +2787,13 @@ details p {
 
   .system-nav {
     justify-content: flex-start;
+  }
+
+  .system-nav a {
+    align-items: center;
+    display: inline-flex;
+    min-height: 2.25rem;
+    padding-block: 0.45rem;
   }
 
   .landing {

@@ -3268,3 +3268,30 @@ details p {
     animation: none !important;
   }
 }
+
+/* Content frames remain spatial containers, but their pale archive lines are visually suppressed. */
+.manual-copy__need,
+.instruction-qr-frame,
+.instruction-video__frame,
+.instruction-transmission-panel,
+.instruction-qr__frame,
+.instruction-transmission-gif__frame,
+.external-link-card,
+.archive-card,
+.archive-card__qr-frame,
+.external-transmission-node,
+.header-gif-block__frame,
+.hub-gif-panel,
+.image-archive-viewer,
+.image-archive-viewer__stage,
+.image-archive-viewer__rail,
+.image-archive-viewer__rail-button,
+.image-archive-viewer__button,
+.project-status-strip,
+.io1-secondary-nav__link,
+.io2-secondary-nav__link,
+.timeline-categories,
+.timeline-node,
+.environment-layer {
+  border-color: transparent !important;
+}

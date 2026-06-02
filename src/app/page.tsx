@@ -1,6 +1,15 @@
+import Image from "next/image";
 import { AtmosphericButton } from "@/components/AtmosphericButton";
 import { AtmosphericFrame } from "@/components/AtmosphericFrame";
 import { landing } from "@/data/siteContent";
+import { assetPath } from "@/lib/assetPath";
+
+const landingNatureImage = assetPath(
+  "/assets/landing/images/FOLIO%20IMAGE%203%20NATURES%20LANDING.png",
+);
+const landingTimelineImage = assetPath(
+  "/assets/landing/images/input%20output%20landing%20image%202.png",
+);
 
 export default function Home() {
   return (
@@ -39,15 +48,23 @@ export default function Home() {
             </AtmosphericButton>
           </div>
         </section>
-        <aside className="landing__coordinates" aria-label="Interface coordinates">
-          {landing.coordinates.map((line) => (
-            <span key={line}>{line}</span>
-          ))}
+        <aside className="landing__coordinates" aria-label="First, second, and third nature graphic">
+          <Image
+            alt="First, second, and third nature landing graphic"
+            height={2512}
+            sizes="(max-width: 56rem) 0px, 15rem"
+            src={landingNatureImage}
+            width={1688}
+          />
         </aside>
-        <div className="landing__timeline" aria-label="Historical signal markers">
-          {landing.timeline.map((marker) => (
-            <span key={marker}>{marker}</span>
-          ))}
+        <div className="landing__timeline" aria-label="Input output evolution timeline graphic">
+          <Image
+            alt="Input output evolution timeline graphic"
+            height={815}
+            sizes="(max-width: 56rem) 72vw, 31rem"
+            src={landingTimelineImage}
+            width={6651}
+          />
         </div>
       </main>
     </AtmosphericFrame>

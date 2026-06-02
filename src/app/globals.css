@@ -486,6 +486,14 @@ summary:focus-visible {
   left: clamp(1rem, 4vw, 3rem);
 }
 
+.landing__coordinates img {
+  display: block;
+  height: auto;
+  max-width: clamp(10rem, 12vw, 15rem);
+  opacity: 0.76;
+  width: 100%;
+}
+
 .landing__timeline {
   align-items: center;
   bottom: clamp(1.5rem, 4vw, 2.4rem);
@@ -496,6 +504,14 @@ summary:focus-visible {
   opacity: 0.72;
   transform: translateX(-50%);
   white-space: nowrap;
+}
+
+.landing__timeline img {
+  display: block;
+  height: auto;
+  max-width: min(31rem, 42vw);
+  opacity: 0.82;
+  width: 100%;
 }
 
 .landing__timeline span:not(:last-child)::after {

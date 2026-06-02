@@ -52,7 +52,7 @@ The local project already has:
 ## Next Steps
 
 1. Turn the local workspace into a proper Git checkout or install Git locally.
-2. Push all local project files from `C:\Users\MHill\Documents\FOL IO` into `iostudioanon-dot/POERTFOLI_O`.
+2. Push all local project files from `C:\Users\MHill\Documents\FOL IO` into `iostudioanon-dot/PORTFOLI_O`.
 3. Import the repository into Vercel.
 4. Use default Vercel build settings:
    - Framework: Next.js

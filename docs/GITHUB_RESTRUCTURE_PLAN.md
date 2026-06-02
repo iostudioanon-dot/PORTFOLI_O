@@ -16,7 +16,7 @@ The GitHub repository should become the source of truth for:
 Repository target:
 
 ```text
-iostudioanon-dot/POERTFOLI_O
+iostudioanon-dot/PORTFOLI_O
 ```
 
 Local working folder:

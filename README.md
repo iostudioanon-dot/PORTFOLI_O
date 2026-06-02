@@ -122,7 +122,7 @@ docs/GITHUB_RESTRUCTURE_PLAN.md
 GitHub repository:
 
 ```text
-https://github.com/iostudioanon-dot/POERTFOLI_O
+https://github.com/iostudioanon-dot/PORTFOLI_O
 ```
 
 Recommended first deployment path: connect this repository to Vercel and use the default Next.js build settings.

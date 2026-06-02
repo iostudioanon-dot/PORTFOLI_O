@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const repoName = "POERTFOLI_O";
+const repoName = "PORTFOLI_O";
 const githubPagesBasePath = process.env.GITHUB_PAGES === "true" ? `/${repoName}` : "";
 
 const nextConfig: NextConfig = {

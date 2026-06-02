@@ -8,7 +8,7 @@ const landingNatureImage = assetPath(
   "/assets/landing/images/FOLIO%20IMAGE%203%20NATURES%20LANDING.png",
 );
 const landingTimelineImage = assetPath(
-  "/assets/landing/images/input%20output%20landing%20image%202.png",
+  "/assets/landing/images/hominid_evolution_timeline_1780368406540.png",
 );
 
 export default function Home() {
@@ -60,10 +60,10 @@ export default function Home() {
         <div className="landing__timeline" aria-label="Input output evolution timeline graphic">
           <Image
             alt="Input output evolution timeline graphic"
-            height={815}
+            height={165}
             sizes="(max-width: 56rem) 72vw, 31rem"
             src={landingTimelineImage}
-            width={6651}
+            width={970}
           />
         </div>
       </main>

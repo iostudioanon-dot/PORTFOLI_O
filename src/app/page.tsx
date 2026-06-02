@@ -1,12 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import { AtmosphericButton } from "@/components/AtmosphericButton";
 import { AtmosphericFrame } from "@/components/AtmosphericFrame";
 import { landing } from "@/data/siteContent";
 import { assetPath } from "@/lib/assetPath";
 
-const landingNatureImage = assetPath(
-  "/assets/landing/images/FOLIO%20IMAGE%203%20NATURES%20LANDING.png",
-);
 const landingTimelineImage = assetPath(
   "/assets/landing/images/hominid_evolution_timeline_1780368406540.png",
 );
@@ -48,16 +46,11 @@ export default function Home() {
             </AtmosphericButton>
           </div>
         </section>
-        <aside className="landing__coordinates" aria-label="First, second, and third nature graphic">
-          <Image
-            alt="First, second, and third nature landing graphic"
-            height={2512}
-            sizes="(max-width: 56rem) 0px, 15rem"
-            src={landingNatureImage}
-            width={1688}
-          />
-        </aside>
-        <div className="landing__timeline" aria-label="Input output evolution timeline graphic">
+        <Link
+          aria-label="Open Timeline I/O"
+          className="landing__timeline landing__timeline-link"
+          href="/xfm"
+        >
           <Image
             alt="Input output evolution timeline graphic"
             height={165}
@@ -65,7 +58,7 @@ export default function Home() {
             src={landingTimelineImage}
             width={970}
           />
-        </div>
+        </Link>
       </main>
     </AtmosphericFrame>
   );

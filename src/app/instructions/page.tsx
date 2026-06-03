@@ -10,7 +10,6 @@ import { assetPath } from "@/lib/assetPath";
 const instructionAsset = getAssetsForProject("instructions")[0];
 const instructionQrCodeSrc =
   assetPath("/assets/instructions/images/instructions%20v2.png");
-const instructionQrHref = "https://www.youtube.com/watch?v=XgUie3WoanA";
 const threeNaturesQrSrc =
   assetPath("/assets/instructions/images/3%20NATURE%20VIDEO.png?v=20260529023029");
 const threeNaturesGifSrc =
@@ -85,6 +84,9 @@ export default function InstructionsPage() {
     <AtmosphericFrame mode="manual">
       <main className="manual-page" id="main-content">
         <section className="manual-copy" aria-labelledby="instructions-title">
+          <div className="page-transition-link instructions-transition-link">
+            <BackToHubLink />
+          </div>
           <header className="manual-hero">
             <MetadataLabel>{instructions.eyebrow}</MetadataLabel>
             <h1 className="display-type section-title" id="instructions-title">
@@ -195,13 +197,7 @@ export default function InstructionsPage() {
             </h2>
             <div className="manual-instruction-grid manual-instruction-grid--media-only">
               <figure className="instruction-guide-qr">
-                <a
-                  aria-label="Open I/O guide video"
-                  className="instruction-qr-frame"
-                  href={instructionQrHref}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
+                <div className="instruction-qr-frame">
                   <Image
                     alt="Instructions QR code"
                     className="instruction-qr-image"
@@ -210,12 +206,7 @@ export default function InstructionsPage() {
                     unoptimized
                     width={900}
                   />
-                </a>
-                <figcaption>
-                  I/O GUIDE TRANSMISSION
-                  <br />
-                  YOUTUBE INSTRUCTION CHANNEL
-                </figcaption>
+                </div>
               </figure>
             </div>
 
@@ -295,9 +286,6 @@ export default function InstructionsPage() {
                 You can also use the top navigation to move directly between
                 sections.
               </p>
-              <div className="page-transition-link instructions-transition-link">
-                <BackToHubLink />
-              </div>
             </div>
           </section>
         </section>

@@ -19,9 +19,6 @@ export default function Home() {
           <h1 className="display-type landing__title" id="landing-title">
             {landing.title}
           </h1>
-          <div className="landing__project-meta">
-            <p className="landing__io-mark display-type">{landing.ioMark}</p>
-          </div>
           <div className="landing__copy">
             <ul className="landing__nature-stack" aria-label="I/O nature framework">
               {landing.natureStack.map((item) => (

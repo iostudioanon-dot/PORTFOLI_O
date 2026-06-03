@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { projects } from "../../data/projects";
 import { HeaderGifBlock } from "./HeaderGifBlock";
 import { LayerNavigationBand } from "./LayerNavigationBand";
@@ -18,17 +17,9 @@ const transitionGif = {
 };
 
 export function LayerSystem() {
-  const [activeProject, setActiveProject] = useState(hubProjects[0]);
-
   return (
     <section className="layer-system" aria-labelledby="layer-system-title">
       <div className="layer-system__panel">
-        <div className="hub-active-zone" aria-label="Active zone">
-          <span>{hub.consoleFields.zone}</span>
-          <strong>
-            {activeProject.navLabel} / {activeProject.title}
-          </strong>
-        </div>
         <div className="layer-system__intro">
           <MetadataLabel>{globalLabels.activeStack}</MetadataLabel>
           <h1 className="display-type" id="layer-system-title">
@@ -42,21 +33,31 @@ export function LayerSystem() {
       </div>
 
       <div className="layer-system__main">
-        <div className="environment-stack" aria-label={hub.ariaLabel}>
-          {hubProjects.map((project) => (
+        <div className="transition-route-stack" aria-label={hub.ariaLabel}>
+          {hubProjects.map((project, index) => (
             <LayerNavigationBand
               project={project}
               key={project.id}
-              onActivate={setActiveProject}
+              sectionNumber={index + 1}
             />
           ))}
         </div>
       </div>
 
       {xfmProject ? (
-        <Link className="xfm-spine" href={xfmProject.route}>
-          <span className="display-type">{xfmProject.navLabel}</span>
-          <span>{xfmProject.subtitle}</span>
+        <Link
+          className="transition-route transition-route--xfm transition-route--spine io-link io-glitch-hover"
+          href={xfmProject.route}
+        >
+          <span className="transition-route__number">05</span>
+          <span className="transition-route__identifier display-type">
+            {xfmProject.navLabel}
+          </span>
+          <span className="transition-route__title display-type">
+            {xfmProject.title}
+          </span>
+          <span className="transition-route__statement">{xfmProject.subtitle}</span>
+          <span className="transition-route__action">ENTER TIMELINE I/O</span>
         </Link>
       ) : null}
     </section>

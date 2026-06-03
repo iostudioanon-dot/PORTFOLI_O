@@ -4,33 +4,35 @@ import type { ProjectRecord } from "../../data/projects";
 type LayerNavigationBandProps = {
   project: ProjectRecord;
   onActivate?: (project: ProjectRecord) => void;
+  sectionNumber: number;
 };
 
-export function LayerNavigationBand({ project, onActivate }: LayerNavigationBandProps) {
+export function LayerNavigationBand({
+  project,
+  onActivate,
+  sectionNumber,
+}: LayerNavigationBandProps) {
+  const paddedNumber = String(sectionNumber).padStart(2, "0");
+
   return (
     <Link
-      className={`environment-layer environment-layer--${project.id} io-link io-glitch-hover`}
+      className={`transition-route transition-route--${project.id} io-link io-glitch-hover`}
       href={project.route}
       style={
         {
-          "--layer-primary": project.colors.primary,
-          "--layer-secondary": project.colors.secondary,
-          "--layer-field": project.colors.field,
+          "--route-primary": project.colors.primary,
         } as React.CSSProperties
       }
       onFocus={() => onActivate?.(project)}
       onMouseEnter={() => onActivate?.(project)}
     >
-      <span className="environment-layer__signal" aria-hidden="true" />
-      <span className="environment-layer__index display-type">{project.navLabel}</span>
-      <span className="environment-layer__body">
-        <span className="environment-layer__title display-type">{project.title}</span>
-        <span className="environment-layer__theme">{project.subtitle}</span>
-        <span className="environment-layer__meta">
-          {project.status.replaceAll("_", " ")} / {project.signalStrength}% / {project.environment}
-        </span>
+      <span className="transition-route__number">{paddedNumber}</span>
+      <span className="transition-route__identifier display-type">{project.navLabel}</span>
+      <span className="transition-route__title display-type">{project.title}</span>
+      <span className="transition-route__statement">{project.subtitle}</span>
+      <span className="transition-route__action">
+        ENTER {project.navLabel}
       </span>
-      <span className="environment-layer__lock">LOCK SIGNAL</span>
     </Link>
   );
 }

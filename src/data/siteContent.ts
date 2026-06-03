@@ -37,8 +37,12 @@ export const statusMessages = {
 
 export const landing = {
   instructionsAriaLabel: "Instructions entry",
-  title: globalLabels.identity,
+  title: "PORTFOLI/O",
   identity: globalLabels.creator.toUpperCase(),
+  role: "Art, Design and Technology Student",
+  ioMark: "I/O",
+  investigation: "A Multimedia A-Level Investigation",
+  question: "How do we process a changing world?",
   systemBrand: ["I/O PROJECT", "RESTART"],
   systemReadout: ["MULTIMEDIA PORTFOLI/O", "BY LUKE HILLHOUSE"],
   natureStack: ["FIRST NATURE", "SECOND NATURE", "THIRD NATURE"],

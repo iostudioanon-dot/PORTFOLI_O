@@ -367,10 +367,17 @@ summary:focus-visible {
 }
 
 .landing__title {
-  font-size: clamp(2.85rem, 12vw, 10.5rem);
+  font-size: clamp(3.2rem, 12vw, 10.5rem);
   line-height: 0.86;
-  margin: 1rem 0 1.1rem;
+  margin: clamp(1.35rem, 3vw, 2.2rem) 0 clamp(1.6rem, 3vw, 2.45rem);
   overflow-wrap: anywhere;
+}
+
+.landing__creator,
+.landing__project-meta,
+.landing__entry {
+  display: grid;
+  justify-items: center;
 }
 
 .landing__copy {
@@ -384,9 +391,56 @@ summary:focus-visible {
 }
 
 .landing__identity {
-  color: var(--muted);
-  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
-  margin: -0.2rem 0 clamp(1.7rem, 3vw, 2.4rem);
+  color: rgba(245, 245, 240, 0.82);
+  font-size: clamp(0.78rem, 0.95vw, 0.98rem);
+  margin: 0;
+}
+
+.landing__role,
+.landing__investigation,
+.landing__disciplines,
+.landing__question,
+.landing__entry-descriptor {
+  margin: 0;
+  text-align: center;
+}
+
+.landing__role {
+  color: rgba(245, 245, 240, 0.52);
+  font-size: clamp(0.78rem, 0.95vw, 0.92rem);
+  line-height: 1.45;
+  margin-top: 0.45rem;
+}
+
+.landing__project-meta {
+  color: rgba(245, 245, 240, 0.76);
+  gap: clamp(0.55rem, 1vw, 0.85rem);
+  margin-inline: auto;
+}
+
+.landing__io-mark {
+  color: var(--foreground);
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  line-height: 1;
+  margin: 0;
+}
+
+.landing__investigation {
+  color: rgba(245, 245, 240, 0.82);
+  font-family: var(--font-technical);
+  font-size: clamp(0.74rem, 1vw, 0.88rem);
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.landing__disciplines {
+  color: var(--foreground);
+  font-family: var(--font-technical);
+  font-size: clamp(0.74rem, 0.95vw, 0.84rem);
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  text-transform: uppercase;
 }
 
 .landing__top-link {
@@ -403,6 +457,18 @@ summary:focus-visible {
 .landing__copy p,
 .landing__copy ul {
   margin: 0;
+}
+
+.landing__question {
+  color: var(--foreground);
+  font-family: var(--font-technical);
+  font-size: clamp(0.74rem, 1vw, 0.88rem);
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  margin: clamp(2.5rem, 5vw, 4.2rem) auto clamp(2.6rem, 4.6vw, 4rem);
+  max-width: min(38rem, 100%);
+  text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .landing__nature-stack {
@@ -434,7 +500,7 @@ summary:focus-visible {
 .landing__axis {
   color: rgba(245, 245, 240, 0.76);
   font-size: clamp(0.84rem, 1.16vw, 0.98rem);
-  margin-top: clamp(0.75rem, 1.4vw, 1.05rem);
+  margin-top: clamp(0.9rem, 1.5vw, 1.15rem);
 }
 
 .landing__axis-mobile {
@@ -458,12 +524,21 @@ summary:focus-visible {
   flex-wrap: wrap;
   gap: clamp(1.4rem, 3vw, 2.1rem);
   justify-content: center;
-  left: 50%;
-  margin-top: 0;
-  position: absolute;
+  margin-top: clamp(1.7rem, 3vw, 2.6rem);
   text-align: center;
-  top: calc(-2.4rem - 4.5rem);
-  transform: translateX(-50%);
+}
+
+.landing__entry {
+  gap: clamp(0.6rem, 1vw, 0.85rem);
+}
+
+.landing__entry-descriptor {
+  color: rgba(245, 245, 240, 0.4);
+  font-family: var(--font-technical);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  text-transform: uppercase;
 }
 
 .landing__readout,
@@ -651,31 +726,18 @@ summary:focus-visible {
 .landing-primary-route-link {
   border-color: rgba(160, 35, 25, 0.54);
   color: #9f2f25;
-  letter-spacing: 0.04em;
-  text-shadow: 0 0 18px rgba(160, 35, 25, 0.22);
+  letter-spacing: 0.07em;
+  padding-inline: 0.35rem;
+  text-shadow: none;
   transition:
-    border-color 2.1s ease,
-    color 2.1s ease,
-    opacity 2.1s ease,
-    text-shadow 2.1s ease,
+    border-color var(--motion-hover) ease,
+    color var(--motion-hover) ease,
+    letter-spacing var(--motion-hover) ease,
     transform 220ms ease;
-  animation: route-signal-breath 2.4s ease-in-out infinite;
 }
 
 .landing-primary-route-link::before {
-  background: radial-gradient(ellipse at center, rgba(160, 35, 25, 0.28), transparent 68%);
-  content: "";
-  filter: blur(18px);
-  inset: -0.9rem -1.4rem;
-  opacity: 0.42;
-  pointer-events: none;
-  position: absolute;
-  transform: scaleX(0.88);
-  transition:
-    filter 2.1s ease,
-    opacity 2.1s ease,
-    transform 2.1s ease;
-  z-index: -1;
+  display: none;
 }
 
 .landing-primary-route-link::after {
@@ -692,13 +754,8 @@ summary:focus-visible {
 .landing-primary-route-link:hover {
   border-color: rgba(160, 35, 25, 0.72);
   color: #b7473d;
-  text-shadow: 0 0 24px rgba(160, 35, 25, 0.34);
-}
-
-.landing-primary-route-link:hover::before {
-  filter: blur(24px);
-  opacity: 0.56;
-  transform: scaleX(1);
+  letter-spacing: 0.09em;
+  text-shadow: none;
 }
 
 .landing-primary-route-link:focus-visible {
@@ -2964,6 +3021,25 @@ details p {
   }
 }
 
+@keyframes landing-route-signal-breath {
+  0%,
+  22%,
+  100% {
+    opacity: 0.78;
+    text-shadow: 0 0 18px rgba(160, 35, 25, 0.18);
+  }
+
+  38% {
+    opacity: 0.9;
+    text-shadow: 0 0 28px rgba(160, 35, 25, 0.34);
+  }
+
+  54% {
+    opacity: 0.8;
+    text-shadow: 0 0 20px rgba(160, 35, 25, 0.22);
+  }
+}
+
 @media (min-width: 54rem) {
   .section-title {
     font-size: 4rem;
@@ -3000,8 +3076,17 @@ details p {
     padding-top: 11.2rem;
   }
 
-  .landing__identity {
-    margin-bottom: 1.8rem;
+  .landing__title {
+    font-size: clamp(3rem, 13vw, 6.8rem);
+  }
+
+  .landing__project-meta {
+    gap: 0.55rem;
+  }
+
+  .landing__question {
+    margin: clamp(2.25rem, 8vw, 3.2rem) auto clamp(2.3rem, 8vw, 3.2rem);
+    max-width: min(30rem, calc(100vw - 2rem));
   }
 
   .landing__nature-stack {
@@ -3055,7 +3140,7 @@ details p {
 
   .landing__actions {
     gap: 0.7rem 1.1rem;
-    margin-top: 2.65rem;
+    margin-top: 2rem;
   }
 
   .manual-page,
@@ -3190,15 +3275,31 @@ details p {
 
 @media (max-width: 26rem) {
   .landing__title {
-    font-size: clamp(2.55rem, 14vw, 3rem);
+    font-size: clamp(2.7rem, 14vw, 3.3rem);
   }
 
   .landing {
     padding-top: 10.5rem;
   }
 
+  .landing__role,
+  .landing__investigation,
+  .landing__disciplines {
+    font-size: 0.68rem;
+  }
+
+  .landing__io-mark {
+    font-size: 1.2rem;
+  }
+
   .landing__nature-stack {
     gap: 0.35rem;
+  }
+
+  .landing__question {
+    font-size: 0.68rem;
+    margin-bottom: 2.15rem;
+    margin-top: 2.15rem;
   }
 
   .landing__axis {
@@ -3214,7 +3315,7 @@ details p {
     align-items: center;
     flex-direction: column;
     gap: 0.9rem;
-    margin-top: 2.25rem;
+    margin-top: 1.8rem;
   }
 
   .transmission-link {

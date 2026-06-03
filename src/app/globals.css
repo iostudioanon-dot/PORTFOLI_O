@@ -1020,6 +1020,35 @@ summary:focus-visible {
   gap: 0.55rem;
 }
 
+.manual-access-summary {
+  border-bottom: 1px solid rgba(245, 245, 240, 0.12);
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.35rem);
+  padding: clamp(1.2rem, 3vw, 2rem) 0;
+}
+
+.manual-access-summary__header {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.manual-access-summary__header h2 {
+  color: var(--foreground);
+  font-family: var(--font-technical);
+  font-size: clamp(0.78rem, 0.95vw, 0.9rem);
+  font-weight: 500;
+  letter-spacing: 0.055em;
+  line-height: 1.35;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.manual-access-summary .manual-copy__need {
+  min-height: 0;
+  max-width: 40rem;
+  padding: 0;
+}
+
 .manual-section--route {
   margin-top: clamp(2.6rem, 5vw, 4rem);
 }
@@ -1046,6 +1075,10 @@ summary:focus-visible {
     minmax(10rem, 0.55fr)
     minmax(19rem, 1.05fr);
   margin: 0;
+}
+
+.manual-support .manual-instruction-grid--media-only {
+  grid-template-columns: minmax(10rem, 13rem);
 }
 
 .manual-copy__need {

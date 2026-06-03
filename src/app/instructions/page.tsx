@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { AtmosphericFrame } from "@/components/AtmosphericFrame";
 import { BackToHubLink } from "@/components/BackToHubLink";
-import { InstructionVideo } from "@/components/InstructionVideo";
 import { MetadataLabel } from "@/components/MetadataLabel";
 import { getAssetsForProject } from "@/data/archiveRegistry";
 import { instructions } from "@/data/siteContent";
@@ -11,7 +10,6 @@ import { assetPath } from "@/lib/assetPath";
 const instructionAsset = getAssetsForProject("instructions")[0];
 const instructionQrCodeSrc =
   assetPath("/assets/instructions/images/instructions%20v2.png");
-const guideVideoSrc = assetPath("/assets/instructions/videos/IO%20GUIDE%20VID.mp4");
 const instructionQrHref = "https://www.youtube.com/watch?v=XgUie3WoanA";
 const threeNaturesQrSrc =
   assetPath("/assets/instructions/images/3%20NATURE%20VIDEO.png?v=20260529023029");
@@ -99,6 +97,22 @@ export default function InstructionsPage() {
             </p>
           </header>
 
+          <div className="manual-access-summary">
+            <div className="manual-access-summary__header">
+              <MetadataLabel>VIEWER ACCESS MATERIAL</MetadataLabel>
+              <h2>ACCESS MATERIAL</h2>
+            </div>
+            <section className="manual-copy__need" aria-labelledby="need-title">
+              <h2 id="need-title">{instructions.needTitle}</h2>
+              <ul>
+                {instructions.needs.map((need) => (
+                  <li key={need}>{need}</li>
+                ))}
+              </ul>
+              <p>{instructions.extensionNote}</p>
+            </section>
+          </div>
+
           <div className="manual-sections" aria-label="I/O project reading manual">
             <section className="manual-section" aria-labelledby="manual-read-title">
               <p className="manual-section__label" id="manual-read-title">
@@ -176,22 +190,10 @@ export default function InstructionsPage() {
           </div>
 
           <section className="manual-support" aria-labelledby="manual-support-title">
-            <div className="manual-support__header">
-              <MetadataLabel>VIEWER ACCESS MATERIAL</MetadataLabel>
-              <h2 id="manual-support-title">ACCESS MATERIAL</h2>
-            </div>
-
-            <div className="manual-instruction-grid">
-              <section className="manual-copy__need" aria-labelledby="need-title">
-                <h2 id="need-title">{instructions.needTitle}</h2>
-                <ul>
-                  {instructions.needs.map((need) => (
-                    <li key={need}>{need}</li>
-                  ))}
-                </ul>
-                <p>{instructions.extensionNote}</p>
-              </section>
-
+            <h2 className="visually-hidden" id="manual-support-title">
+              Access material media
+            </h2>
+            <div className="manual-instruction-grid manual-instruction-grid--media-only">
               <figure className="instruction-guide-qr">
                 <a
                   aria-label="Open I/O guide video"
@@ -215,13 +217,6 @@ export default function InstructionsPage() {
                   YOUTUBE INSTRUCTION CHANNEL
                 </figcaption>
               </figure>
-
-              <div className="instruction-media-column">
-                <InstructionVideo
-                  caption={instructions.guideVideoCaption}
-                  src={guideVideoSrc}
-                />
-              </div>
             </div>
 
             <section

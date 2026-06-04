@@ -847,6 +847,10 @@ summary:focus-visible {
   max-width: 96rem;
 }
 
+.manual-copy {
+  min-width: 0;
+}
+
 .manual-copy p,
 .manual-copy li,
 .project-hero p,
@@ -3204,13 +3208,26 @@ details p {
   }
 
   .landing {
+    align-content: center;
     min-height: 100svh;
-    padding-bottom: 2.4rem;
-    padding-top: 11.2rem;
+    overflow-x: clip;
+    padding: clamp(7.75rem, 19vw, 9.5rem) clamp(0.95rem, 4vw, 1.5rem) 4.8rem;
+  }
+
+  .landing__signal {
+    inline-size: 100%;
+    max-width: min(100%, 38rem);
+  }
+
+  .landing__signal::before,
+  .landing__signal::after {
+    width: min(20rem, 72vw);
   }
 
   .landing__title {
     font-size: clamp(3rem, 13vw, 6.8rem);
+    margin-bottom: clamp(1.35rem, 4vw, 2rem);
+    margin-top: clamp(1.1rem, 3vw, 1.8rem);
   }
 
   .landing__project-meta {
@@ -3273,13 +3290,18 @@ details p {
 
   .landing__actions {
     gap: 0.7rem 1.1rem;
-    margin-top: 2rem;
+    margin-top: clamp(1.55rem, 6vw, 2.2rem);
+  }
+
+  .landing__actions .transmission-link {
+    min-height: 3rem;
   }
 
   .manual-page,
   .layer-system,
   .project-page {
-    padding-top: 11rem;
+    padding-inline: clamp(1rem, 4vw, 1.6rem);
+    padding-top: clamp(7.4rem, 18vw, 9rem);
   }
 
   .manual-page,
@@ -3290,6 +3312,38 @@ details p {
 
   .manual-section {
     grid-template-columns: 1fr;
+  }
+
+  .manual-page {
+    gap: clamp(2.6rem, 7vw, 3.4rem);
+  }
+
+  .manual-copy,
+  .manual-hero,
+  .manual-access-summary,
+  .manual-support,
+  .manual-section {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .manual-hero .section-title {
+    overflow-wrap: anywhere;
+  }
+
+  .manual-hero__summary {
+    max-width: 100%;
+  }
+
+  .manual-access-summary .manual-copy__need,
+  .manual-copy__need,
+  .instruction-guide-qr,
+  .instruction-media-column {
+    min-height: 0;
+  }
+
+  .manual-copy__need {
+    padding: clamp(1rem, 4vw, 1.25rem);
   }
 
   .manual-sequence,
@@ -3315,20 +3369,34 @@ details p {
   }
 
   .manual-instruction-grid {
+    gap: clamp(1.1rem, 5vw, 1.6rem);
     grid-template-columns: 1fr;
+    margin: clamp(1.8rem, 7vw, 2.8rem) 0;
   }
 
   .manual-support .manual-instruction-grid {
     grid-template-columns: 1fr;
   }
 
+  .manual-support .manual-instruction-grid--media-only {
+    justify-self: center;
+    max-width: min(18rem, 100%);
+    width: 100%;
+  }
+
   .manual-instruction-grid > .external-transmission--inline {
     grid-column: auto;
   }
 
+  .manual-support > .external-transmission--inline {
+    max-width: 100%;
+  }
+
   .instruction-transmission-media {
     grid-template-columns: 1fr;
-    max-width: 18rem;
+    justify-items: center;
+    max-width: min(18rem, 100%);
+    width: 100%;
   }
 
   .instruction-signal-grid {
@@ -3341,8 +3409,14 @@ details p {
   }
 
   .instruction-qr {
-    justify-self: start;
-    max-width: 18rem;
+    justify-self: center;
+    max-width: min(18rem, 100%);
+    width: 100%;
+  }
+
+  .instruction-transmission-gif__frame {
+    align-self: center;
+    width: min(11rem, 100%);
   }
 
   .layer-system__panel {
@@ -3355,7 +3429,35 @@ details p {
 
   .hub-gif-panel,
   .hub-gif-panel .header-gif-block {
-    max-width: min(22rem, 100%);
+    max-width: min(18rem, 76vw);
+  }
+
+  .layer-system {
+    align-content: start;
+    gap: clamp(2rem, 7vw, 3rem);
+    min-height: auto;
+  }
+
+  .layer-system__panel {
+    gap: clamp(1.3rem, 5vw, 2rem);
+  }
+
+  .layer-system__intro h1 {
+    font-size: clamp(3.1rem, 15vw, 5.2rem);
+  }
+
+  .transition-route-stack {
+    gap: clamp(1.2rem, 5vw, 2rem);
+  }
+
+  .transition-route {
+    min-height: 3.4rem;
+    padding-block: clamp(1rem, 4vw, 1.45rem);
+  }
+
+  .transition-route__title {
+    font-size: clamp(2rem, 10vw, 3.4rem);
+    max-width: min(15ch, 100%);
   }
 
   .timeline-node summary {
@@ -3430,7 +3532,8 @@ details p {
   }
 
   .landing {
-    padding-top: 10.5rem;
+    padding-bottom: 4.35rem;
+    padding-top: 8.2rem;
   }
 
   .landing__role,
@@ -3466,7 +3569,7 @@ details p {
     align-items: center;
     flex-direction: column;
     gap: 0.9rem;
-    margin-top: 1.8rem;
+    margin-top: 1.6rem;
   }
 
   .transmission-link {
@@ -3486,9 +3589,39 @@ details p {
     font-size: 0.58rem;
   }
 
-  .section-title,
+  .section-title {
+    font-size: clamp(2.1rem, 11vw, 2.35rem);
+  }
+
   .layer-system__intro h1 {
     font-size: 2.5rem;
+  }
+
+  .manual-page,
+  .layer-system,
+  .project-page {
+    padding-top: 8.2rem;
+  }
+
+  .manual-section {
+    gap: 0.85rem;
+  }
+
+  .instruction-qr-frame {
+    min-height: 0;
+    padding: 0.75rem;
+  }
+
+  .instruction-guide-qr .instruction-qr-image {
+    width: min(88%, 14rem);
+  }
+
+  .external-transmission--inline .instruction-transmission-panel {
+    padding: 0.9rem;
+  }
+
+  .transition-route__statement {
+    font-size: 0.94rem;
   }
 
   .io1-secondary-nav__grid {

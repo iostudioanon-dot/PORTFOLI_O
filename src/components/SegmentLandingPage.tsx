@@ -1,0 +1,49 @@
+import type { ReactNode } from "react";
+import type { ProjectRecord } from "../../data/projects";
+import type { SectionArchiveIndexRecord } from "@/data/ioArchiveSections";
+import { BackToHubLink } from "./BackToHubLink";
+import { HeaderGifBlock } from "./HeaderGifBlock";
+import { SectionArchiveIndex } from "./SectionArchiveIndex";
+
+type SegmentLandingPageProps = {
+  children?: ReactNode;
+  project: ProjectRecord;
+  sectionArchiveIndex?: SectionArchiveIndexRecord;
+};
+
+function getSegmentLabel(project: ProjectRecord) {
+  return project.navLabel.replace("I/O", "IO");
+}
+
+export function SegmentLandingPage({
+  children,
+  project,
+  sectionArchiveIndex,
+}: SegmentLandingPageProps) {
+  return (
+    <>
+      <section className="segment-landing" aria-labelledby="project-title">
+        <div className="segment-landing__transition page-transition-link">
+          <BackToHubLink />
+        </div>
+
+        <header className="segment-landing__title-block">
+          <p className="segment-landing__number display-type">{getSegmentLabel(project)}</p>
+          <h1 className="segment-landing__title display-type" id="project-title">
+            {project.title}
+          </h1>
+        </header>
+
+        {project.headerGif ? (
+          <div className="segment-landing__media">
+            <HeaderGifBlock gif={project.headerGif} />
+          </div>
+        ) : null}
+      </section>
+
+      {sectionArchiveIndex ? <SectionArchiveIndex {...sectionArchiveIndex} /> : null}
+
+      {children}
+    </>
+  );
+}

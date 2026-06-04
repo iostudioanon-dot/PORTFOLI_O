@@ -2229,6 +2229,65 @@ a.instruction-qr__frame:hover {
   max-height: min(48vh, 520px);
 }
 
+.segment-landing {
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  justify-items: center;
+  padding: 0 0 clamp(1.8rem, 4vw, 2.7rem);
+}
+
+.segment-landing__transition {
+  justify-self: start;
+  margin-bottom: clamp(2rem, 4vw, 3.2rem);
+  width: 100%;
+}
+
+.segment-landing__title-block {
+  display: grid;
+  gap: clamp(0.25rem, 0.8vw, 0.5rem);
+  justify-items: center;
+  text-align: center;
+}
+
+.segment-landing__number {
+  color: var(--muted);
+  font-size: clamp(1.2rem, 2.2vw, 1.9rem);
+  line-height: 1;
+  margin: 0;
+}
+
+.segment-landing__title {
+  color: var(--foreground);
+  font-size: clamp(2.8rem, 7.2vw, 6.8rem);
+  line-height: 0.9;
+  margin: 0;
+  max-width: min(100%, 64rem);
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.segment-landing__media {
+  margin-top: clamp(1.4rem, 3vw, 2.3rem);
+  width: min(760px, 100%);
+}
+
+.segment-landing__media .header-gif-block {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.segment-landing__media .header-gif-block__media {
+  max-height: min(44vh, 460px);
+}
+
+.segment-landing + .section-archive-index {
+  margin-top: clamp(1.3rem, 3vw, 2.1rem);
+}
+
+.section-archive-index__card {
+  text-align: center;
+}
+
 .xfm-hero {
   min-height: auto;
 }
@@ -3745,6 +3804,27 @@ details p {
 
   .io-project-media .header-gif-block__media {
     max-height: min(58vh, 34rem);
+  }
+
+  .segment-landing {
+    padding-bottom: clamp(1.5rem, 6vw, 2.2rem);
+  }
+
+  .segment-landing__transition {
+    margin-bottom: clamp(1.8rem, 7vw, 2.8rem);
+  }
+
+  .segment-landing__title {
+    font-size: clamp(2.35rem, 10vw, 4.2rem);
+    max-width: min(100%, 38rem);
+  }
+
+  .segment-landing__media {
+    width: min(100%, 38rem);
+  }
+
+  .segment-landing__media .header-gif-block__media {
+    max-height: min(48vh, 30rem);
   }
 
   .xfm-hero__media {

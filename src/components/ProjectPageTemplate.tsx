@@ -1,12 +1,10 @@
 import type { ProjectRecord } from "../../data/projects";
 import { getAssetsForProject } from "@/data/archiveRegistry";
 import { ArchiveCard } from "./ArchiveCard";
-import { BackToHubLink } from "./BackToHubLink";
 import { EvidencePanel } from "./EvidencePanel";
-import { HeaderGifBlock } from "./HeaderGifBlock";
 import { ImageArchiveViewer } from "./ImageArchiveViewer";
 import { MetadataLabel } from "./MetadataLabel";
-import { SectionArchiveIndex } from "./SectionArchiveIndex";
+import { SegmentLandingPage } from "./SegmentLandingPage";
 import { SentinelExternalPanel } from "./SentinelExternalPanel";
 import { getImagesForProject } from "@/data/imageRegistry";
 import { ioSectionArchiveIndexes } from "@/data/ioArchiveSections";
@@ -21,57 +19,9 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
   const sectionArchiveIndex = project.id in ioSectionArchiveIndexes
     ? ioSectionArchiveIndexes[project.id as keyof typeof ioSectionArchiveIndexes]
     : undefined;
-  const io3FinalArtwork = project.id === "io3"
-    ? assets.find((asset) => asset.id === "io3-final-piece-site")
-    : undefined;
 
   return (
-    <>
-      <section className="project-hero io-project-hero" aria-labelledby="project-title">
-        <div className="io-project-hero__grid">
-          <div className="io-project-copy">
-            <div className="page-transition-link">
-              <BackToHubLink />
-            </div>
-            <div className="project-hero__meta">
-              <span>{project.coordinates}</span>
-              <span>{project.theme}</span>
-            </div>
-            <h1 className="display-type section-title" id="project-title">
-              {project.navLabel} / {project.title}
-            </h1>
-            <p className="project-hero__subtitle">{project.subtitle}</p>
-            <p>{project.description}</p>
-          </div>
-          {project.headerGif ? (
-            <div className="io-project-media">
-              <HeaderGifBlock gif={project.headerGif} />
-            </div>
-          ) : null}
-        </div>
-        <div className="project-status-strip" aria-label="Project system status">
-          <span>STATUS / {project.status.replaceAll("_", " ")}</span>
-          <span>SIGNAL / {project.signalStrength}%</span>
-          <span>ACCESS / {project.accessLevel}</span>
-          <span>ENVIRONMENT / {project.environment}</span>
-        </div>
-        {io3FinalArtwork ? (
-          <div className="project-hero__actions">
-            <a
-              aria-label="Open I/O3 final artwork field study"
-              className="transmission-link transmission-link--lime io-link io-glitch-hover display-type"
-              href={io3FinalArtwork.url}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              {io3FinalArtwork.action}
-            </a>
-          </div>
-        ) : null}
-      </section>
-
-      {sectionArchiveIndex ? <SectionArchiveIndex {...sectionArchiveIndex} /> : null}
-
+    <SegmentLandingPage project={project} sectionArchiveIndex={sectionArchiveIndex}>
       <div className="project-section-stack">
         {project.id === "io1" ? <SentinelExternalPanel /> : null}
 
@@ -124,6 +74,6 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
           </ul>
         </section>
       </div>
-    </>
+    </SegmentLandingPage>
   );
 }

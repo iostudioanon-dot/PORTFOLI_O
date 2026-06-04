@@ -8,7 +8,10 @@ import { MetadataLabel } from "./MetadataLabel";
 import { globalLabels, hub, transition } from "@/data/siteContent";
 import { assetPath } from "@/lib/assetPath";
 
-const hubProjects = projects.filter((project) => project.id !== "xfm");
+const transitionProjectOrder = ["io1", "io2", "io3", "io4"];
+const hubProjects = transitionProjectOrder
+  .map((id) => projects.find((project) => project.id === id))
+  .filter((project): project is NonNullable<typeof project> => Boolean(project));
 const xfmProject = projects.find((project) => project.id === "xfm");
 const transitionGif = {
   src: assetPath("/assets/navigation/videos/MISC%2011%20GIF.gif"),

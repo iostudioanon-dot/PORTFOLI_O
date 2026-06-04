@@ -16,6 +16,29 @@ export type ArchiveSectionRecord = {
   sections: ArchiveSubsection[];
 };
 
+export type SectionArchiveIndexItem = {
+  id: string;
+  title: string;
+  subtitle: string;
+  href: string;
+};
+
+export type SectionArchiveIndexRecord = {
+  sectionLabel: string;
+  sectionTitle: string;
+  sectionSubtitle: string;
+  archiveItems: SectionArchiveIndexItem[];
+};
+
+function indexItemFromArchiveSection(section: ArchiveSectionRecord): SectionArchiveIndexItem {
+  return {
+    id: section.label.split(" ")[0],
+    title: section.title,
+    subtitle: section.subtitle,
+    href: section.route ?? "#",
+  };
+}
+
 export const io1ArchiveSections: ArchiveSectionRecord[] = [
   {
     id: "sentinel",
@@ -392,3 +415,80 @@ export const io2ArchiveSections: ArchiveSectionRecord[] = [
 export const io2ArchiveSectionMap = new Map(
   io2ArchiveSections.map((section) => [section.id, section]),
 );
+
+export const ioSectionArchiveIndexes: Record<"io1" | "io2" | "io3" | "io4", SectionArchiveIndexRecord> = {
+  io1: {
+    sectionLabel: "I/O1 ARCHIVE INDEX",
+    sectionTitle: "THE SENTINEL",
+    sectionSubtitle: "External sequence / orbital archive / visual research index",
+    archiveItems: io1ArchiveSections.map(indexItemFromArchiveSection),
+  },
+  io2: {
+    sectionLabel: "I/O2 ARCHIVE INDEX",
+    sectionTitle: "HYPOGEAL LANDSCAPE",
+    sectionSubtitle: "Subterranean architecture / landscape system / water archive",
+    archiveItems: io2ArchiveSections.map(indexItemFromArchiveSection),
+  },
+  io3: {
+    sectionLabel: "I/O3 ARCHIVE INDEX",
+    sectionTitle: "IONOSPHERIC INTERSECTION",
+    sectionSubtitle: "Atmospheric radar / signal archive / final artwork index",
+    archiveItems: [
+      {
+        id: "I/O3.1",
+        title: "IONOSPHERIC INTERSECTION",
+        subtitle: "Primary project archive / atmospheric transmission system",
+        href: "#context-title",
+      },
+      {
+        id: "I/O3.2",
+        title: "FINAL ARTWORK FIELD STUDY",
+        subtitle: "External transmission / in-depth artwork archive",
+        href: "https://iostudioanon-dot.github.io/IO3-INFO-ART/",
+      },
+      {
+        id: "I/O3.3",
+        title: "SIGNAL RECORDS",
+        subtitle: "Recovered media records / video image research",
+        href: "#signal-records-title",
+      },
+      {
+        id: "I/O3.4",
+        title: "PROCESS FRAGMENTS",
+        subtitle: "Evidence notes / atmospheric system references",
+        href: "#process-title",
+      },
+    ],
+  },
+  io4: {
+    sectionLabel: "I/O4 ARCHIVE INDEX",
+    sectionTitle: "PRODUCTIVE FAILURE",
+    sectionSubtitle: "Material instability / process archive / output index",
+    archiveItems: [
+      {
+        id: "I/O4.1",
+        title: "PRODUCTIVE FAILURE",
+        subtitle: "Primary project archive / material and process system",
+        href: "#context-title",
+      },
+      {
+        id: "I/O4.2",
+        title: "SIGNAL RECORDS",
+        subtitle: "Recovered media records / archive references",
+        href: "#signal-records-title",
+      },
+      {
+        id: "I/O4.3",
+        title: "VISUAL RECORDS",
+        subtitle: "Image archive / process documentation",
+        href: "#visual-records-title",
+      },
+      {
+        id: "I/O4.4",
+        title: "PROCESS FRAGMENTS",
+        subtitle: "Research notes / development evidence",
+        href: "#process-title",
+      },
+    ],
+  },
+};

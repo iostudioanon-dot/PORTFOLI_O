@@ -1,8 +1,8 @@
 import { AtmosphericFrame } from "@/components/AtmosphericFrame";
 import { BackToHubLink } from "@/components/BackToHubLink";
-import { IO2SecondaryNav } from "@/components/IO2SecondaryNav";
 import { MetadataLabel } from "@/components/MetadataLabel";
-import { io2ArchiveSectionMap } from "@/data/ioArchiveSections";
+import { SectionArchiveIndex } from "@/components/SectionArchiveIndex";
+import { io2ArchiveSectionMap, ioSectionArchiveIndexes } from "@/data/ioArchiveSections";
 
 export const metadata = {
   title: "I/O2.0 Building The Hypogeal Landscape / PORTFOLI/O",
@@ -55,7 +55,7 @@ export default function IO2SystemPage() {
           </div>
         </section>
 
-        <IO2SecondaryNav activeId="system" />
+        <SectionArchiveIndex {...ioSectionArchiveIndexes.io2} />
 
         <div className="project-section-stack io2-archive-stack">
           {archiveSection.sections.map((block) => {

@@ -5,11 +5,11 @@ import { BackToHubLink } from "./BackToHubLink";
 import { EvidencePanel } from "./EvidencePanel";
 import { HeaderGifBlock } from "./HeaderGifBlock";
 import { ImageArchiveViewer } from "./ImageArchiveViewer";
-import { IO1SecondaryNav } from "./IO1SecondaryNav";
-import { IO2SecondaryNav } from "./IO2SecondaryNav";
 import { MetadataLabel } from "./MetadataLabel";
+import { SectionArchiveIndex } from "./SectionArchiveIndex";
 import { SentinelExternalPanel } from "./SentinelExternalPanel";
 import { getImagesForProject } from "@/data/imageRegistry";
+import { ioSectionArchiveIndexes } from "@/data/ioArchiveSections";
 
 type ProjectPageTemplateProps = {
   project: ProjectRecord;
@@ -18,6 +18,9 @@ type ProjectPageTemplateProps = {
 export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
   const assets = getAssetsForProject(project.id);
   const images = getImagesForProject(project.id);
+  const sectionArchiveIndex = project.id in ioSectionArchiveIndexes
+    ? ioSectionArchiveIndexes[project.id as keyof typeof ioSectionArchiveIndexes]
+    : undefined;
   const io3FinalArtwork = project.id === "io3"
     ? assets.find((asset) => asset.id === "io3-final-piece-site")
     : undefined;
@@ -67,8 +70,7 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
         ) : null}
       </section>
 
-      {project.id === "io1" ? <IO1SecondaryNav /> : null}
-      {project.id === "io2" ? <IO2SecondaryNav activeId="system" /> : null}
+      {sectionArchiveIndex ? <SectionArchiveIndex {...sectionArchiveIndex} /> : null}
 
       <div className="project-section-stack">
         {project.id === "io1" ? <SentinelExternalPanel /> : null}

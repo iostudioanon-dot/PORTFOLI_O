@@ -2852,6 +2852,114 @@ a.instruction-qr__frame:hover {
   padding-bottom: 0.35rem;
 }
 
+.section-archive-index {
+  border-block: 1px solid rgba(245, 245, 240, 0.1);
+  display: grid;
+  gap: clamp(1.4rem, 3vw, 2rem);
+  justify-items: center;
+  margin: clamp(2.5rem, 6vw, 5rem) auto 0;
+  max-width: min(100%, 54rem);
+  padding-block: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+.section-archive-index__header {
+  display: grid;
+  gap: 0.6rem;
+  max-width: 46rem;
+  text-align: center;
+}
+
+.section-archive-index__label,
+.section-archive-index__subtitle,
+.section-archive-index__item-id,
+.section-archive-index__item-subtitle {
+  font-family: var(--font-technical);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.section-archive-index__label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  margin: 0;
+}
+
+.section-archive-index__title {
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 0.96;
+  margin: 0;
+}
+
+.section-archive-index__subtitle {
+  color: var(--muted);
+  font-size: clamp(0.72rem, 1vw, 0.82rem);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.section-archive-index__list {
+  display: grid;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.section-archive-index__card {
+  background: rgba(255, 255, 255, 0.018);
+  border: 1px solid rgba(245, 245, 240, 0.12);
+  color: var(--foreground);
+  display: grid;
+  gap: 0.46rem;
+  min-height: 7rem;
+  padding: clamp(1rem, 2.2vw, 1.35rem);
+  position: relative;
+  text-decoration: none;
+  transition:
+    background-color var(--motion-hover) ease,
+    border-color var(--motion-hover) ease,
+    filter var(--motion-hover) ease,
+    opacity var(--motion-hover) ease;
+}
+
+.section-archive-index__card::before {
+  background: var(--project-primary, var(--color-warning-red));
+  content: "";
+  inset: 0 auto 0 0;
+  opacity: 0;
+  position: absolute;
+  transition: opacity var(--motion-hover) ease;
+  width: 2px;
+}
+
+.section-archive-index__card:hover,
+.section-archive-index__card:focus-visible {
+  background: rgba(255, 255, 255, 0.026);
+  border-color: color-mix(in srgb, var(--project-primary, var(--color-warning-red)) 42%, rgba(245, 245, 240, 0.2));
+  filter: brightness(1.05);
+  outline: none;
+}
+
+.section-archive-index__card:hover::before,
+.section-archive-index__card:focus-visible::before {
+  opacity: 0.76;
+}
+
+.section-archive-index__item-id {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.section-archive-index__item-title {
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.section-archive-index__item-subtitle {
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+
 .project-page--io2 {
   --io-glitch-blue: #8fd8ff;
   --io-glitch-red: #1ea7ff;

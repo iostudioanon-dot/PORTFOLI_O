@@ -29,6 +29,7 @@ export type ArchiveAsset = {
   transmissionNote: string;
   action:
     | "INITIATE SEQUENCE"
+    | "ENTER SEQUENCE"
     | "OPEN TRANSMISSION"
     | "ACCESS FILE"
     | "VIEW ARCHIVE"
@@ -63,15 +64,15 @@ export const archiveRegistry: ArchiveAsset[] = [
     title: "I/O1 Sentinel Navigational Sequence",
     type: "game",
     status: "EXTERNAL_TRANSMISSION",
-    url: "",
+    url: "/io1-game",
     description:
       "External gateway sequence reserved for the I/O1 monolith avoidance interface.",
     signalStrength: 61,
     format: "WEB APP",
-    access: "PENDING",
+    access: "EXTERNAL",
     archiveLabel: "PROCESS",
-    transmissionNote: "External game link pending.",
-    action: "INITIATE SEQUENCE",
+    transmissionNote: "External game sequence connected.",
+    action: "ENTER SEQUENCE",
   },
   {
     id: "sputnik",

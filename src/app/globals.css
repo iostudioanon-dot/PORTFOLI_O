@@ -1789,6 +1789,26 @@ a.instruction-qr__frame:hover {
   cursor: not-allowed;
 }
 
+.io1-game-page {
+  align-items: center;
+  background: var(--color-black);
+  display: flex;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+.io1-game-page__frame {
+  background: var(--color-black);
+  border: 0;
+  display: block;
+  height: min(100svh - clamp(1rem, 4vw, 3rem), 1000px);
+  margin: auto;
+  max-height: 100svh;
+  max-width: 100%;
+  width: min(100%, 1100px);
+}
+
 .section-title {
   font-size: 3.2rem;
   line-height: 0.95;

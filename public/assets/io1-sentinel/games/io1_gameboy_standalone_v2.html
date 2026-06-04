@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IO1: The Sentinel — Standalone Game Boy v2</title>
+  <style>
+    :root {
+      --shell: #d8d6b2;
+      --shell-dark: #aaa67f;
+      --bezel: #5d6070;
+      --screen: #9bbc0f;
+      --screen-dark: #0f380f;
+      --screen-mid: #306230;
+      --screen-light: #c4e76b;
+      --button: #7b1f47;
+      --button-dark: #4f1430;
+      --text: #182d16;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body { min-height: 100%; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(28, 40, 52, 0.42) 0%, rgba(6, 8, 10, 0) 42%),
+        #020303;
+      font-family: "Courier New", monospace;
+      color: var(--text);
+      overflow-x: hidden;
+      padding: clamp(0.75rem, 2vw, 2rem);
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 12% 18%, rgba(155,188,15,0.9) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 72% 22%, rgba(155,188,15,0.7) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 88% 74%, rgba(155,188,15,0.75) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 26% 82%, rgba(155,188,15,0.65) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 54% 58%, rgba(155,188,15,0.55) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 40% 30%, rgba(155,188,15,0.45) 0 1px, transparent 1.5px);
+      opacity: 0.35;
+      z-index: -1;
+      animation: starPulse 7s ease-in-out infinite alternate;
+    }
+
+    @keyframes starPulse {
+      from { opacity: 0.18; }
+      to { opacity: 0.42; }
+    }
+
+    .page-wrap {
+      width: min(540px, 96vw);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gameboy {
+      width: 100%;
+      min-height: 720px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.4), transparent 32%),
+        linear-gradient(145deg, var(--shell), #efedca 55%, var(--shell-dark));
+      border: 5px solid #817e63;
+      border-radius: 30px 30px 78px 30px;
+      padding: clamp(1.1rem, 3vw, 2rem);
+      box-shadow:
+        0 34px 90px rgba(0,0,0,0.62),
+        inset -10px -10px 0 rgba(0,0,0,0.08),
+        inset 8px 8px 0 rgba(255,255,255,0.45);
+      position: relative;
+    }
+
+    .gameboy::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 24px 24px 70px 24px;
+      border: 1px solid rgba(255,255,255,0.28);
+      pointer-events: none;
+    }
+
+    .brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+      color: #333;
+      font-size: clamp(0.66rem, 1.6vw, 0.78rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .power {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.65rem;
+      white-space: nowrap;
+    }
+
+    .power-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #b01633;
+      box-shadow: 0 0 10px #ff355e;
+    }
+
+    .screen-bezel {
+      background: var(--bezel);
+      padding: clamp(0.85rem, 2vw, 1.2rem) clamp(0.75rem, 2vw, 1rem) clamp(1.1rem, 2vw, 1.6rem);
+      border-radius: 16px 16px 34px 16px;
+      box-shadow: inset 0 0 0 4px rgba(0,0,0,0.22);
+    }
+
+    .screen-label {
+      color: #c5c8d5;
+      font-size: clamp(0.5rem, 1.45vw, 0.64rem);
+      letter-spacing: 0.12em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .screen {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background:
+        linear-gradient(rgba(255,255,255,0.08) 50%, rgba(0,0,0,0.06) 50%),
+        var(--screen);
+      background-size: 100% 4px;
+      border: 5px solid #23292f;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 25px rgba(0,0,0,0.35);
+      touch-action: manipulation;
+    }
+
+    .screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 35%, transparent 100%);
+      opacity: 0.45;
+    }
+
+    .screen::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at center, transparent 45%, rgba(0,0,0,0.18) 100%);
+      z-index: 5;
+    }
+
+    .brand-mark {
+      margin: 0.75rem 0 0;
+      color: #2d2f36;
+      font-size: clamp(0.72rem, 1.8vw, 0.9rem);
+      letter-spacing: 0.18em;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .brand-mark span {
+      color: #7b1f47;
+      letter-spacing: 0.24em;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+      image-rendering: pixelated;
+      display: block;
+    }
+
+    .screen-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+      background: rgba(155,188,15,0.91);
+      z-index: 4;
+    }
+
+    .screen-overlay.hidden { display: none; }
+
+    .screen-overlay h1,
+    .screen-overlay h2 {
+      margin: 0 0 0.8rem;
+      font-size: clamp(0.95rem, 3vw, 1.2rem);
+      text-transform: uppercase;
+      line-height: 1.15;
+      max-width: 285px;
+    }
+
+    .screen-overlay p {
+      margin: 0.24rem 0;
+      font-size: clamp(0.64rem, 2vw, 0.76rem);
+      line-height: 1.35;
+      max-width: 290px;
+    }
+
+    .pixel-button {
+      margin-top: 1rem;
+      border: 3px solid var(--screen-dark);
+      background: var(--screen-light);
+      color: var(--screen-dark);
+      font-family: inherit;
+      font-weight: bold;
+      padding: 0.48rem 0.78rem;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 var(--screen-dark);
+      text-transform: uppercase;
+      transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+    }
+
+    .pixel-button:focus-visible,
+    .control-button:focus-visible {
+      outline: 3px solid #0f380f;
+      outline-offset: 4px;
+    }
+
+    .pixel-button:hover {
+      filter: brightness(1.08);
+    }
+
+    .pixel-button:active {
+      transform: translate(3px, 3px);
+      box-shadow: 1px 1px 0 var(--screen-dark);
+    }
+
+    .console-instructions {
+      margin-top: 0.85rem;
+      border: 2px solid rgba(24, 45, 22, 0.35);
+      background: rgba(255,255,255,0.22);
+      color: #26301c;
+      padding: 0.7rem 0.75rem;
+      font-size: clamp(0.62rem, 1.55vw, 0.74rem);
+      line-height: 1.45;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .console-status {
+      border-top: 1px solid rgba(24,45,22,0.22);
+      padding-top: 0.35rem;
+      color: #0f380f;
+    }
+
+    .console-instructions strong { color: var(--screen-dark); }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.35rem;
+      align-items: center;
+    }
+
+    .dpad {
+      width: 115px;
+      height: 115px;
+      position: relative;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .dpad::before,
+    .dpad::after {
+      content: "";
+      position: absolute;
+      background: #282828;
+      border-radius: 7px;
+      box-shadow: inset -4px -4px 0 rgba(0,0,0,0.35);
+    }
+
+    .dpad::before {
+      width: 38px;
+      height: 110px;
+      left: 38px;
+      top: 0;
+    }
+
+    .dpad::after {
+      height: 38px;
+      width: 110px;
+      left: 0;
+      top: 36px;
+    }
+
+    .button-cluster {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      transform: rotate(-18deg);
+    }
+
+    .control-button {
+      font: inherit;
+      color: transparent;
+      cursor: pointer;
+    }
+
+    .round-button {
+      width: 54px;
+      height: 54px;
+      background: radial-gradient(circle at 35% 35%, #a83c68, var(--button));
+      border-radius: 50%;
+      border: 4px solid var(--button-dark);
+      box-shadow: 0 6px 0 var(--button-dark);
+      position: relative;
+    }
+
+    .round-button::after {
+      content: attr(data-label);
+      position: absolute;
+      top: 58px;
+      left: 50%;
+      transform: translateX(-50%) rotate(18deg);
+      color: #333;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .round-button:active,
+    .dpad:active {
+      transform: translateY(4px);
+    }
+
+    .meta-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.25rem;
+      transform: rotate(-4deg);
+    }
+
+    .pill-button {
+      width: 66px;
+      height: 16px;
+      border: 0;
+      border-radius: 999px;
+      background: #6e6f74;
+      box-shadow: inset -3px -3px 0 rgba(0,0,0,0.28);
+      cursor: pointer;
+    }
+
+    .speaker {
+      position: absolute;
+      right: 26px;
+      bottom: 22px;
+      display: grid;
+      grid-template-columns: repeat(5, 5px);
+      gap: 7px;
+      transform: rotate(-15deg);
+    }
+
+    .speaker span {
+      height: 42px;
+      background: rgba(0,0,0,0.32);
+      border-radius: 10px;
+    }
+
+    @media (max-width: 540px) {
+      body { align-items: flex-start; }
+
+      .page-wrap { width: min(420px, 96vw); }
+
+      .gameboy {
+        min-height: 660px;
+        border-radius: 26px 26px 68px 26px;
+      }
+
+      .screen-label { flex-direction: column; gap: 0.2rem; }
+
+      .dpad { width: 92px; height: 92px; }
+
+      .dpad::before {
+        width: 30px;
+        height: 88px;
+        left: 31px;
+      }
+
+      .dpad::after {
+        width: 88px;
+        height: 30px;
+        top: 30px;
+      }
+
+      .round-button { width: 44px; height: 44px; }
+
+      .round-button::after { top: 48px; }
+
+      .meta-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.25rem;
+      transform: rotate(-4deg);
+    }
+
+    .pill-button {
+      width: 66px;
+      height: 16px;
+      border: 0;
+      border-radius: 999px;
+      background: #6e6f74;
+      box-shadow: inset -3px -3px 0 rgba(0,0,0,0.28);
+      cursor: pointer;
+    }
+
+    .speaker {
+        right: 20px;
+        bottom: 18px;
+        grid-template-columns: repeat(5, 4px);
+        gap: 5px;
+      }
+
+      .speaker span { height: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-wrap">
+    <section class="gameboy" aria-label="Standalone retro Game Boy game interface">
+      <div class="brand-row">
+        <strong>I/O Sentinel Handheld</strong>
+        <div class="power"><span class="power-dot"></span> Power</div>
+      </div>
+
+      <div class="screen-bezel">
+        <div class="screen-label">
+          <span>Dot Matrix Survival Sim</span>
+          <span>IO-01</span>
+        </div>
+
+        <div class="screen" id="screen">
+          <canvas id="game" width="320" height="240"></canvas>
+
+          <div id="startOverlay" class="screen-overlay">
+            <h1>IO1: The Sentinel</h1>
+            <p id="startText">Evade three incoming monoliths.</p>
+            <p><strong>Spacebar</strong> or <strong>tap screen</strong> to jump.</p>
+            <button id="startButton" class="pixel-button" type="button">Begin</button>
+          </div>
+
+          <div id="winOverlay" class="screen-overlay hidden">
+            <h2>Escape Confirmed</h2>
+            <p>Three monoliths evaded.</p>
+            <p>The Sentinel sequence is complete.</p>
+            <button id="againButton" class="pixel-button" type="button">Reinitialise</button>
+          </div>
+        </div>
+        <div class="brand-mark">Game <span>I/O</span></div>
+      </div>
+
+      <div class="console-instructions" aria-label="Game instructions">
+        <div><strong>Mission:</strong> evade 3 monoliths. <strong>Control:</strong> spacebar, ↑, A, or tap to jump.</div>
+        <div id="consoleStatus" class="console-status" aria-live="polite">Status: ready.</div>
+      </div>
+
+      <div class="controls">
+        <button id="dpadButton" class="dpad control-button" type="button" aria-label="Jump with D-pad"></button>
+        <div class="button-cluster">
+          <button id="bButton" class="round-button control-button" type="button" data-label="B" aria-label="Reset after completion">B</button>
+          <button id="aButton" class="round-button control-button" type="button" data-label="A" aria-label="Jump or start">A</button>
+        </div>
+      </div>
+
+      <div class="meta-controls" aria-hidden="true">
+        <button class="pill-button" type="button" tabindex="-1"></button>
+        <button class="pill-button" type="button" tabindex="-1"></button>
+      </div>
+
+      <div class="speaker" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const screen = document.getElementById("screen");
+    const startOverlay = document.getElementById("startOverlay");
+    const startText = document.getElementById("startText");
+    const winOverlay = document.getElementById("winOverlay");
+    const startButton = document.getElementById("startButton");
+    const againButton = document.getElementById("againButton");
+    const aButton = document.getElementById("aButton");
+    const bButton = document.getElementById("bButton");
+    const dpadButton = document.getElementById("dpadButton");
+    const consoleStatus = document.getElementById("consoleStatus");
+
+    const groundY = 190;
+    let running = false;
+    let won = false;
+    let booted = false;
+    let frame = 0;
+    let clearedObstacles = 0;
+    let obstacleTimer = 0;
+    let mode = "boot";
+    let animationId = null;
+
+    const player = {
+      x: 52,
+      y: groundY - 26,
+      width: 22,
+      height: 26,
+      vy: 0,
+      gravity: 0.72,
+      jumpPower: -12,
+      grounded: true
+    };
+
+    let obstacles = [];
+    let stars = [];
+    let bootLines = [];
+    let bootIndex = 0;
+    let bootTimer = 0;
+
+    const bootSequence = [
+      "I/O BIOS 01.84",
+      "MEMORY CHECK... OK",
+      "NAVIGATION MAP... OK",
+      "MONOLITH TRACKING... ACTIVE",
+      "JUMP CONTROL... READY",
+      "SENTINEL SIM READY"
+    ];
+
+    function cancelLoop() {
+      if (animationId !== null) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+    }
+
+    function resetGame() {
+      cancelLoop();
+      running = false;
+      won = false;
+      booted = false;
+      frame = 0;
+      clearedObstacles = 0;
+      obstacleTimer = 0;
+      bootIndex = 0;
+      bootTimer = 0;
+      mode = "boot";
+      bootLines = [];
+      player.y = groundY - player.height;
+      player.vy = 0;
+      player.grounded = true;
+      obstacles = [];
+      stars = Array.from({ length: 30 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * 138 + 8,
+        size: Math.random() > 0.7 ? 2 : 1
+      }));
+      winOverlay.classList.add("hidden");
+      startOverlay.classList.remove("hidden");
+      startOverlay.querySelector("h1").textContent = "IO1: The Sentinel";
+      startText.textContent = "Evade three incoming monoliths.";
+      startButton.textContent = "Begin";
+      consoleStatus.textContent = "Status: ready.";
+      draw();
+    }
+
+    function startGame() {
+      if (won) return;
+      if (running) return;
+      running = true;
+      startOverlay.classList.add("hidden");
+      winOverlay.classList.add("hidden");
+      mode = booted ? "game" : "boot";
+      consoleStatus.textContent = booted ? "Status: navigation active." : "Status: booting training device.";
+      loop();
+    }
+
+    function jump() {
+      if (!running || mode !== "game") return;
+      if (player.grounded) {
+        player.vy = player.jumpPower;
+        player.grounded = false;
+      }
+    }
+
+    function spawnObstacle() {
+      if (clearedObstacles + obstacles.length >= 3) return;
+      obstacles.push({
+        x: canvas.width + 20,
+        y: groundY - 48,
+        width: 18,
+        height: 48,
+        speed: 3.15,
+        passed: false
+      });
+    }
+
+    function updateBoot() {
+      bootTimer++;
+      if (bootTimer % 28 === 0 && bootIndex < bootSequence.length) {
+        bootLines.push(bootSequence[bootIndex]);
+        bootIndex++;
+      }
+      if (bootIndex >= bootSequence.length && bootTimer > 205) {
+        booted = true;
+        mode = "game";
+        consoleStatus.textContent = "Status: navigation active. Time the jump.";
+      }
+    }
+
+    function updateGame() {
+      obstacleTimer++;
+      player.y += player.vy;
+      player.vy += player.gravity;
+
+      if (player.y >= groundY - player.height) {
+        player.y = groundY - player.height;
+        player.vy = 0;
+        player.grounded = true;
+      }
+
+      if (obstacleTimer > 92) {
+        spawnObstacle();
+        obstacleTimer = 0;
+      }
+
+      obstacles.forEach(obstacle => {
+        obstacle.x -= obstacle.speed;
+        if (!obstacle.passed && obstacle.x + obstacle.width < player.x) {
+          obstacle.passed = true;
+          clearedObstacles++;
+          consoleStatus.textContent = `Status: ${clearedObstacles}/3 monoliths evaded.`;
+        }
+      });
+
+      obstacles = obstacles.filter(obstacle => obstacle.x + obstacle.width > -20);
+
+      for (const obstacle of obstacles) {
+        if (isColliding(player, obstacle)) {
+          crashReset();
+          return;
+        }
+      }
+
+      if (clearedObstacles >= 3 && obstacles.length === 0) {
+        completeGame();
+      }
+    }
+
+    function update() {
+      frame++;
+      if (mode === "boot") updateBoot();
+      if (mode === "game") updateGame();
+    }
+
+    function isColliding(a, b) {
+      return (
+        a.x < b.x + b.width &&
+        a.x + a.width > b.x &&
+        a.y < b.y + b.height &&
+        a.y + a.height > b.y
+      );
+    }
+
+    function crashReset() {
+      running = false;
+      cancelLoop();
+      obstacles = [];
+      clearedObstacles = 0;
+      obstacleTimer = 0;
+      player.y = groundY - player.height;
+      player.vy = 0;
+      player.grounded = true;
+      mode = "game";
+      booted = true;
+      startOverlay.classList.remove("hidden");
+      startOverlay.querySelector("h1").textContent = "Impact Recorded";
+      startText.textContent = "Retry the sequence and correct evasive timing.";
+      startButton.textContent = "Retry";
+      consoleStatus.textContent = "Status: impact recorded. Retry from active mode.";
+      draw();
+    }
+
+    function completeGame() {
+      running = false;
+      won = true;
+      cancelLoop();
+      winOverlay.classList.remove("hidden");
+      startOverlay.classList.add("hidden");
+      consoleStatus.textContent = "Status: complete. Press B or Reinitialise to restart.";
+      draw();
+    }
+
+    function drawBoot() {
+      ctx.fillStyle = "#9bbc0f";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#0f380f";
+      ctx.font = "12px Courier New";
+      ctx.fillText("RECOVERED TRAINING DEVICE", 14, 24);
+      ctx.fillText("-------------------------", 14, 40);
+      bootLines.forEach((line, index) => {
+        ctx.fillText(`> ${line}`, 14, 62 + index * 20);
+      });
+      if (frame % 40 < 20) ctx.fillRect(14, 205, 8, 12);
+    }
+
+    function drawGame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#9bbc0f";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#306230";
+      stars.forEach(star => {
+        const x = (star.x - frame * 0.25) % canvas.width;
+        ctx.fillRect(x < 0 ? x + canvas.width : x, star.y, star.size, star.size);
+      });
+
+      ctx.fillStyle = "#4f7f2a";
+      ctx.beginPath();
+      ctx.arc(242, 250, 150, Math.PI, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = "#306230";
+      ctx.fillRect(0, groundY, canvas.width, 6);
+      ctx.fillRect(0, groundY + 12, canvas.width, 3);
+
+      ctx.fillStyle = "#0f380f";
+      ctx.fillRect(player.x, player.y, player.width, player.height);
+      ctx.fillRect(player.x + 5, player.y - 8, 12, 8);
+      ctx.fillStyle = "#9bbc0f";
+      ctx.fillRect(player.x + 6, player.y + 6, 10, 6);
+
+      if (!player.grounded || frame % 18 < 9) {
+        ctx.fillStyle = "#306230";
+        ctx.fillRect(player.x + 7, player.y + player.height, 8, 8);
+      }
+
+      obstacles.forEach(obstacle => {
+        ctx.fillStyle = "#0a120a";
+        ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+        ctx.fillStyle = "#0f380f";
+        ctx.fillRect(obstacle.x + 3, obstacle.y + 3, 3, obstacle.height - 6);
+        ctx.fillStyle = "#9bbc0f";
+        if (frame % 24 < 12) ctx.fillRect(obstacle.x + 6, obstacle.y + 7, 2, 2);
+      });
+
+      ctx.fillStyle = "#0f380f";
+      ctx.font = "12px Courier New";
+      ctx.fillText(`MONOLITHS: ${clearedObstacles}/3`, 12, 20);
+      ctx.fillText("SPACE / A = JUMP", 172, 20);
+    }
+
+    function draw() {
+      if (mode === "boot") drawBoot();
+      if (mode === "game") drawGame();
+    }
+
+    function loop() {
+      if (!running) return;
+      update();
+      draw();
+      animationId = requestAnimationFrame(loop);
+    }
+
+    function handleAction(event) {
+      if (event) event.preventDefault();
+      if (!running && !won) {
+        startGame();
+        return;
+      }
+      jump();
+    }
+
+    document.addEventListener("keydown", event => {
+      if (["Space", "ArrowUp", "KeyW", "Enter"].includes(event.code)) handleAction(event);
+      if (event.code === "KeyR") resetGame();
+    });
+
+    screen.addEventListener("pointerdown", handleAction);
+    startButton.addEventListener("click", handleAction);
+    againButton.addEventListener("click", resetGame);
+    aButton.addEventListener("pointerdown", handleAction);
+    dpadButton.addEventListener("pointerdown", handleAction);
+    bButton.addEventListener("click", () => { if (won || !running) resetGame(); });
+
+    resetGame();
+  </script>
+</body>
+</html>

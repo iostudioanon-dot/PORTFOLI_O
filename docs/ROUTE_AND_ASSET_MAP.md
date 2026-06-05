@@ -12,7 +12,7 @@ This map explains how the PORTFOL I/O site is linked together.
 | `/io1` | I/O1 / The Sentinel archive zone | `src/app/[slug]/page.tsx`, `data/projects.ts`, `src/data/archiveRegistry.ts` |
 | `/io1/sentinel` | I/O1.1 Sentinel archive subsection | `src/app/io1/[section]/page.tsx`, `src/data/ioArchiveSections.ts` |
 | `/io1/kubrick` | I/O1.2 Stanley Kubrick archive subsection | `src/app/io1/[section]/page.tsx`, `src/data/ioArchiveSections.ts` |
-| `/io1/mouresette` | I/O1.3 Mouresette archive subsection | `src/app/io1/[section]/page.tsx`, `src/data/ioArchiveSections.ts` |
+| `/io1/mouresette` | I/O1.3 Morysetta archive subsection | `src/app/io1/[section]/page.tsx`, `src/data/ioArchiveSections.ts` |
 | `/io1/da-vinci` | I/O1.4 Leonardo da Vinci archive subsection | `src/app/io1/[section]/page.tsx`, `src/data/ioArchiveSections.ts` |
 | `/io2` | I/O2 / Hypogeal Landscape archive zone | `src/app/[slug]/page.tsx`, `data/projects.ts`, `src/data/imageRegistry.ts` |
 | `/io2-hypogeal-landscape` | I/O2.0 Building The Hypogeal Landscape subsection | `src/app/io2-hypogeal-landscape/page.tsx`, `src/data/ioArchiveSections.ts` |

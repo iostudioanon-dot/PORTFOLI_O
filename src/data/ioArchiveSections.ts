@@ -129,8 +129,8 @@ export const io1ArchiveSections: ArchiveSectionRecord[] = [
   {
     id: "mouresette",
     projectId: "io1",
-    label: "I/O1.3 MOURESETTE",
-    title: "MOURESETTE",
+    label: "I/O1.3 MORYSETTA",
+    title: "MORYSETTA",
     subtitle: "Visual influence archive / atmosphere and composition",
     route: "/io1/mouresette",
     status: "OPEN",

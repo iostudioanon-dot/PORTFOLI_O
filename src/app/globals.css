@@ -1995,33 +1995,135 @@ a.instruction-qr__frame:hover {
   max-width: 42rem;
 }
 
-.hub-gif-panel {
-  justify-self: center;
-  margin-top: 0;
-  max-width: min(26rem, 78vw);
-  opacity: 0.52;
+.environmental-stack-signal {
+  display: grid;
+  gap: clamp(0.9rem, 2vw, 1.25rem);
+  justify-items: center;
+  margin-top: clamp(0.2rem, 1vw, 0.55rem);
+  max-width: min(100%, 24rem);
+  padding-block: clamp(0.5rem, 1.5vw, 0.85rem);
+  position: relative;
+  text-align: center;
   width: 100%;
 }
 
-.hub-gif-panel .header-gif-block {
-  margin-block: 0;
-  max-width: 100%;
+.environmental-stack-signal__label,
+.environmental-stack-signal__messages {
+  color: var(--muted);
+  font-family: var(--font-technical);
+  font-size: clamp(0.68rem, 0.82vw, 0.76rem);
+  letter-spacing: 0.075em;
+  line-height: 1.4;
+  margin: 0;
+  text-transform: uppercase;
 }
 
-.hub-gif-panel .header-gif-block__frame {
-  aspect-ratio: 16 / 9;
-  place-items: center;
+.environmental-stack-signal__layers {
+  counter-reset: stack-layer;
+  display: grid;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
 
-.hub-gif-panel .header-gif-block__media {
-  height: 100%;
-  max-height: none;
-  object-fit: contain;
-  width: 100%;
+.environmental-stack-signal__layers::before {
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(245, 245, 240, 0.18) 18%,
+    rgba(245, 245, 240, 0.18) 82%,
+    transparent
+  );
+  content: "";
+  height: calc(100% - 2.2rem);
+  left: 50%;
+  position: absolute;
+  top: 1.1rem;
+  transform: translateX(-50%);
+  width: 1px;
 }
 
-.hub-gif-panel .header-gif-block figcaption {
-  display: none;
+.environmental-stack-signal__layers::after {
+  animation: environmental-stack-pulse 16s cubic-bezier(0.44, 0, 0.56, 1) infinite;
+  background: rgba(160, 35, 25, 0.9);
+  border-radius: 999px;
+  box-shadow: 0 0 0.8rem rgba(160, 35, 25, 0.16);
+  content: "";
+  height: 0.32rem;
+  left: 50%;
+  position: absolute;
+  top: 1rem;
+  transform: translate(-50%, 0);
+  width: 0.32rem;
+}
+
+.environmental-stack-signal__layers li {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-technical);
+  font-size: clamp(0.78rem, 1vw, 0.9rem);
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  padding: 0.54rem 0.8rem;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.environmental-stack-signal__messages {
+  color: rgba(245, 245, 240, 0.62);
+  min-height: 1.4em;
+  position: relative;
+  width: min(100%, 22rem);
+}
+
+.environmental-stack-signal__messages span {
+  animation: io-message-cycle 70s ease-in-out infinite;
+  animation-delay: calc(var(--message-index) * 10s);
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+}
+
+@keyframes environmental-stack-pulse {
+  0%,
+  18% {
+    opacity: 0;
+    top: 1rem;
+  }
+
+  24% {
+    opacity: 0.9;
+  }
+
+  76% {
+    opacity: 0.9;
+  }
+
+  86%,
+  100% {
+    opacity: 0;
+    top: calc(100% - 1.25rem);
+  }
+}
+
+@keyframes io-message-cycle {
+  0%,
+  6% {
+    opacity: 0;
+  }
+
+  9%,
+  13% {
+    opacity: 1;
+  }
+
+  17%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .system-readout {
@@ -3751,11 +3853,6 @@ details p {
     transform: none;
   }
 
-  .hub-gif-panel,
-  .hub-gif-panel .header-gif-block {
-    max-width: min(18rem, 76vw);
-  }
-
   .layer-system {
     align-content: start;
     gap: clamp(2rem, 7vw, 3rem);
@@ -3768,6 +3865,16 @@ details p {
 
   .layer-system__intro h1 {
     font-size: clamp(3.1rem, 15vw, 5.2rem);
+  }
+
+  .environmental-stack-signal {
+    gap: 0.75rem;
+    max-width: min(20rem, 84vw);
+    padding-block: 0.25rem;
+  }
+
+  .environmental-stack-signal__layers li {
+    padding-block: 0.42rem;
   }
 
   .transition-route-stack {
@@ -4016,6 +4123,28 @@ details p {
   .landing-primary-route-link {
     animation: none !important;
   }
+
+  .landing__title-io-gif {
+    display: none;
+  }
+
+  .landing__title-io-fallback {
+    display: inline;
+  }
+
+  .environmental-stack-signal__layers::after,
+  .environmental-stack-signal__messages span {
+    animation: none !important;
+  }
+
+  .environmental-stack-signal__layers::after {
+    opacity: 0.72;
+    top: 1rem;
+  }
+
+  .environmental-stack-signal__messages span:first-child {
+    opacity: 1;
+  }
 }
 
 /* Content frames remain spatial containers, but their pale archive lines are visually suppressed. */
@@ -4030,7 +4159,6 @@ details p {
 .archive-card__qr-frame,
 .external-transmission-node,
 .header-gif-block__frame,
-.hub-gif-panel,
 .image-archive-viewer,
 .image-archive-viewer__stage,
 .image-archive-viewer__rail,

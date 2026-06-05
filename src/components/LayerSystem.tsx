@@ -2,22 +2,16 @@
 
 import Link from "next/link";
 import { projects } from "../../data/projects";
-import { HeaderGifBlock } from "./HeaderGifBlock";
+import { EnvironmentalStackSignal } from "./EnvironmentalStackSignal";
 import { LayerNavigationBand } from "./LayerNavigationBand";
 import { MetadataLabel } from "./MetadataLabel";
 import { globalLabels, hub, transition } from "@/data/siteContent";
-import { assetPath } from "@/lib/assetPath";
 
 const transitionProjectOrder = ["io1", "io2", "io3", "io4"];
 const hubProjects = transitionProjectOrder
   .map((id) => projects.find((project) => project.id === id))
   .filter((project): project is NonNullable<typeof project> => Boolean(project));
 const xfmProject = projects.find((project) => project.id === "xfm");
-const transitionGif = {
-  src: assetPath("/assets/navigation/videos/MISC%2011%20GIF.gif"),
-  alt: "Animated transition signal study for the I/O environmental navigation stack.",
-  caption: "MISC 11 GIF",
-};
 
 export function LayerSystem() {
   return (
@@ -30,9 +24,7 @@ export function LayerSystem() {
           </h1>
           <p>{transition.description}</p>
         </div>
-        <div className="hub-gif-panel">
-          <HeaderGifBlock gif={transitionGif} />
-        </div>
+        <EnvironmentalStackSignal />
       </div>
 
       <div className="layer-system__main">

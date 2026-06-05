@@ -1,7 +1,7 @@
 import { AtmosphericFrame } from "@/components/AtmosphericFrame";
+import { BackToHubLink } from "@/components/BackToHubLink";
 import { MetadataLabel } from "@/components/MetadataLabel";
-import { SegmentLandingPage } from "@/components/SegmentLandingPage";
-import { projectMap } from "../../../data/projects";
+import { SectionArchiveIndex } from "@/components/SectionArchiveIndex";
 import { io2ArchiveSectionMap, ioSectionArchiveIndexes } from "@/data/ioArchiveSections";
 
 export const metadata = {
@@ -9,11 +9,32 @@ export const metadata = {
   description: "I/O2 architecture, landscape, water, and organic systems archive.",
 };
 
+function sectionCode(label: string) {
+  return label.split(" ")[0] ?? label;
+}
+
+function sectionMarker(title: string) {
+  const normalizedTitle = title.toLowerCase();
+
+  if (normalizedTitle.includes("context") || normalizedTitle.includes("overview")) {
+    return "CONTEXT";
+  }
+
+  if (normalizedTitle.includes("system") || normalizedTitle.includes("structure")) {
+    return "PROCESS";
+  }
+
+  if (normalizedTitle.includes("route") || normalizedTitle.includes("connection")) {
+    return "OUTPUT";
+  }
+
+  return "RESEARCH";
+}
+
 export default function IO2SystemPage() {
   const archiveSection = io2ArchiveSectionMap.get("system");
-  const project = projectMap.get("io2");
 
-  if (!archiveSection || !project) {
+  if (!archiveSection) {
     return null;
   }
 
@@ -30,21 +51,33 @@ export default function IO2SystemPage() {
           } as React.CSSProperties
         }
       >
-        <SegmentLandingPage project={project} sectionArchiveIndex={ioSectionArchiveIndexes.io2}>
-          <div className="project-section-stack io2-archive-stack">
-            {archiveSection.sections.map((block) => {
-              const blockId = `io2-system-${block.title.toLowerCase().replaceAll(" ", "-")}`;
-
-              return (
-                <section className="project-section io2-archive-section" aria-labelledby={blockId} key={block.title}>
-                  <MetadataLabel>I/O2.0 SYSTEM</MetadataLabel>
-                  <h2 id={blockId}>{block.title}</h2>
-                  <p>{block.note}</p>
-                </section>
-              );
-            })}
+        <section className="project-hero archive-record-hero io2-archive-hero" aria-labelledby="io2-system-title">
+          <div className="page-transition-link">
+            <BackToHubLink className="section-transition-link--io2" />
           </div>
-        </SegmentLandingPage>
+          <p className="archive-record-hero__code">{sectionCode(archiveSection.label)}</p>
+          <h1 className="display-type section-title" id="io2-system-title">
+            {archiveSection.title}
+          </h1>
+          <p className="project-hero__subtitle">{archiveSection.subtitle}</p>
+          <p>{archiveSection.intro}</p>
+        </section>
+
+        <SectionArchiveIndex {...ioSectionArchiveIndexes.io2} />
+
+        <div className="project-section-stack io2-archive-stack">
+          {archiveSection.sections.map((block) => {
+            const blockId = `io2-system-${block.title.toLowerCase().replaceAll(" ", "-")}`;
+
+            return (
+              <section className="project-section io2-archive-section" aria-labelledby={blockId} key={block.title}>
+                <MetadataLabel>{block.marker ?? sectionMarker(block.title)}</MetadataLabel>
+                <h2 id={blockId}>{block.title}</h2>
+                <p>{block.note}</p>
+              </section>
+            );
+          })}
+        </div>
       </main>
     </AtmosphericFrame>
   );

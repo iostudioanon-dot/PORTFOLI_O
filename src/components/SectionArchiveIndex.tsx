@@ -24,7 +24,7 @@ function ArchiveIndexCard({ item }: { item: SectionArchiveIndexItem }) {
       <span className="section-archive-index__item-title display-type">{item.title}</span>
       <span className="section-archive-index__item-subtitle">{item.subtitle}</span>
       {isPending ? (
-        <span className="section-archive-index__item-status">ARCHIVE PENDING</span>
+        <span className="section-archive-index__item-status">RESEARCH RECORD IN DEVELOPMENT</span>
       ) : null}
     </>
   );
@@ -32,7 +32,7 @@ function ArchiveIndexCard({ item }: { item: SectionArchiveIndexItem }) {
   if (isPending) {
     return (
       <article
-        aria-label={`${item.title}: archive pending`}
+        aria-label={`${item.title}: research record in development`}
         className="section-archive-index__card section-archive-index__card--pending"
       >
         {content}

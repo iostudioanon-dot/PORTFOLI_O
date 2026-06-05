@@ -2813,6 +2813,43 @@ a.instruction-qr__frame:hover {
   text-transform: uppercase;
 }
 
+.archive-record-hero {
+  align-items: center;
+  display: grid;
+  justify-items: center;
+  min-height: auto;
+  padding-bottom: clamp(2.4rem, 5vw, 4.5rem);
+  text-align: center;
+}
+
+.archive-record-hero .page-transition-link {
+  justify-self: start;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.archive-record-hero__code {
+  color: var(--project-primary, var(--muted));
+  font-family: var(--font-technical);
+  font-size: clamp(0.82rem, 1vw, 0.95rem);
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.archive-record-hero .section-title {
+  margin-top: clamp(0.4rem, 1vw, 0.8rem);
+}
+
+.archive-record-hero .project-hero__subtitle {
+  margin-top: clamp(0.7rem, 1.5vw, 1.1rem);
+}
+
+.archive-record-hero > p:not(.archive-record-hero__code):not(.project-hero__subtitle) {
+  margin-top: clamp(0.9rem, 2vw, 1.4rem);
+  max-width: 58ch;
+}
+
 .project-hero__actions {
   align-items: center;
   display: flex;

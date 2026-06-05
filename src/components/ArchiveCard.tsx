@@ -82,7 +82,7 @@ export function ArchiveCard({ asset }: ArchiveCardProps) {
   return (
     <article className="archive-card archive-card--locked">
       {content}
-      <span className="archive-card__action">ARCHIVE PENDING</span>
+      <span className="archive-card__action">RESEARCH RECORD IN DEVELOPMENT</span>
     </article>
   );
 }

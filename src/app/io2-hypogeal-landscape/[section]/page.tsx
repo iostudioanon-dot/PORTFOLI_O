@@ -29,6 +29,32 @@ export async function generateMetadata({ params }: IO2ArchivePageProps) {
   };
 }
 
+function sectionCode(label: string) {
+  return label.split(" ")[0] ?? label;
+}
+
+function sectionMarker(title: string) {
+  const normalizedTitle = title.toLowerCase();
+
+  if (normalizedTitle.includes("concept") || normalizedTitle.includes("context")) {
+    return "CONTEXT";
+  }
+
+  if (normalizedTitle.includes("development") || normalizedTitle.includes("experiment") || normalizedTitle.includes("structure")) {
+    return "PROCESS";
+  }
+
+  if (normalizedTitle.includes("audio") || normalizedTitle.includes("interactive") || normalizedTitle.includes("output")) {
+    return "OUTPUT";
+  }
+
+  if (normalizedTitle.includes("reflection") || normalizedTitle.includes("influence")) {
+    return "REFLECTION";
+  }
+
+  return "RESEARCH";
+}
+
 export default async function IO2ArchivePage({ params }: IO2ArchivePageProps) {
   const { section } = await params;
   const archiveSection = io2ArchiveSectionMap.get(section);
@@ -50,28 +76,16 @@ export default async function IO2ArchivePage({ params }: IO2ArchivePageProps) {
           } as React.CSSProperties
         }
       >
-        <section className="project-hero io2-archive-hero" aria-labelledby="io2-archive-title">
+        <section className="project-hero archive-record-hero io2-archive-hero" aria-labelledby="io2-archive-title">
           <div className="page-transition-link">
             <BackToHubLink />
           </div>
-          <div className="project-hero__meta">
-            <span>{archiveSection.label}</span>
-            <span>{archiveSection.subtitle}</span>
-          </div>
+          <p className="archive-record-hero__code">{sectionCode(archiveSection.label)}</p>
           <h1 className="display-type section-title" id="io2-archive-title">
-            {archiveSection.label}
+            {archiveSection.title}
           </h1>
           <p className="project-hero__subtitle">{archiveSection.subtitle}</p>
-          <p>
-            A water-coded architecture and landscape record prepared for future images, research,
-            process fragments, sound, and environmental media.
-          </p>
-          <div className="project-status-strip" aria-label="I/O2 archive system status">
-            <span>STATUS / {archiveSection.status}</span>
-            <span>ACCESS / LEVEL_02</span>
-            <span>ENVIRONMENT / SUBTERRANEAN</span>
-            <span>PALETTE / BLACK WHITE BLUE</span>
-          </div>
+          <p>{archiveSection.intro}</p>
         </section>
 
         <IO2SecondaryNav activeId={archiveSection.id} />
@@ -82,7 +96,7 @@ export default async function IO2ArchivePage({ params }: IO2ArchivePageProps) {
 
             return (
               <section className="project-section io2-archive-section" aria-labelledby={blockId} key={block.title}>
-                <MetadataLabel>{archiveSection.label}</MetadataLabel>
+                <MetadataLabel>{block.marker ?? sectionMarker(block.title)}</MetadataLabel>
                 <h2 id={blockId}>{block.title}</h2>
                 <p>{block.note}</p>
               </section>

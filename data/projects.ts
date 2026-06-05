@@ -59,7 +59,7 @@ export type ProjectRecord = {
   timeline?: TimelineEntry[];
 };
 
-// Future media systems are added here: set placeholder records to active,
+// Future media systems are added here: set development records to active,
 // attach href values, or add new image/video/audio/pdf/link records per project.
 export const projects: ProjectRecord[] = [
   {
@@ -99,9 +99,9 @@ export const projects: ProjectRecord[] = [
       "Develop still image, moving image, and sound fragments as low-frequency transmissions.",
     ],
     outputs: [
-      "Image archive placeholder",
-      "Video transmission placeholder",
-      "Research trace placeholder",
+      "Image record in development",
+      "Video transmission study in development",
+      "Research trace under review",
     ],
   },
   {
@@ -141,9 +141,9 @@ export const projects: ProjectRecord[] = [
       "Use audio and moving image to suggest systems that are present but not visible.",
     ],
     outputs: [
-      "Audio signal placeholder",
-      "Radar motion placeholder",
-      "Duga reference placeholder",
+      "Audio signal study in development",
+      "Radar motion study in development",
+      "Duga reference trace under review",
     ],
   },
   {
@@ -183,9 +183,9 @@ export const projects: ProjectRecord[] = [
       "Use drawing, model, landscape, and documentation fragments as the main archive language.",
     ],
     outputs: [
-      "Process fragment grid placeholder",
-      "Field documentation PDF placeholder",
-      "Material note placeholder",
+      "Process fragment grid in development",
+      "Field documentation PDF in development",
+      "Material note under review",
     ],
   },
   {
@@ -225,9 +225,9 @@ export const projects: ProjectRecord[] = [
       "Use cyan and electric blue sparingly as water, signal, and hidden machine light.",
     ],
     outputs: [
-      "Excavation plate sequence placeholder",
-      "Underground flow video placeholder",
-      "Infrastructure research placeholder",
+      "Excavation plate sequence in development",
+      "Underground flow video study in development",
+      "Infrastructure research note under review",
     ],
   },
   {
@@ -265,7 +265,7 @@ export const projects: ProjectRecord[] = [
     outputs: [
       "Interactive chronology scaffold",
       "Expandable timeline node system",
-      "Reference constellation placeholder",
+      "Reference constellation under review",
     ],
     timeline: [
       {

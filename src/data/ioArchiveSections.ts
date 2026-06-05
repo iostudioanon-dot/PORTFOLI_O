@@ -3,6 +3,7 @@ import type { ProjectId } from "../../data/projects";
 export type ArchiveSubsection = {
   title: string;
   note: string;
+  marker?: string;
 };
 
 export type ArchiveSectionRecord = {
@@ -11,6 +12,7 @@ export type ArchiveSectionRecord = {
   label: string;
   title: string;
   subtitle: string;
+  intro: string;
   route?: string;
   status: "OPEN" | "PLANNED" | "LOCKED";
   sections: ArchiveSubsection[];
@@ -48,6 +50,7 @@ export const io1ArchiveSections: ArchiveSectionRecord[] = [
     label: "I/O1.1 SENTINEL",
     title: "SENTINEL",
     subtitle: "Primary project archive / monolith sequence",
+    intro: "A focused study of monolith imagery, orbital distance, controlled access, and the Sentinel gateway sequence.",
     route: "/io1/sentinel",
     status: "OPEN",
     sections: [
@@ -91,6 +94,7 @@ export const io1ArchiveSections: ArchiveSectionRecord[] = [
     label: "I/O1.2 STANLEY KUBRICK",
     title: "STANLEY KUBRICK",
     subtitle: "Cinema research archive / 2001 system",
+    intro: "A cinema research record connecting 2001: A Space Odyssey to tools, intelligence, ritual, architecture, and cosmic scale.",
     route: "/io1/kubrick",
     status: "OPEN",
     sections: [
@@ -134,6 +138,7 @@ export const io1ArchiveSections: ArchiveSectionRecord[] = [
     label: "I/O1.3 MORYSETTA",
     title: "MORYSETTA",
     subtitle: "Visual influence archive / atmosphere and composition",
+    intro: "A visual influence record studying atmosphere, restraint, composition, and environmental storytelling.",
     route: "/io1/mouresette",
     status: "OPEN",
     sections: [
@@ -169,6 +174,7 @@ export const io1ArchiveSections: ArchiveSectionRecord[] = [
     label: "I/O1.4 LEONARDO DA VINCI",
     title: "LEONARDO DA VINCI",
     subtitle: "Perspective research archive / optical systems",
+    intro: "A perspective research record exploring optical structure, controlled sightlines, and experimental image systems.",
     route: "/io1/da-vinci",
     status: "OPEN",
     sections: [
@@ -220,14 +226,15 @@ export const io2ArchiveSections: ArchiveSectionRecord[] = [
   {
     id: "system",
     projectId: "io2",
-    label: "I/O2.0 SYSTEM",
+    label: "I/O2.1 SYSTEM",
     title: "BUILDING THE HYPOGEAL LANDSCAPE",
     subtitle: "Architecture and landscape archive / section index",
+    intro: "An index study for the I/O2 landscape: architecture, water, site, structure, and organic environmental systems.",
     route: "/io2-hypogeal-landscape",
     status: "OPEN",
     sections: [
       {
-        title: "Overview",
+        title: "Context",
         note: "I/O2 shifts the project from orbital distance into landscape, structure, water, and built environment.",
       },
       {
@@ -247,17 +254,18 @@ export const io2ArchiveSections: ArchiveSectionRecord[] = [
         note: "Fallingwater becomes a key reference for architecture suspended between land, water, and atmosphere.",
       },
       {
-        title: "I/O2 Archive Links",
-        note: "Future records will connect images, sound, research, and external landscape experiments.",
+        title: "Research Routes",
+        note: "The section links landscape, sound, research, and external environmental experiments into a controlled study sequence.",
       },
     ],
   },
   {
     id: "landscape",
     projectId: "io2",
-    label: "I/O2.1 LANDSCAPE",
+    label: "I/O2.2 LANDSCAPE",
     title: "LANDSCAPE",
     subtitle: "Primary project archive / hypogeal system",
+    intro: "A primary I/O2 study of terrain, depth, water, architectural structure, and hidden environmental systems.",
     route: "/io2-hypogeal-landscape/landscape",
     status: "OPEN",
     sections: [
@@ -298,9 +306,10 @@ export const io2ArchiveSections: ArchiveSectionRecord[] = [
   {
     id: "julien-opie",
     projectId: "io2",
-    label: "I/O2.2 JULIEN OPIE",
-    title: "JULIEN OPIE",
+    label: "I/O2.3 JULIAN OPIE",
+    title: "JULIAN OPIE",
     subtitle: "Research archive / simplified digital language",
+    intro: "A research record on reduction, line, figure, movement, and graphic systems as ways of controlling visual information.",
     route: "/io2-hypogeal-landscape/julien-opie",
     status: "OPEN",
     sections: [
@@ -333,9 +342,10 @@ export const io2ArchiveSections: ArchiveSectionRecord[] = [
   {
     id: "architecture",
     projectId: "io2",
-    label: "I/O2.3 ARCHITECTURE",
+    label: "I/O2.4 ARCHITECTURE",
     title: "ARCHITECTURE",
     subtitle: "Research archive / built environment and organic structure",
+    intro: "A study of built form as environmental structure: line, section, material, atmosphere, and landscape pressure.",
     route: "/io2-hypogeal-landscape/architecture",
     status: "OPEN",
     sections: [
@@ -372,9 +382,10 @@ export const io2ArchiveSections: ArchiveSectionRecord[] = [
   {
     id: "fallingwater",
     projectId: "io2",
-    label: "I/O2.4 FALLINGWATER",
+    label: "I/O2.5 FALLINGWATER",
     title: "FALLINGWATER",
     subtitle: "Research archive / water, structure, and organic architecture",
+    intro: "A case study of Fallingwater as architecture suspended between water, terrain, engineering, and organic site logic.",
     route: "/io2-hypogeal-landscape/fallingwater",
     status: "OPEN",
     sections: [

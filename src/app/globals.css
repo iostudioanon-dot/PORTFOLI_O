@@ -2729,12 +2729,15 @@ a.instruction-qr__frame:hover {
 }
 
 .xfm-central__pdf-link {
+  align-items: center;
   border-bottom: 1px solid rgba(245, 245, 240, 0.48);
   color: var(--foreground);
+  display: inline-flex;
   font-family: var(--font-technical);
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   margin-top: clamp(2rem, 4vw, 3rem);
+  min-height: 2.75rem;
   padding-bottom: 0.45rem;
   text-decoration: none;
   text-transform: uppercase;
@@ -4017,7 +4020,9 @@ details p {
   .system-nav a {
     align-items: center;
     display: inline-flex;
-    min-height: 2.25rem;
+    justify-content: center;
+    min-height: 2.75rem;
+    min-width: 2.75rem;
     padding-block: 0.45rem;
   }
 

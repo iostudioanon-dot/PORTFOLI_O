@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ArchiveAsset } from "@/data/archiveRegistry";
 
 type ExternalTransmissionProps = {
@@ -24,13 +25,25 @@ export function ExternalTransmission({ asset }: ExternalTransmissionProps) {
     return <div className={className}>{content}</div>;
   }
 
+  if (isInternalRoute) {
+    return (
+      <Link
+        aria-label={`${asset.action}: ${asset.title}`}
+        className={className}
+        href={asset.url}
+      >
+        {content}
+      </Link>
+    );
+  }
+
   return (
     <a
       aria-label={`${asset.action}: ${asset.title}`}
       className={className}
       href={asset.url}
-      rel={isInternalRoute ? undefined : "noopener noreferrer"}
-      target={isInternalRoute ? undefined : "_blank"}
+      rel="noopener noreferrer"
+      target="_blank"
     >
       {content}
     </a>

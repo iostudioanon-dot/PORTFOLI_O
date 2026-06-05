@@ -25,12 +25,20 @@ export const coreRoutes: RouteEntry[] = [
   },
 ];
 
-export const projectRoutes: RouteEntry[] = projects.map((project, index) => ({
-  id: project.id,
-  label: project.navLabel,
-  route: project.route,
-  status: project.status,
-  order: index + 2,
-}));
+const projectOrder = ["io1", "io2", "io3", "io4", "xfm"];
+
+export const projectRoutes: RouteEntry[] = projects
+  .map((project, index) => ({
+    id: project.id,
+    label: project.navLabel,
+    route: project.route,
+    status: project.status,
+    order: index + 2,
+  }))
+  .sort((a, b) => projectOrder.indexOf(a.id) - projectOrder.indexOf(b.id))
+  .map((entry, index) => ({
+    ...entry,
+    order: index + 2,
+  }));
 
 export const siteMap = [...coreRoutes, ...projectRoutes];

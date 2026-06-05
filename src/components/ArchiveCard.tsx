@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { ArchiveAsset } from "@/data/archiveRegistry";
 
 type ArchiveCardProps = {
@@ -6,6 +7,7 @@ type ArchiveCardProps = {
 };
 
 export function ArchiveCard({ asset }: ArchiveCardProps) {
+  const isInternalRoute = asset.url.startsWith("/") && !asset.url.includes("/assets/");
   const content = (
     <>
       <div className="archive-card__body">
@@ -50,6 +52,19 @@ export function ArchiveCard({ asset }: ArchiveCardProps) {
   );
 
   if (asset.url) {
+    if (isInternalRoute) {
+      return (
+        <Link
+          aria-label={`${asset.action}: ${asset.title}`}
+          className={`archive-card archive-card--active${asset.qrImage ? " archive-card--with-qr" : ""} io-link io-glitch-hover`}
+          href={asset.url}
+        >
+          {content}
+          <span className="archive-card__action">{asset.action}</span>
+        </Link>
+      );
+    }
+
     return (
       <a
         aria-label={`${asset.action}: ${asset.title}`}

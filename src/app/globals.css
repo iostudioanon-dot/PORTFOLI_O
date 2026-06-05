@@ -847,6 +847,185 @@ summary:focus-visible {
   max-width: 96rem;
 }
 
+.manual-page--entry {
+  align-content: start;
+  justify-items: center;
+  max-width: 92rem;
+}
+
+.manual-entry {
+  display: grid;
+  gap: clamp(3.1rem, 6vw, 5.25rem);
+  justify-items: center;
+  margin-inline: auto;
+  max-width: min(100%, 56rem);
+  text-align: center;
+  width: 100%;
+}
+
+.manual-entry__route {
+  justify-self: center;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  width: min(100%, 56rem);
+}
+
+.manual-entry__route .transmission-link {
+  margin-inline: auto;
+}
+
+.manual-entry__header {
+  border-block: 1px solid rgba(245, 245, 240, 0.1);
+  display: grid;
+  gap: clamp(0.85rem, 1.8vw, 1.25rem);
+  justify-items: center;
+  padding-block: clamp(2.4rem, 5vw, 3.8rem);
+  width: 100%;
+}
+
+.manual-entry__qr-marker {
+  height: auto;
+  opacity: 0.9;
+  width: clamp(10rem, 22vw, 20rem);
+}
+
+.manual-entry__title {
+  font-size: clamp(4.2rem, 9vw, 8.6rem);
+  line-height: 0.88;
+  margin: 0;
+  text-align: center;
+}
+
+.manual-entry__summary {
+  color: var(--foreground);
+  font-family: var(--font-technical);
+  font-size: clamp(0.78rem, 1vw, 0.94rem);
+  letter-spacing: 0.055em;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 48rem;
+  text-transform: uppercase;
+}
+
+.manual-entry__section {
+  border-top: 1px solid rgba(245, 245, 240, 0.1);
+  display: grid;
+  gap: clamp(1.15rem, 2.5vw, 1.9rem);
+  justify-items: center;
+  padding-top: clamp(1.4rem, 3vw, 2rem);
+  width: min(100%, 44rem);
+}
+
+.manual-entry__kicker {
+  color: var(--muted);
+  font-family: var(--font-technical);
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  line-height: 1.35;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.manual-entry__section-title {
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-size: clamp(1.65rem, 3.8vw, 3rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.05;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.manual-entry__list,
+.manual-entry__media-types {
+  display: grid;
+  gap: clamp(0.55rem, 1.4vw, 0.9rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.manual-entry__list li {
+  color: var(--foreground);
+  font-family: var(--font-technical);
+  font-size: clamp(0.88rem, 1.15vw, 1.05rem);
+  letter-spacing: 0.05em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.manual-entry__note {
+  color: var(--muted);
+  font-size: clamp(0.98rem, 1.2vw, 1.12rem);
+  line-height: 1.65;
+  margin: clamp(0.3rem, 1vw, 0.65rem) 0 0;
+  max-width: 44rem;
+}
+
+.manual-entry__nav-list {
+  display: grid;
+  gap: 0;
+  width: min(100%, 38rem);
+}
+
+.manual-entry__nav-item {
+  border-top: 1px solid rgba(245, 245, 240, 0.1);
+  color: var(--foreground);
+  display: grid;
+  gap: 0.45rem;
+  padding: clamp(1rem, 2.2vw, 1.35rem) 0;
+  text-decoration: none;
+  transition:
+    color var(--motion-hover) ease,
+    opacity var(--motion-hover) ease,
+    text-shadow var(--motion-hover) ease;
+}
+
+.manual-entry__nav-item:last-child {
+  border-bottom: 1px solid rgba(245, 245, 240, 0.1);
+}
+
+.manual-entry__nav-item span {
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.manual-entry__nav-item small {
+  color: var(--muted);
+  font-family: var(--font-technical);
+  font-size: 0.72rem;
+  letter-spacing: 0.055em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+a.manual-entry__nav-item:hover,
+a.manual-entry__nav-item:focus-visible {
+  color: var(--foreground);
+  opacity: 0.86;
+  text-shadow:
+    1px 0 var(--io-glitch-blue),
+    -1px 0 var(--io-glitch-red);
+}
+
+.manual-entry__media-types {
+  gap: clamp(0.45rem, 1vw, 0.7rem);
+  margin-top: clamp(0.25rem, 1vw, 0.55rem);
+}
+
+.manual-entry__media-types li {
+  color: var(--muted);
+  font-family: var(--font-technical);
+  font-size: clamp(0.78rem, 0.9vw, 0.86rem);
+  letter-spacing: 0.055em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
 .manual-copy {
   min-width: 0;
 }
@@ -4122,14 +4301,6 @@ details p {
 
   .landing-primary-route-link {
     animation: none !important;
-  }
-
-  .landing__title-io-gif {
-    display: none;
-  }
-
-  .landing__title-io-fallback {
-    display: inline;
   }
 
   .environmental-stack-signal__layers::after,

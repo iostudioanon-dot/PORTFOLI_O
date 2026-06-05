@@ -20,7 +20,8 @@ export type SectionArchiveIndexItem = {
   id: string;
   title: string;
   subtitle: string;
-  href: string;
+  href?: string;
+  status?: "OPEN" | "PENDING";
 };
 
 export type SectionArchiveIndexRecord = {
@@ -35,7 +36,8 @@ function indexItemFromArchiveSection(section: ArchiveSectionRecord): SectionArch
     id: section.label.split(" ")[0],
     title: section.title,
     subtitle: section.subtitle,
-    href: section.route ?? "#",
+    href: section.route,
+    status: section.route ? "OPEN" : "PENDING",
   };
 }
 
@@ -427,7 +429,43 @@ export const ioSectionArchiveIndexes: Record<"io1" | "io2" | "io3" | "io4", Sect
     sectionLabel: "I/O2 ARCHIVE INDEX",
     sectionTitle: "HYPOGEAL LANDSCAPE",
     sectionSubtitle: "Subterranean architecture / landscape system / water archive",
-    archiveItems: io2ArchiveSections.map(indexItemFromArchiveSection),
+    archiveItems: [
+      {
+        id: "I/O2.1",
+        title: "BUILDING THE HYPOGEAL LANDSCAPE",
+        subtitle: "Architecture and landscape archive / section index",
+        href: "/io2-hypogeal-landscape",
+        status: "OPEN",
+      },
+      {
+        id: "I/O2.2",
+        title: "LANDSCAPE",
+        subtitle: "Primary project archive / hypogeal system",
+        href: "/io2-hypogeal-landscape/landscape",
+        status: "OPEN",
+      },
+      {
+        id: "I/O2.3",
+        title: "JULIAN OPIE",
+        subtitle: "Research archive / simplified digital language",
+        href: "/io2-hypogeal-landscape/julien-opie",
+        status: "OPEN",
+      },
+      {
+        id: "I/O2.4",
+        title: "ARCHITECTURE",
+        subtitle: "Research archive / built environment and organic structure",
+        href: "/io2-hypogeal-landscape/architecture",
+        status: "OPEN",
+      },
+      {
+        id: "I/O2.5",
+        title: "FALLINGWATER",
+        subtitle: "Research archive / water, structure, and organic architecture",
+        href: "/io2-hypogeal-landscape/fallingwater",
+        status: "OPEN",
+      },
+    ],
   },
   io3: {
     sectionLabel: "I/O3 ARCHIVE INDEX",
@@ -438,25 +476,26 @@ export const ioSectionArchiveIndexes: Record<"io1" | "io2" | "io3" | "io4", Sect
         id: "I/O3.1",
         title: "IONOSPHERIC INTERSECTION",
         subtitle: "Primary project archive / atmospheric transmission system",
-        href: "#context-title",
+        status: "PENDING",
       },
       {
         id: "I/O3.2",
         title: "FINAL ARTWORK FIELD STUDY",
         subtitle: "External transmission / in-depth artwork archive",
         href: "https://iostudioanon-dot.github.io/IO3-INFO-ART/",
+        status: "OPEN",
       },
       {
         id: "I/O3.3",
         title: "SIGNAL RECORDS",
         subtitle: "Recovered media records / video image research",
-        href: "#signal-records-title",
+        status: "PENDING",
       },
       {
         id: "I/O3.4",
         title: "PROCESS FRAGMENTS",
         subtitle: "Evidence notes / atmospheric system references",
-        href: "#process-title",
+        status: "PENDING",
       },
     ],
   },
@@ -469,25 +508,25 @@ export const ioSectionArchiveIndexes: Record<"io1" | "io2" | "io3" | "io4", Sect
         id: "I/O4.1",
         title: "PRODUCTIVE FAILURE",
         subtitle: "Primary project archive / material and process system",
-        href: "#context-title",
+        status: "PENDING",
       },
       {
         id: "I/O4.2",
         title: "SIGNAL RECORDS",
         subtitle: "Recovered media records / archive references",
-        href: "#signal-records-title",
+        status: "PENDING",
       },
       {
         id: "I/O4.3",
         title: "VISUAL RECORDS",
         subtitle: "Image archive / process documentation",
-        href: "#visual-records-title",
+        status: "PENDING",
       },
       {
         id: "I/O4.4",
         title: "PROCESS FRAGMENTS",
         subtitle: "Research notes / development evidence",
-        href: "#process-title",
+        status: "PENDING",
       },
     ],
   },

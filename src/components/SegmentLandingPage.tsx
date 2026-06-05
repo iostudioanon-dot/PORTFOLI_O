@@ -40,16 +40,19 @@ export function SegmentLandingPage({
           <h1 className="segment-landing__title display-type" id="project-title">
             {project.title}
           </h1>
+          <p className="segment-landing__subtitle">{project.subtitle}</p>
         </header>
 
-        {project.headerGif ? (
-          <div className="segment-landing__media">
-            <HeaderGifBlock gif={project.headerGif} />
-          </div>
-        ) : null}
+        {sectionArchiveIndex ? <SectionArchiveIndex {...sectionArchiveIndex} /> : null}
+
+        <p className="segment-landing__context">{project.description}</p>
       </section>
 
-      {sectionArchiveIndex ? <SectionArchiveIndex {...sectionArchiveIndex} /> : null}
+      {project.headerGif ? (
+        <div className="segment-landing__media">
+          <HeaderGifBlock gif={project.headerGif} />
+        </div>
+      ) : null}
 
       {children}
     </>

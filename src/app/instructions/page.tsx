@@ -8,6 +8,7 @@ import { assetPath } from "@/lib/assetPath";
 const instructionQrMarkerSrc = assetPath(
   "/assets/instructions/images/IO%20QR%20INSTRUCTION%20VIDEO%20V1.png",
 );
+const instructionQrMarkerUrl = "https://www.youtube.com/watch?v=XgUie3WoanA";
 
 const accessMaterials = [
   "Portfolio",
@@ -46,13 +47,21 @@ export default function InstructionsPage() {
 
         <section className="manual-entry" aria-labelledby="manual-title">
           <header className="manual-entry__header">
-            <Image
-              alt="QR instruction access image for the I/O multimedia portfolio"
-              className="manual-entry__qr-marker"
-              height={841}
-              src={instructionQrMarkerSrc}
-              width={834}
-            />
+            <a
+              aria-label="Open QR instruction video for the I/O multimedia portfolio"
+              className="manual-entry__qr-link io-link"
+              href={instructionQrMarkerUrl}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Image
+                alt="QR instruction access image for the I/O multimedia portfolio"
+                className="manual-entry__qr-marker"
+                height={841}
+                src={instructionQrMarkerSrc}
+                width={834}
+              />
+            </a>
             <h1 className="display-type manual-entry__title" id="manual-title">
               MANUAL
             </h1>

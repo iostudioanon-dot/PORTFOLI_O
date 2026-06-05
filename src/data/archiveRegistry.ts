@@ -48,7 +48,7 @@ export const archiveRegistry: ArchiveAsset[] = [
     title: "I/O: The Three Levels of Nature",
     type: "video",
     status: "EXTERNAL_TRANSMISSION",
-    url: "https://www.youtube.com/watch?v=TLpH2TUjCOg&t=89s",
+    url: "https://youtu.be/TLpH2TUjCOg",
     description:
       "External research transmission connected to First Nature, Second Nature and Third Nature.",
     signalStrength: 72,

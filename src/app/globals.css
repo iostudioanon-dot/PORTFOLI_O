@@ -888,6 +888,18 @@ summary:focus-visible {
   width: clamp(10rem, 22vw, 20rem);
 }
 
+.manual-entry__qr-link {
+  display: inline-flex;
+  justify-content: center;
+  outline-offset: 0.45rem;
+  text-decoration: none;
+}
+
+.manual-entry__qr-link:hover .manual-entry__qr-marker,
+.manual-entry__qr-link:focus-visible .manual-entry__qr-marker {
+  opacity: 1;
+}
+
 .manual-entry__title {
   font-size: clamp(4.2rem, 9vw, 8.6rem);
   line-height: 0.88;

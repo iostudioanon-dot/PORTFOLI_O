@@ -15,6 +15,14 @@ function getSegmentLabel(project: ProjectRecord) {
   return project.navLabel.replace("I/O", "IO");
 }
 
+function getTransitionClass(project: ProjectRecord) {
+  if (project.id === "io1" || project.id === "io2" || project.id === "io3" || project.id === "io4") {
+    return `section-transition-link section-transition-link--${project.id}`;
+  }
+
+  return "section-transition-link";
+}
+
 export function SegmentLandingPage({
   children,
   project,
@@ -24,7 +32,7 @@ export function SegmentLandingPage({
     <>
       <section className="segment-landing" aria-labelledby="project-title">
         <div className="segment-landing__transition page-transition-link">
-          <BackToHubLink />
+          <BackToHubLink className={getTransitionClass(project)} />
         </div>
 
         <header className="segment-landing__title-block">

@@ -1,0 +1,362 @@
+[
+  {
+    "id": "i-o1-sputnik-io-v1-jfk",
+    "title": "IO V1 JFK",
+    "existingPath": "/assets/io1-sentinel/IO1 PDF/IO V1 JFK.pdf",
+    "category": "I/O1",
+    "subcategory": "Sputnik",
+    "description": "JFK / Space Race source material connected to the Sputnik audio and orbital research thread.",
+    "status": "indexed"
+  },
+  {
+    "id": "archive-unsorted-io0-l-statement-v2-3",
+    "title": "IO0.l Statement V2 (3)",
+    "existingPath": "/assets/io1-sentinel/IO1 PDF/IO0.l Statement V2 (3).pdf",
+    "category": "Archive",
+    "subcategory": "Unsorted",
+    "description": "General statement document retained in its current location.",
+    "status": "unsorted"
+  },
+  {
+    "id": "i-o1-sputnik-io1-cd-sputnik-cover",
+    "title": "IO1 CD Sputnik Cover",
+    "existingPath": "/assets/io1-sentinel/IO1 PDF/IO1 cd SPUTNIK COVER.pdf",
+    "category": "I/O1",
+    "subcategory": "Sputnik",
+    "description": "Sputnik cover and audio packaging record.",
+    "status": "indexed"
+  },
+  {
+    "id": "i-o1-morysetta-io1-morysetta-studio-dossier",
+    "title": "IO1 Morysetta Studio Dossier",
+    "existingPath": "/assets/io1-sentinel/IO1 PDF/IO1 Morysetta_Studio_Dossier.pdf",
+    "category": "I/O1",
+    "subcategory": "Morysetta",
+    "description": "Morysetta visual influence dossier.",
+    "status": "indexed"
+  },
+  {
+    "id": "i-o1-sputnik-io1-7-sputnk",
+    "title": "IO1,7 Sputnik",
+    "existingPath": "/assets/io1-sentinel/IO1 PDF/IO1,7 SPUTNK.pdf",
+    "category": "I/O1",
+    "subcategory": "Sputnik",
+    "description": "Sputnik project record.",
+    "status": "indexed"
+  },
+  {
+    "id": "i-o1-kubrick-io1-1-kubrick",
+    "title": "IO1.1 Kubrick",
+    "existingPath": "/assets/io1-sentinel/IO1 PDF/IO1.1 KUBRICK.pdf",
+    "category": "I/O1",
+    "subcategory": "Kubrick",
+    "description": "Stanley Kubrick research record.",
+    "status": "indexed"
+  },
+  {
+    "id": "i-o1-kubrick-io1-2-2001",
+    "title": "IO1.2 2001",
+    "existingPath": "/assets/io1-sentinel/IO1 PDF/IO1.2 2001.pdf",
+    "category": "I/O1",
+    "subcategory": "Kubrick",
+    "description": "2001: A Space Odyssey research record.",
+    "status": "indexed"
+  },
+  {
+    "id": "unsorted-unsorted-io1-3-tshirt",
+    "title": "IO1.3 T-Shirt",
+    "existingPath": "/assets/io1-sentinel/IO1 PDF/IO1.3 TSHIRT.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "Filename does not clearly identify one of the requested I/O1 PDF subsections.",
+    "status": "unsorted"
+  },
+  {
+    "id": "i-o1-sputnik-io1-6-psb-study-racr-to-space",
+    "title": "IO1.6 PSB Study Race To Space",
+    "existingPath": "/assets/io1-sentinel/IO1 PDF/IO1.6 PSB STUDY RACR TO SPACE.pdf",
+    "category": "I/O1",
+    "subcategory": "Sputnik",
+    "description": "Public Service Broadcasting / Space Race study connected to Sputnik audio research.",
+    "status": "indexed"
+  },
+  {
+    "id": "unsorted-unsorted-io1-8-tech-sentinel",
+    "title": "IO1.8 Tech Sentinel",
+    "existingPath": "/assets/io1-sentinel/IO1 PDF/IO1.8. TECH SENTINEL.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "Sentinel technical record retained for later category decision.",
+    "status": "unsorted"
+  },
+  {
+    "id": "timeline-timeline-io-time-line-edit-1",
+    "title": "IO Time Line Edit 1",
+    "existingPath": "/assets/pdfs/io1/IO TIME LINE EDIT 1.pdf",
+    "category": "Timeline",
+    "subcategory": "Timeline",
+    "description": "Timeline-related PDF currently stored in the I/O1 PDF staging folder.",
+    "status": "indexed"
+  },
+  {
+    "id": "unsorted-unsorted-io1-eden-project-1",
+    "title": "IO1 Eden Project 1",
+    "existingPath": "/assets/pdfs/io1/IO1 Eden Project 1.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "Eden Project PDF does not clearly match the requested I/O1 subsections.",
+    "status": "unsorted"
+  },
+  {
+    "id": "i-o1-sputnik-io1-moon-start-edit",
+    "title": "IO1 Moon Start Edit",
+    "existingPath": "/assets/pdfs/io1/IO1 MOON START EDIT.pdf",
+    "category": "I/O1",
+    "subcategory": "Sputnik",
+    "description": "Moon / Space Race material connected to the Sputnik research thread.",
+    "status": "indexed"
+  },
+  {
+    "id": "i-o1-morysetta-io1-morysetta-studio-dossier-2",
+    "title": "IO1 Morysetta Studio Dossier",
+    "existingPath": "/assets/pdfs/io1/IO1 Morysetta_Studio_Dossier.pdf",
+    "category": "I/O1",
+    "subcategory": "Morysetta",
+    "description": "Staged Morysetta dossier copy retained in its current path.",
+    "status": "indexed"
+  },
+  {
+    "id": "i-o2-architecture-io2-arch-landcape-bride",
+    "title": "IO2 Architecture Landscape Bridge",
+    "existingPath": "/assets/io2-hypogeal-landscape/IO2 PDF/IO2 ARCH LANDCAPE BRIDE.pdf",
+    "category": "I/O2",
+    "subcategory": "Architecture",
+    "description": "Architecture and landscape bridge record.",
+    "status": "indexed"
+  },
+  {
+    "id": "i-o2-fallingwater-io2-flw-p01",
+    "title": "IO2 Fallingwater P01",
+    "existingPath": "/assets/io2-hypogeal-landscape/IO2 PDF/IO2 FLW P01.pdf",
+    "category": "I/O2",
+    "subcategory": "Fallingwater",
+    "description": "Fallingwater research record, part 1.",
+    "status": "indexed"
+  },
+  {
+    "id": "i-o2-fallingwater-io2-flw-p2",
+    "title": "IO2 Fallingwater P2",
+    "existingPath": "/assets/io2-hypogeal-landscape/IO2 PDF/IO2 FLW P2.pdf",
+    "category": "I/O2",
+    "subcategory": "Fallingwater",
+    "description": "Fallingwater research record, part 2.",
+    "status": "indexed"
+  },
+  {
+    "id": "i-o2-julian-opie-io2-jo-final",
+    "title": "IO2 Julian Opie Final",
+    "existingPath": "/assets/io2-hypogeal-landscape/IO2 PDF/IO2 JO final.pdf",
+    "category": "I/O2",
+    "subcategory": "Julian Opie",
+    "description": "Julian Opie research record.",
+    "status": "indexed"
+  },
+  {
+    "id": "i-o2-landscape-io2-landscape-historical",
+    "title": "IO2 Landscape Historical",
+    "existingPath": "/assets/io2-hypogeal-landscape/IO2 PDF/IO2 LANDSCAPE HISTORICAL.pdf",
+    "category": "I/O2",
+    "subcategory": "Landscape",
+    "description": "Landscape historical research record.",
+    "status": "indexed"
+  },
+  {
+    "id": "unsorted-unsorted-io2-v9-reflection",
+    "title": "IO2 V9 Reflection",
+    "existingPath": "/assets/io2-hypogeal-landscape/IO2 PDF/io2 v9 REFLECTION.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "Reflection PDF retained for later category decision.",
+    "status": "unsorted"
+  },
+  {
+    "id": "i-o2-architecture-io2-3-architecture-v1",
+    "title": "IO2.3 Architecture V1",
+    "existingPath": "/assets/io2-hypogeal-landscape/IO2 PDF/IO2.3 architecture v1.pdf",
+    "category": "I/O2",
+    "subcategory": "Architecture",
+    "description": "Architecture research record, version 1.",
+    "status": "indexed"
+  },
+  {
+    "id": "i-o2-architecture-io2-3-architecture-v2",
+    "title": "IO2.3 Architecture V2",
+    "existingPath": "/assets/io2-hypogeal-landscape/IO2 PDF/IO2.3 architecture v2.pdf",
+    "category": "I/O2",
+    "subcategory": "Architecture",
+    "description": "Architecture research record, version 2.",
+    "status": "indexed"
+  },
+  {
+    "id": "unsorted-unsorted-io2-8-cultural-references-2",
+    "title": "IO2.8 Cultural References 2",
+    "existingPath": "/assets/io2-hypogeal-landscape/IO2 PDF/IO2.8 CULTURAL REFERENCES 2.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "Cultural reference document retained for later category decision.",
+    "status": "unsorted"
+  },
+  {
+    "id": "unsorted-unsorted-io2-8-cultural-references",
+    "title": "IO2.8 Cultural References",
+    "existingPath": "/assets/io2-hypogeal-landscape/IO2 PDF/IO2.8 CULTURAL REFERENCES.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "Cultural reference document retained for later category decision.",
+    "status": "unsorted"
+  },
+  {
+    "id": "i-o2-landscape-io-2-building-hypogeal-reality",
+    "title": "IO2 Building Hypogeal Reality",
+    "existingPath": "/assets/pdfs/io2/IO 2 Building_Hypogeal_Reality.pdf",
+    "category": "I/O2",
+    "subcategory": "Landscape",
+    "description": "Staged I/O2 hypogeal landscape PDF retained in its current path.",
+    "status": "indexed"
+  },
+  {
+    "id": "i-o2-fallingwater-io2-fallingwater-overview-1",
+    "title": "IO2 Fallingwater Overview 1",
+    "existingPath": "/assets/pdfs/io2/IO2 FALLINGWATER OVERVIEW 1.pdf",
+    "category": "I/O2",
+    "subcategory": "Fallingwater",
+    "description": "Staged Fallingwater overview PDF retained in its current path.",
+    "status": "indexed"
+  },
+  {
+    "id": "unsorted-unsorted-i-o3-navigate-the-ai-example-folio",
+    "title": "I/O3 Navigate the AI Example Folio",
+    "existingPath": "/assets/io3-ionospheric-intersection/IO3 PDF/I_O3_ Navigate the AI EXAMPLE FOLIO.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "I/O3 AI example folio does not clearly match the requested I/O3 subsections.",
+    "status": "unsorted"
+  },
+  {
+    "id": "unsorted-unsorted-io3-0-3-3-natures-slandscape",
+    "title": "IO3 0.3 Three Natures Landscape",
+    "existingPath": "/assets/io3-ionospheric-intersection/IO3 PDF/IO3 0.3 3 NATURES SLANDSCAPE.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "Three Natures landscape record retained for later category decision.",
+    "status": "unsorted"
+  },
+  {
+    "id": "unsorted-unsorted-io3-exam-prep",
+    "title": "IO3 Exam Prep",
+    "existingPath": "/assets/io3-ionospheric-intersection/IO3 PDF/IO3 EXAM PREP.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "Exam preparation document retained for later category decision.",
+    "status": "unsorted"
+  },
+  {
+    "id": "unsorted-unsorted-io3-exam-prep2",
+    "title": "IO3 Exam Prep 2",
+    "existingPath": "/assets/io3-ionospheric-intersection/IO3 PDF/IO3 EXAM PREP2.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "Exam preparation document retained for later category decision.",
+    "status": "unsorted"
+  },
+  {
+    "id": "unsorted-unsorted-io3-gallery",
+    "title": "IO3 Gallery",
+    "existingPath": "/assets/io3-ionospheric-intersection/IO3 PDF/io3 gallery.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "I/O3 gallery PDF retained for later category decision.",
+    "status": "unsorted"
+  },
+  {
+    "id": "unsorted-unsorted-io3-part-01",
+    "title": "IO3 Part 01",
+    "existingPath": "/assets/io3-ionospheric-intersection/IO3 PDF/IO3 PART 01.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "I/O3 part document retained for later category decision.",
+    "status": "unsorted"
+  },
+  {
+    "id": "unsorted-unsorted-io3-part-02",
+    "title": "IO3 Part 02",
+    "existingPath": "/assets/io3-ionospheric-intersection/IO3 PDF/IO3 PART 02.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "I/O3 part document retained for later category decision.",
+    "status": "unsorted"
+  },
+  {
+    "id": "i-o3-ionosphere-ionospheric-propagation-blueprint",
+    "title": "Ionospheric Propagation Blueprint",
+    "existingPath": "/assets/io3-ionospheric-intersection/IO3 PDF/Ionospheric_Propagation_Blueprint.pdf",
+    "category": "I/O3",
+    "subcategory": "Ionosphere",
+    "description": "Ionospheric propagation blueprint.",
+    "status": "indexed"
+  },
+  {
+    "id": "unsorted-unsorted-104-4-robot",
+    "title": "104.4 Robot",
+    "existingPath": "/assets/io4-final-outcome/IO4 PDF/104.4 ROBOT.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "Robot PDF retained for later I/O4 category decision.",
+    "status": "unsorted"
+  },
+  {
+    "id": "unsorted-unsorted-104-5-robot",
+    "title": "104.5 Robot",
+    "existingPath": "/assets/io4-final-outcome/IO4 PDF/104.5 ROBOT.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "Robot PDF retained for later I/O4 category decision.",
+    "status": "unsorted"
+  },
+  {
+    "id": "unsorted-unsorted-io4-essay-slides",
+    "title": "IO4 Essay Slides",
+    "existingPath": "/assets/io4-final-outcome/IO4 PDF/io4 ESSAY SLIDES.pdf",
+    "category": "Unsorted",
+    "subcategory": "Unsorted",
+    "description": "I/O4 essay slides retained for later category decision.",
+    "status": "unsorted"
+  },
+  {
+    "id": "i-o4-productive-failure-io4-finale-work",
+    "title": "IO4 Finale Work",
+    "existingPath": "/assets/io4-final-outcome/IO4 PDF/IO4 FINALE WORK.pdf",
+    "category": "I/O4",
+    "subcategory": "Productive Failure",
+    "description": "I/O4 final work record connected to Productive Failure.",
+    "status": "indexed"
+  },
+  {
+    "id": "archive-archive-the-io-project2",
+    "title": "The I/O Project 2",
+    "existingPath": "/assets/navigation/The_IO_Project2.pdf",
+    "category": "Archive",
+    "subcategory": "Archive",
+    "description": "General navigation / project PDF retained in its current path.",
+    "status": "indexed"
+  },
+  {
+    "id": "timeline-timeline-timeline-io",
+    "title": "Timeline I/O PDF Archive",
+    "existingPath": "/assets/pdfs/io-transition/03-timeline-io/timeline-io.pdf",
+    "category": "Timeline",
+    "subcategory": "Timeline",
+    "description": "Existing Timeline I/O page reference. File is not currently present in public assets.",
+    "status": "missing"
+  }
+]

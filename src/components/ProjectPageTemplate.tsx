@@ -4,6 +4,7 @@ import { ArchiveCard } from "./ArchiveCard";
 import { EvidencePanel } from "./EvidencePanel";
 import { ImageArchiveViewer } from "./ImageArchiveViewer";
 import { MetadataLabel } from "./MetadataLabel";
+import { PdfLibrary } from "./PdfLibrary";
 import { SegmentLandingPage } from "./SegmentLandingPage";
 import { SentinelExternalPanel } from "./SentinelExternalPanel";
 import { getImagesForProject } from "@/data/imageRegistry";
@@ -15,6 +16,9 @@ type ProjectPageTemplateProps = {
 
 export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
   const assets = getAssetsForProject(project.id);
+  const visibleAssets = project.id === "io1"
+    ? assets.filter((asset) => asset.type !== "pdf")
+    : assets;
   const images = getImagesForProject(project.id);
   const sectionArchiveIndex = project.id in ioSectionArchiveIndexes
     ? ioSectionArchiveIndexes[project.id as keyof typeof ioSectionArchiveIndexes]
@@ -31,21 +35,61 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
           <p>{project.description}</p>
         </section>
 
-        <section className="project-section" aria-labelledby="signal-records-title">
-          <MetadataLabel>SIGNAL RECORDS</MetadataLabel>
-          <h2 id="signal-records-title">Recovered System Records</h2>
-          <div className="archive-card-grid">
-            {assets.map((asset) => (
-              <ArchiveCard asset={asset} key={asset.id} />
-            ))}
-          </div>
-        </section>
+        {project.id === "io1" ? (
+          <PdfLibrary
+            id="io1-pdf-library-title"
+            label="PDF LIBRARY"
+            sections={[
+              {
+                category: "I/O1",
+                description: "Space Race, JFK, Public Service Broadcasting, and Sputnik audio research records.",
+                subcategory: "Sputnik",
+                title: "Sputnik",
+              },
+              {
+                category: "I/O1",
+                description: "Kubrick and 2001 research records connected to the Sentinel's monolith logic.",
+                subcategory: "Kubrick",
+                title: "Stanley Kubrick",
+              },
+              {
+                category: "I/O1",
+                description: "Visual influence records for atmosphere, composition, and cinematic restraint.",
+                subcategory: "Morysetta",
+                title: "Morysetta",
+              },
+              {
+                category: "I/O1",
+                description: "Perspective and optical systems records for Leonardo da Vinci research.",
+                subcategory: "Leonardo da Vinci",
+                title: "Leonardo da Vinci",
+              },
+            ]}
+            title="I/O1 PDF Research Library"
+          />
+        ) : null}
 
-        {images.length > 0 ? (
+        {visibleAssets.length > 0 ? (
+          <section className="project-section" aria-labelledby="signal-records-title">
+            <MetadataLabel>SIGNAL RECORDS</MetadataLabel>
+            <h2 id="signal-records-title">Recovered System Records</h2>
+            <div className="archive-card-grid">
+              {visibleAssets.map((asset) => (
+                <ArchiveCard asset={asset} key={asset.id} />
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {images.length > 0 || project.id === "io1" ? (
           <section className="project-section" aria-labelledby="visual-records-title">
             <MetadataLabel>VISUAL RECORDS</MetadataLabel>
             <h2 id="visual-records-title">Image Archive</h2>
-            <ImageArchiveViewer images={images} />
+            {images.length > 0 ? (
+              <ImageArchiveViewer images={images} />
+            ) : (
+              <p>Image sequence in development.</p>
+            )}
           </section>
         ) : null}
 

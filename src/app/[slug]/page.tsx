@@ -66,37 +66,40 @@ function XfmTimelinePage({ project }: { project: ProjectRecord }) {
   return (
     <>
       <section className="xfm-central" aria-labelledby="project-title">
-        <div className="xfm-central__media">
-          <HeaderGifBlock gif={timelineHeroGif} />
-        </div>
         <div className="page-transition-link xfm-central__route">
           <BackToHubLink className="section-transition-link section-transition-link--timeline" />
         </div>
+        <p className="xfm-central__number display-type">TIMELINE I/O</p>
         <h1 className="display-type xfm-central__title" id="project-title">
           TIMELINE I/O
         </h1>
         <p className="xfm-central__subtitle">{project.subtitle}</p>
+        <div className="xfm-central__media zone-hero-media">
+          <HeaderGifBlock gif={timelineHeroGif} />
+        </div>
+        <nav className="xfm-central__actions" aria-label="Timeline I/O archive navigation">
+          <a
+            aria-label="Open TIMELINE I/O PDF archive"
+            className="xfm-central__pdf-link io-link io-glitch-hover"
+            href={assetPath("/assets/pdfs/io-transition/03-timeline-io/timeline-io.pdf")}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            PDF ARCHIVE
+          </a>
+          <a
+            className="xfm-central__pdf-link io-link io-glitch-hover"
+            href="https://iostudioanon-dot.github.io/IOCAVE/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            EVOLUTI/ON
+          </a>
+        </nav>
         <p className="xfm-central__description">{project.description}</p>
-        <a
-          aria-label="Open TIMELINE I/O PDF archive"
-          className="xfm-central__pdf-link io-link io-glitch-hover"
-          href={assetPath("/assets/pdfs/io-transition/03-timeline-io/timeline-io.pdf")}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          PDF ARCHIVE
-        </a>
       </section>
 
       <section className="timeline-system timeline-system--central" aria-labelledby="timeline-title">
-        <a
-          className="timeline-external-link transmission-link io-link io-glitch-hover display-type"
-          href="https://iostudioanon-dot.github.io/IOCAVE/"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          EVOLUTI/ON
-        </a>
         <h2 className="visually-hidden" id="timeline-title">
           Fragmented Chronology
         </h2>

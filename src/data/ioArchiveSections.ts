@@ -55,15 +55,15 @@ export const io1ArchiveSections: ArchiveSectionRecord[] = [
     status: "OPEN",
     sections: [
       {
-        title: "Concept",
+        title: "Project Context",
         note: "A cold orbital gateway built around monoliths, signal access, and controlled navigation.",
       },
       {
-        title: "Development",
+        title: "Visual Development",
         note: "Interface tests, visual studies, and sequence building for the I/O1 entry system.",
       },
       {
-        title: "Research",
+        title: "Research References",
         note: "Space race material, monolith imagery, Cold War control rooms, and mission-briefing language.",
       },
       {

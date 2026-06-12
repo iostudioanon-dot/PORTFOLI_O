@@ -69,9 +69,9 @@ function XfmTimelinePage({ project }: { project: ProjectRecord }) {
         <div className="page-transition-link xfm-central__route">
           <BackToHubLink className="section-transition-link section-transition-link--timeline" />
         </div>
-        <p className="xfm-central__number display-type">TIMELINE I/O</p>
+        <p className="xfm-central__number display-type">Propaganda</p>
         <h1 className="display-type xfm-central__title" id="project-title">
-          TIMELINE I/O
+          PROPAGANDA
         </h1>
         <p className="xfm-central__subtitle">{project.subtitle}</p>
         <div className="xfm-central__media zone-hero-media">

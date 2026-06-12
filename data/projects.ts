@@ -232,9 +232,9 @@ export const projects: ProjectRecord[] = [
   },
   {
     id: "xfm",
-    navLabel: "TIMELINE I/O",
-    title: "TIMELINE I/O",
-    subtitle: "Historical timeline / portfolio case-study spine",
+    navLabel: "Propaganda",
+    title: "PROPAGANDA",
+    subtitle: "Historical portfolio case-study spine",
     route: "/xfm",
     layerPosition: "chronology",
     theme:

@@ -37,17 +37,19 @@ export function AtmosphericFrame({
         </Link>
         {mode === "void" ? null : (
           <nav className="system-nav" aria-label="Project zones">
-            {siteMap.map((entry) => (
-              <Link
-                aria-current={activeId === entry.id ? "page" : undefined}
-                className="io-link io-glitch-hover"
-                data-active={activeId === entry.id}
-                href={entry.route}
-                key={entry.id}
-              >
-                {entry.label}
-              </Link>
-            ))}
+            {siteMap
+              .filter((entry) => entry.id !== "instructions" && entry.id !== "hub")
+              .map((entry) => (
+                <Link
+                  aria-current={activeId === entry.id ? "page" : undefined}
+                  className="io-link io-glitch-hover"
+                  data-active={activeId === entry.id}
+                  href={entry.route}
+                  key={entry.id}
+                >
+                  {entry.label}
+                </Link>
+              ))}
           </nav>
         )}
       </header>

@@ -38,7 +38,7 @@ export function AtmosphericFrame({
         {mode === "void" ? null : (
           <nav className="system-nav" aria-label="Project zones">
             {siteMap
-              .filter((entry) => entry.id !== "instructions" && entry.id !== "hub")
+              .filter((entry) => entry.id !== "instructions")
               .map((entry) => (
                 <Link
                   aria-current={activeId === entry.id ? "page" : undefined}

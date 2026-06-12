@@ -159,7 +159,7 @@ export const archiveRegistry: ArchiveAsset[] = [
   {
     id: "timeline-dossier",
     projectId: "xfm",
-    title: "Timeline I/O Dossier",
+    title: "Propaganda Dossier",
     type: "archive",
     status: "IN_DEVELOPMENT",
     url: "",

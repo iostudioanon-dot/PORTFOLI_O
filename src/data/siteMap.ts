@@ -25,7 +25,7 @@ export const coreRoutes: RouteEntry[] = [
   },
 ];
 
-const projectOrder = ["io1", "io2", "io3", "io4", "xfm"];
+const projectOrder = ["io1", "io2", "io3", "io4", "xfm", "framework"];
 
 export const projectRoutes: RouteEntry[] = projects
   .map((project, index) => ({

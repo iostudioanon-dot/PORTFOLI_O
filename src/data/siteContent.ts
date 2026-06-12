@@ -105,7 +105,7 @@ export const sentinel = {
 export const transition = {
   title: globalLabels.transition,
   description:
-    "Navigate the portfolio as a vertical transmission system: orbit, ionosphere, ground, subterranean infrastructure, and chronology.",
+    "Navigate the portfolio as a vertical transmission sequence: orbit, ionosphere, ground, subterranean infrastructure, and chronology.",
   readout: ["STATUS / OPEN", "MODE / DESCENT", "ARCHIVE / MODULAR"],
 };
 

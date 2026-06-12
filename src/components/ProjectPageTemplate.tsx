@@ -24,9 +24,15 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
     ? ioSectionArchiveIndexes[project.id as keyof typeof ioSectionArchiveIndexes]
     : undefined;
   const isMainIo1Page = project.id === "io1";
+  const visibleSectionArchiveIndex = isMainIo1Page && sectionArchiveIndex
+    ? {
+      ...sectionArchiveIndex,
+      archiveItems: sectionArchiveIndex.archiveItems.filter((item) => item.id !== "I/O1.G"),
+    }
+    : sectionArchiveIndex;
 
   return (
-    <SegmentLandingPage project={project} sectionArchiveIndex={sectionArchiveIndex}>
+    <SegmentLandingPage project={project} sectionArchiveIndex={visibleSectionArchiveIndex}>
       <div className="project-section-stack">
         {isMainIo1Page ? <SentinelExternalPanel /> : null}
 

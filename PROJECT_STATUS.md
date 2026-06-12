@@ -5,7 +5,7 @@ Last updated from local Codex workspace: 2026-05-29.
 ## Local Workspace
 
 ```text
-C:\Users\MHill\Documents\FOL IO
+C:\Users\MHill\Documents\PORTFOLIO_REBUILD_2026\PORTFOLI_O
 ```
 
 ## Current Build
@@ -64,4 +64,4 @@ Current locked guidance includes:
 
 ## Hosting Note
 
-This GitHub repository is currently a holding/documentation space. The next operational step is to push the full local Next.js source into this repository, then connect it to Vercel for hosting.
+This GitHub repository is the current working source. The deployment method is GitHub Pages via GitHub Actions, exporting the static Next.js site to the `out` directory.

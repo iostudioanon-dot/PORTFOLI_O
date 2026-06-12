@@ -35,7 +35,7 @@ http://127.0.0.1:3000
 Current local workspace:
 
 ```text
-C:\Users\MHill\Documents\FOL IO
+C:\Users\MHill\Documents\PORTFOLIO_REBUILD_2026\PORTFOLI_O
 ```
 
 ## Build Check
@@ -125,7 +125,7 @@ GitHub repository:
 https://github.com/iostudioanon-dot/PORTFOLI_O
 ```
 
-Recommended first deployment path: connect this repository to Vercel and use the default Next.js build settings.
+Recommended first deployment path: deploy the exported Next.js site to GitHub Pages using GitHub Actions, exporting to the `out` directory.
 
 ## GitHub Project System
 

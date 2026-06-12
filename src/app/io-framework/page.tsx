@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { AtmosphericFrame } from "@/components/AtmosphericFrame";
-import { ExternalLinkCard } from "@/components/ExternalLinkCard";
 
 export const metadata = {
   title: "I/O Framework / PORTFOLI/O",

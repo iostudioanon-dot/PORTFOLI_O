@@ -2,7 +2,7 @@
 
 ## Recommended Host
 
-Use Vercel for the first live version because the site is a Next.js application and currently builds cleanly with `npm run build`.
+Use GitHub Pages via GitHub Actions for the live version because the site is exported as a static Next.js build into the `out` directory and the repository already has the Pages workflow configured.
 
 ## GitHub Role
 
@@ -10,7 +10,7 @@ GitHub should act as:
 
 - source-code archive
 - version history
-- deployment source for Vercel
+- deployment source for GitHub Pages
 - future collaboration/review space
 - public project documentation while the local source is being prepared for upload
 
@@ -19,7 +19,7 @@ GitHub should act as:
 The local project lives at:
 
 ```text
-C:\Users\MHill\Documents\FOL IO
+C:\Users\MHill\Documents\PORTFOLIO_REBUILD_2026\PORTFOLI_O
 ```
 
 The local project already has:
@@ -52,15 +52,11 @@ The local project already has:
 ## Next Steps
 
 1. Turn the local workspace into a proper Git checkout or install Git locally.
-2. Push all local project files from `C:\Users\MHill\Documents\FOL IO` into `iostudioanon-dot/PORTFOLI_O`.
-3. Import the repository into Vercel.
-4. Use default Vercel build settings:
-   - Framework: Next.js
-   - Install command: `npm install`
-   - Build command: `npm run build`
-   - Output: Vercel default
+2. Push all local project files from `C:\Users\MHill\Documents\PORTFOLIO_REBUILD_2026\PORTFOLI_O` into `iostudioanon-dot/PORTFOLI_O`.
+3. Use the existing GitHub Actions workflow to deploy to GitHub Pages.
+4. Ensure the workflow exports the site to the `out` directory and publishes that artifact.
 5. Add a custom domain later if needed.
 
-## GitHub Pages Alternative
+## GitHub Pages Deployment
 
-GitHub Pages can be used later, but it will need a static export configuration and careful route/image handling. Keep Vercel as the safer first host for this Next.js build.
+This repository uses GitHub Pages deployment via GitHub Actions with a static export from the Next.js build. The Pages workflow is already configured in `.github/workflows/pages.yml`.

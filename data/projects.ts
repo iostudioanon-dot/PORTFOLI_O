@@ -8,7 +8,7 @@ export type ProjectStatus =
   | "RECOVERED"
   | "CLASSIFIED";
 
-export type ProjectId = "io1" | "io2" | "io3" | "io4" | "xfm";
+export type ProjectId = "io1" | "io2" | "io3" | "io4" | "xfm" | "framework";
 
 export type MediaType = "audio" | "video" | "game" | "website" | "pdf" | "image" | "research" | "external" | "archive";
 
@@ -232,9 +232,9 @@ export const projects: ProjectRecord[] = [
   },
   {
     id: "xfm",
-    navLabel: "TIMELINE I/O",
-    title: "TIMELINE I/O",
-    subtitle: "Historical timeline / portfolio case-study spine",
+    navLabel: "Propaganda",
+    title: "PROPAGANDA",
+    subtitle: "Historical portfolio case-study spine",
     route: "/xfm",
     layerPosition: "chronology",
     theme:
@@ -358,6 +358,42 @@ export const projects: ProjectRecord[] = [
         marker: "OPEN SIGNAL / UNSTABLE FUTURE",
         note: "The archive remains incomplete: nature, architecture, and digital systems continue to mutate together.",
       },
+    ],
+  },
+  {
+    id: "framework",
+    navLabel: "I/O Framework",
+    title: "I/O FRAMEWORK",
+    subtitle: "Conceptual framework",
+    route: "/io-framework",
+    layerPosition: "chronology",
+    theme: "The foundational conceptual system underlying the I/O investigation.",
+    colors: {
+      primary: "#e0e0e0",
+      secondary: "#757575",
+      field: "#121212",
+    },
+    coordinates: "FRAMEWORK LAYER / CONCEPTUAL SYSTEM / SIGNAL F",
+    description:
+      "The I/O Framework explains the three natures and the investigation process. This layer provides access to the foundational concepts and the methodology behind the portfolio.",
+    status: "OPEN",
+    signalStrength: 85,
+    accessLevel: "LEVEL_FRAMEWORK",
+    environment: "ARCHIVE",
+    mediaTypes: ["research", "external"],
+    lastTransmission: "Framework documentation open for reference.",
+    archiveNotes: [
+      "The I/O Framework establishes the conceptual foundation for all four project layers.",
+      "Three Natures defines the investigation scope: First Nature, Second Nature, Third Nature.",
+      "I/O Process describes the input-process-output methodology.",
+    ],
+    processNotes: [
+      "Understand the three natures as the primary investigative lens.",
+      "Connect the I/O process to each project layer.",
+    ],
+    outputs: [
+      "Three Natures external reference",
+      "I/O Process documentation",
     ],
   },
 ];

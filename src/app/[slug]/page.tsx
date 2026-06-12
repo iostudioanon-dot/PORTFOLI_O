@@ -15,7 +15,7 @@ type ProjectPageProps = {
 
 const timelineHeroGif = {
   src: assetPath("/assets/timeline/videos/104%20FLY%20GIF.gif"),
-  alt: "Animated Timeline I/O text and motion transmission.",
+  alt: "Animated Propaganda text and motion transmission.",
   caption: "104 FLY GIF",
 };
 
@@ -69,17 +69,17 @@ function XfmTimelinePage({ project }: { project: ProjectRecord }) {
         <div className="page-transition-link xfm-central__route">
           <BackToHubLink className="section-transition-link section-transition-link--timeline" />
         </div>
-        <p className="xfm-central__number display-type">TIMELINE I/O</p>
+        <p className="xfm-central__number display-type">Propaganda</p>
         <h1 className="display-type xfm-central__title" id="project-title">
-          TIMELINE I/O
+          PROPAGANDA
         </h1>
         <p className="xfm-central__subtitle">{project.subtitle}</p>
         <div className="xfm-central__media zone-hero-media">
           <HeaderGifBlock gif={timelineHeroGif} />
         </div>
-        <nav className="xfm-central__actions" aria-label="Timeline I/O archive navigation">
+        <nav className="xfm-central__actions" aria-label="Propaganda archive navigation">
           <a
-            aria-label="Open TIMELINE I/O PDF archive"
+            aria-label="Open Propaganda PDF archive"
             className="xfm-central__pdf-link io-link io-glitch-hover"
             href={assetPath("/assets/pdfs/io-transition/03-timeline-io/timeline-io.pdf")}
             rel="noopener noreferrer"

@@ -23,11 +23,18 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
   const sectionArchiveIndex = project.id in ioSectionArchiveIndexes
     ? ioSectionArchiveIndexes[project.id as keyof typeof ioSectionArchiveIndexes]
     : undefined;
+  const isMainIo1Page = project.id === "io1";
+  const visibleSectionArchiveIndex = isMainIo1Page && sectionArchiveIndex
+    ? {
+      ...sectionArchiveIndex,
+      archiveItems: sectionArchiveIndex.archiveItems.filter((item) => item.id !== "I/O1.G"),
+    }
+    : sectionArchiveIndex;
 
   return (
-    <SegmentLandingPage project={project} sectionArchiveIndex={sectionArchiveIndex}>
+    <SegmentLandingPage project={project} sectionArchiveIndex={visibleSectionArchiveIndex}>
       <div className="project-section-stack">
-        {project.id === "io1" ? <SentinelExternalPanel /> : null}
+        {isMainIo1Page ? <SentinelExternalPanel /> : null}
 
         <section className="project-section" aria-labelledby="context-title">
           <MetadataLabel>RECOVERED CONTEXT</MetadataLabel>
@@ -35,88 +42,86 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
           <p>{project.description}</p>
         </section>
 
-        {project.id === "io1" ? (
-          <PdfLibrary
-            id="io1-pdf-library-title"
-            label="PDF LIBRARY"
-            sections={[
-              {
-                category: "I/O1",
-                description: "Space Race, JFK, Public Service Broadcasting, and Sputnik audio research records.",
-                subcategory: "Sputnik",
-                title: "Sputnik",
-              },
-              {
-                category: "I/O1",
-                description: "Kubrick and 2001 research records connected to the Sentinel's monolith logic.",
-                subcategory: "Kubrick",
-                title: "Stanley Kubrick",
-              },
-              {
-                category: "I/O1",
-                description: "Visual influence records for atmosphere, composition, and cinematic restraint.",
-                subcategory: "Morysetta",
-                title: "Morysetta",
-              },
-              {
-                category: "I/O1",
-                description: "Perspective and optical systems records for Leonardo da Vinci research.",
-                subcategory: "Leonardo da Vinci",
-                title: "Leonardo da Vinci",
-              },
-            ]}
-            title="I/O1 PDF Research Library"
-          />
-        ) : null}
+        {!isMainIo1Page ? (
+          <>
+            <PdfLibrary
+              id="io1-pdf-library-title"
+              label="PDF LIBRARY"
+              sections={[
+                {
+                  category: "I/O1",
+                  description: "Space Race, JFK, Public Service Broadcasting, and Sputnik audio research records.",
+                  subcategory: "Sputnik",
+                  title: "Sputnik",
+                },
+                {
+                  category: "I/O1",
+                  description: "Kubrick and 2001 research records connected to the Sentinel's monolith logic.",
+                  subcategory: "Kubrick",
+                  title: "Stanley Kubrick",
+                },
+                {
+                  category: "I/O1",
+                  description: "Visual influence records for atmosphere, composition, and cinematic restraint.",
+                  subcategory: "Morysetta",
+                  title: "Morysetta",
+                },
+                {
+                  category: "I/O1",
+                  description: "Perspective and optical systems records for Leonardo da Vinci research.",
+                  subcategory: "Leonardo da Vinci",
+                  title: "Leonardo da Vinci",
+                },
+              ]}
+              title="I/O1 PDF Research Library"
+            />
 
-        {visibleAssets.length > 0 ? (
-          <section className="project-section" aria-labelledby="signal-records-title">
-            <MetadataLabel>SIGNAL RECORDS</MetadataLabel>
-            <h2 id="signal-records-title">Recovered System Records</h2>
-            <div className="archive-card-grid">
-              {visibleAssets.map((asset) => (
-                <ArchiveCard asset={asset} key={asset.id} />
-              ))}
-            </div>
-          </section>
-        ) : null}
+            {visibleAssets.length > 0 ? (
+              <section className="project-section" aria-labelledby="signal-records-title">
+                <MetadataLabel>SIGNAL RECORDS</MetadataLabel>
+                <h2 id="signal-records-title">Recovered System Records</h2>
+                <div className="archive-card-grid">
+                  {visibleAssets.map((asset) => (
+                    <ArchiveCard asset={asset} key={asset.id} />
+                  ))}
+                </div>
+              </section>
+            ) : null}
 
-        {images.length > 0 || project.id === "io1" ? (
-          <section className="project-section" aria-labelledby="visual-records-title">
-            <MetadataLabel>VISUAL RECORDS</MetadataLabel>
-            <h2 id="visual-records-title">Image Archive</h2>
             {images.length > 0 ? (
-              <ImageArchiveViewer images={images} />
-            ) : (
-              <p>Image sequence in development.</p>
-            )}
-          </section>
+              <section className="project-section" aria-labelledby="visual-records-title">
+                <MetadataLabel>VISUAL RECORDS</MetadataLabel>
+                <h2 id="visual-records-title">Image Archive</h2>
+                <ImageArchiveViewer images={images} />
+              </section>
+            ) : null}
+
+            <section className="project-section" aria-labelledby="research-title">
+              <MetadataLabel>RESEARCH ARCHIVE</MetadataLabel>
+              <EvidencePanel notes={project.archiveNotes} />
+            </section>
+
+            <section className="project-section" aria-labelledby="process-title">
+              <MetadataLabel>PROCESS FRAGMENTS</MetadataLabel>
+              <h2 id="process-title">Process Fragments</h2>
+              <ul>
+                {project.processNotes.map((note) => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="project-section" aria-labelledby="outputs-title">
+              <MetadataLabel>OUTPUT STATE</MetadataLabel>
+              <h2 id="outputs-title">Output State</h2>
+              <ul>
+                {project.outputs.map((output) => (
+                  <li key={output}>{output}</li>
+                ))}
+              </ul>
+            </section>
+          </>
         ) : null}
-
-        <section className="project-section" aria-labelledby="research-title">
-          <MetadataLabel>RESEARCH ARCHIVE</MetadataLabel>
-          <EvidencePanel notes={project.archiveNotes} />
-        </section>
-
-        <section className="project-section" aria-labelledby="process-title">
-          <MetadataLabel>PROCESS FRAGMENTS</MetadataLabel>
-          <h2 id="process-title">Process Fragments</h2>
-          <ul>
-            {project.processNotes.map((note) => (
-              <li key={note}>{note}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="project-section" aria-labelledby="outputs-title">
-          <MetadataLabel>OUTPUT STATE</MetadataLabel>
-          <h2 id="outputs-title">Output State</h2>
-          <ul>
-            {project.outputs.map((output) => (
-              <li key={output}>{output}</li>
-            ))}
-          </ul>
-        </section>
       </div>
     </SegmentLandingPage>
   );

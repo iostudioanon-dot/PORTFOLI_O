@@ -52,7 +52,7 @@ export function LayerSystem() {
             {xfmProject.title}
           </span>
           <span className="transition-route__statement">{xfmProject.subtitle}</span>
-          <span className="transition-route__action">ENTER TIMELINE I/O</span>
+          <span className="transition-route__action">ENTER PROPAGANDA</span>
         </Link>
       ) : null}
     </section>

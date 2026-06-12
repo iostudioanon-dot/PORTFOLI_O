@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-const stackLayers = ["ORBIT", "IONOSPHERE", "GROUND", "SUBTERRANEAN", "TIMELINE"];
+const stackLayers = ["ORBIT", "IONOSPHERE", "GROUND", "SUBTERRANEAN", "PROPAGANDA"];
 
 const ioMessages = [
   "HONOUR THY ERROR",

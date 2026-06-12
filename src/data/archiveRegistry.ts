@@ -180,6 +180,7 @@ const localAssetProjectFolders: Record<ProjectId, string[]> = {
   io3: ["io3-ionospheric-intersection"],
   io4: ["io4-final-outcome"],
   xfm: ["timeline"],
+  framework: [],
 };
 
 function titleFromAssetName(fileName: string) {

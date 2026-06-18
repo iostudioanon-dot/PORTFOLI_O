@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 import type { ProjectRecord } from "../../data/projects";
 import type { SectionArchiveIndexRecord } from "@/data/ioArchiveSections";
@@ -12,7 +13,7 @@ type SegmentLandingPageProps = {
 };
 
 function getSegmentLabel(project: ProjectRecord) {
-  return project.navLabel.replace("I/O", "IO");
+  return project.navLabel;
 }
 
 function getTransitionClass(project: ProjectRecord) {
@@ -34,6 +35,16 @@ export function SegmentLandingPage({
         <div className="segment-landing__transition page-transition-link">
           <BackToHubLink className={getTransitionClass(project)} />
         </div>
+
+        {project.preTitleAction ? (
+          <Link
+            className="segment-landing__entry-box io-link io-glitch-hover"
+            href={project.preTitleAction.href}
+          >
+            <span className="segment-landing__entry-title display-type">{project.preTitleAction.title}</span>
+            <span className="segment-landing__entry-description">{project.preTitleAction.description}</span>
+          </Link>
+        ) : null}
 
         <header className="segment-landing__title-block">
           <p className="segment-landing__number display-type">{getSegmentLabel(project)}</p>

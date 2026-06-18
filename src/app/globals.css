@@ -2702,6 +2702,47 @@ a.instruction-qr__frame:hover {
   width: 100%;
 }
 
+.segment-landing__entry-box {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: grid;
+  gap: 0.75rem;
+  justify-items: center;
+  margin: 0 auto clamp(1.7rem, 3vw, 2.4rem);
+  max-width: min(100%, 34rem);
+  padding: clamp(1rem, 2vw, 1.3rem) clamp(1rem, 3vw, 1.6rem);
+  text-align: center;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+  width: min(100%, 34rem);
+}
+
+.segment-landing__entry-box:hover,
+.segment-landing__entry-box:focus-visible {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(182, 58, 58, 0.35);
+}
+
+.segment-landing__entry-title {
+  color: var(--foreground);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  letter-spacing: 0.08em;
+  line-height: 1.05;
+}
+
+.segment-landing__entry-description {
+  color: var(--muted);
+  font-family: var(--font-technical);
+  font-size: clamp(0.7rem, 0.92vw, 0.85rem);
+  letter-spacing: 0.05em;
+  line-height: 1.55;
+  max-width: 28rem;
+  text-transform: uppercase;
+}
+
 .segment-landing__title-block {
   display: grid;
   gap: clamp(0.35rem, 0.9vw, 0.7rem);
@@ -4510,6 +4551,12 @@ details p {
 
   .segment-landing__transition {
     margin-bottom: clamp(1.8rem, 7vw, 2.8rem);
+  }
+
+  .segment-landing__entry-box {
+    margin-bottom: 1.45rem;
+    max-width: 100%;
+    width: 100%;
   }
 
   .segment-landing__title {

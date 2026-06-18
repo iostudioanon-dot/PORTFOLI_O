@@ -6,9 +6,10 @@ type HeaderGifBlockProps = {
     alt: string;
     caption: string;
   };
+  showCaption?: boolean;
 };
 
-export function HeaderGifBlock({ gif }: HeaderGifBlockProps) {
+export function HeaderGifBlock({ gif, showCaption = true }: HeaderGifBlockProps) {
   const isVideo = /\.(mp4|webm|mov)$/i.test(gif.src);
 
   return (
@@ -37,7 +38,7 @@ export function HeaderGifBlock({ gif }: HeaderGifBlockProps) {
           />
         )}
       </div>
-      <figcaption>{gif.caption}</figcaption>
+      {showCaption ? <figcaption>{gif.caption}</figcaption> : null}
     </figure>
   );
 }

@@ -440,7 +440,7 @@ export const ioSectionArchiveIndexes: Record<"io1" | "io2" | "io3" | "io4", Sect
         id: "I/O1.G",
         title: "I/O1 GALLERY",
         subtitle: "Visual records / image sequence / media study",
-        href: "#visual-records-title",
+        href: "/io1/sentinel",
         status: "OPEN",
       },
     ],

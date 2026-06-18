@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 import type { ProjectRecord } from "../../data/projects";
 import type { SectionArchiveIndexRecord } from "@/data/ioArchiveSections";
@@ -12,15 +13,11 @@ type SegmentLandingPageProps = {
 };
 
 function getSegmentLabel(project: ProjectRecord) {
-  return project.navLabel.replace("I/O", "IO");
+  return project.navLabel;
 }
 
-function getTransitionClass(project: ProjectRecord) {
-  if (project.id === "io1" || project.id === "io2" || project.id === "io3" || project.id === "io4") {
-    return `section-transition-link section-transition-link--${project.id}`;
-  }
-
-  return "section-transition-link";
+function getTransitionClass(_project: ProjectRecord) {
+  return "section-transition-link section-transition-link--boxed";
 }
 
 export function SegmentLandingPage({
@@ -35,6 +32,16 @@ export function SegmentLandingPage({
           <BackToHubLink className={getTransitionClass(project)} />
         </div>
 
+        {project.preTitleAction ? (
+          <Link
+            className="segment-landing__entry-box io-link io-glitch-hover"
+            href={project.preTitleAction.href}
+          >
+            <span className="segment-landing__entry-title display-type">{project.preTitleAction.title}</span>
+            <span className="segment-landing__entry-description">{project.preTitleAction.description}</span>
+          </Link>
+        ) : null}
+
         <header className="segment-landing__title-block">
           <p className="segment-landing__number display-type">{getSegmentLabel(project)}</p>
           <h1 className="segment-landing__title display-type" id="project-title">
@@ -45,7 +52,7 @@ export function SegmentLandingPage({
 
         {project.headerGif ? (
           <div className="segment-landing__media zone-hero-media">
-            <HeaderGifBlock gif={project.headerGif} />
+            <HeaderGifBlock gif={project.headerGif} showCaption={false} />
           </div>
         ) : null}
 

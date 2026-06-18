@@ -50,10 +50,10 @@ export default function IO2SystemPage() {
             "--project-field": "#03111F",
           } as React.CSSProperties
         }
-      >
+        >
         <section className="project-hero archive-record-hero io2-archive-hero" aria-labelledby="io2-system-title">
-          <div className="page-transition-link">
-            <BackToHubLink className="section-transition-link--io2" />
+          <div className="page-transition-link segment-landing__transition">
+            <BackToHubLink className="section-transition-link section-transition-link--boxed" />
           </div>
           <p className="archive-record-hero__code">{sectionCode(archiveSection.label)}</p>
           <h1 className="display-type section-title" id="io2-system-title">

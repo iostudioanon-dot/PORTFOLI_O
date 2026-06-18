@@ -32,6 +32,11 @@ export type ProjectRecord = {
   navLabel: string;
   title: string;
   subtitle: string;
+  preTitleAction?: {
+    href: string;
+    title: string;
+    description: string;
+  };
   route: string;
   layerPosition: "orbital" | "atmospheric" | "ground" | "subterranean" | "chronology";
   theme: string;
@@ -67,6 +72,11 @@ export const projects: ProjectRecord[] = [
     navLabel: "I/O1",
     title: "THE SENTINEL",
     subtitle: "Space and the Cosmic Void",
+    preTitleAction: {
+      href: "/io1-game",
+      title: "ENTER THE SENTINEL GAME",
+      description: "Play before entering the archive.",
+    },
     route: "/io1",
     layerPosition: "orbital",
     theme: "Space, isolation, orbital systems, surveillance after the human scale.",

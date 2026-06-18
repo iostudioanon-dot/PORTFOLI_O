@@ -63,7 +63,7 @@ export default function InstructionsPage() {
               />
             </a>
             <h1 className="display-type manual-entry__title" id="manual-title">
-              MANUAL
+              INSTRUCTI/ONS
             </h1>
             <p className="manual-entry__summary">
               A Short Guide to Reading the I/O Portfolio as a Multimedia Investigation

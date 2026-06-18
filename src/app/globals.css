@@ -829,6 +829,27 @@ summary:focus-visible {
   text-shadow: none;
 }
 
+.section-transition-link--boxed.transmission-link {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(245, 245, 240, 0.88);
+  min-height: auto;
+  padding: 0.48rem 0.9rem 0.44rem;
+  text-decoration: none;
+}
+
+.section-transition-link--boxed.transmission-link::after {
+  display: none;
+}
+
+.section-transition-link--boxed.transmission-link:hover,
+.section-transition-link--boxed.transmission-link:focus-visible {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.34);
+  color: var(--foreground);
+  transform: translateY(-1px);
+}
+
 .section-transition-link--io1.transmission-link {
   color: #b63a3a;
 }

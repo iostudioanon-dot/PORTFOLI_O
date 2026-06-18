@@ -16,12 +16,8 @@ function getSegmentLabel(project: ProjectRecord) {
   return project.navLabel;
 }
 
-function getTransitionClass(project: ProjectRecord) {
-  if (project.id === "io1" || project.id === "io2" || project.id === "io3" || project.id === "io4") {
-    return `section-transition-link section-transition-link--${project.id}`;
-  }
-
-  return "section-transition-link";
+function getTransitionClass(_project: ProjectRecord) {
+  return "section-transition-link section-transition-link--boxed";
 }
 
 export function SegmentLandingPage({
@@ -56,7 +52,7 @@ export function SegmentLandingPage({
 
         {project.headerGif ? (
           <div className="segment-landing__media zone-hero-media">
-            <HeaderGifBlock gif={project.headerGif} />
+            <HeaderGifBlock gif={project.headerGif} showCaption={false} />
           </div>
         ) : null}
 

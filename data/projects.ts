@@ -244,7 +244,7 @@ export const projects: ProjectRecord[] = [
     id: "xfm",
     navLabel: "TIMELINE I/O",
     title: "TIMELINE I/O",
-    subtitle: "Historical timeline / portfolio case-study spine",
+    subtitle: "Random Archive Route",
     route: "/xfm",
     layerPosition: "chronology",
     theme:
@@ -256,7 +256,7 @@ export const projects: ProjectRecord[] = [
     },
     coordinates: "CROSS-FREQUENCY MEMORY / ARCHIVE SPINE / SIGNAL X",
     description:
-      "A historical timeline and case-study spine connecting cave marks, Renaissance optics, industrial systems, modernism, Cold War technology, cinema, digital networks, AI, and environmental futures.",
+      "A random archive route through the I/O project. The failed timeline is kept as part of the work, linking chance, fragments and unexpected connections to I/O4 Productive Failure.",
     status: "OPEN",
     signalStrength: 82,
     accessLevel: "LEVEL_X",

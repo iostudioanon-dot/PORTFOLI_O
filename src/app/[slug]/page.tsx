@@ -19,6 +19,13 @@ const timelineHeroGif = {
   caption: "104 FLY GIF",
 };
 
+const timelineIntro = [
+  "Timeline I/O was originally meant to organise the project into a clear sequence. It did not quite work that way.",
+  "Rather than removing it, I have kept it as a random archive route. The page now acts as a wrong turn through the I/O project, connecting research, fragments, links, tests, failed directions and unfinished material.",
+  "This connects directly to I/O4 Productive Failure. Not every route through the work needs to behave like a clean menu. Some parts of the project are better understood through accident, interruption and unexpected movement.",
+  "Timeline I/O becomes a place where the archive can misbehave slightly. It still belongs to the structure, but it does not have to explain everything.",
+];
+
 export function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.id,
@@ -96,7 +103,11 @@ function XfmTimelinePage({ project }: { project: ProjectRecord }) {
             EVOLUTI/ON
           </a>
         </nav>
-        <p className="xfm-central__description">{project.description}</p>
+        {timelineIntro.map((paragraph) => (
+          <p className="xfm-central__description" key={paragraph}>
+            {paragraph}
+          </p>
+        ))}
       </section>
 
       <section className="timeline-system timeline-system--central" aria-labelledby="timeline-title">

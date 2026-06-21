@@ -85,15 +85,9 @@ function XfmTimelinePage({ project }: { project: ProjectRecord }) {
           <HeaderGifBlock gif={timelineHeroGif} />
         </div>
         <nav className="xfm-central__actions" aria-label="Timeline I/O archive navigation">
-          <a
-            aria-label="Open TIMELINE I/O PDF archive"
-            className="xfm-central__pdf-link io-link io-glitch-hover"
-            href={assetPath("/assets/pdfs/io-transition/03-timeline-io/timeline-io.pdf")}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            PDF ARCHIVE
-          </a>
+          <span aria-disabled="true" className="xfm-central__pdf-link">
+            PDF ARCHIVE — Pending archive file
+          </span>
           <a
             className="xfm-central__pdf-link io-link io-glitch-hover"
             href="https://iostudioanon-dot.github.io/IOCAVE/"

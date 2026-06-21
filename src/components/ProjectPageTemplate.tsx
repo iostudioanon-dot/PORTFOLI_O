@@ -23,7 +23,8 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
   const sectionArchiveIndex = project.id in ioSectionArchiveIndexes
     ? ioSectionArchiveIndexes[project.id as keyof typeof ioSectionArchiveIndexes]
     : undefined;
-  const showExtendedSections = project.id !== "io1" && project.id !== "io2" && project.id !== "io3";
+  const showExtendedSections =
+    project.id !== "io1" && project.id !== "io2" && project.id !== "io3" && project.id !== "io4";
 
   return (
     <SegmentLandingPage project={project} sectionArchiveIndex={sectionArchiveIndex}>

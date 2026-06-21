@@ -37,7 +37,7 @@ export function SegmentLandingPage({
             className="segment-landing__entry-box io-link io-glitch-hover"
             href={project.preTitleAction.href}
           >
-            <span className="segment-landing__entry-title display-type">{project.preTitleAction.title}</span>
+            <span className="segment-landing__entry-title display-type">{project.preTitleAction.title}</span>{" "}
             <span className="segment-landing__entry-description">{project.preTitleAction.description}</span>
           </Link>
         ) : null}

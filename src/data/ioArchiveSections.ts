@@ -592,6 +592,58 @@ export const io3ArchiveSectionMap = new Map(
   io3ArchiveSections.map((section) => [section.id, section]),
 );
 
+const io4HoldingSections: ArchiveSubsection[] = [
+  {
+    title: "PDF RECORDS",
+    note: "Content will be added here.",
+    marker: "PDF RECORDS",
+  },
+  {
+    title: "IMAGE RECORDS",
+    note: "Content will be added here.",
+    marker: "IMAGE RECORDS",
+  },
+  {
+    title: "VIDEO / LINK RECORDS",
+    note: "Content will be added here.",
+    marker: "VIDEO / LINK RECORDS",
+  },
+  {
+    title: "NOTES",
+    note: "Content will be added here.",
+    marker: "NOTES",
+  },
+];
+
+export const io4ArchiveSections: ArchiveSectionRecord[] = [
+  {
+    id: "brian-eno",
+    projectId: "io4",
+    label: "I/O4.1 BRIAN ENO",
+    title: "BRIAN ENO",
+    subtitle: "Research holding page",
+    intro: "Content will be added here.",
+    route: "/io4/brian-eno",
+    status: "OPEN",
+    sections: [...io4HoldingSections],
+  },
+  {
+    id: "essay",
+    projectId: "io4",
+    label: "I/O4.2 ESSAY PAGE",
+    title: "ESSAY PAGE",
+    subtitle: "Essay holding page",
+    intro: "Content will be added here.",
+    route: "/io4/essay",
+    status: "OPEN",
+    sections: [...io4HoldingSections],
+  },
+];
+
+export const io4ArchiveSectionMap = new Map(
+  io4ArchiveSections.map((section) => [section.id, section]),
+);
+
 export const ioSectionArchiveIndexes: Record<"io1" | "io2" | "io3" | "io4", SectionArchiveIndexRecord> = {
   io1: {
     sectionLabel: "I/O1 ARCHIVE INDEX",
@@ -726,27 +778,17 @@ export const ioSectionArchiveIndexes: Record<"io1" | "io2" | "io3" | "io4", Sect
     archiveItems: [
       {
         id: "I/O4.1",
-        title: "PRODUCTIVE FAILURE",
-        subtitle: "Primary project archive / material and process system",
-        status: "PENDING",
+        title: "BRIAN ENO",
+        subtitle: "Research holding page",
+        href: "/io4/brian-eno",
+        status: "OPEN",
       },
       {
         id: "I/O4.2",
-        title: "SIGNAL RECORDS",
-        subtitle: "Recovered media records / archive references",
-        status: "PENDING",
-      },
-      {
-        id: "I/O4.3",
-        title: "VISUAL RECORDS",
-        subtitle: "Image archive / process documentation",
-        status: "PENDING",
-      },
-      {
-        id: "I/O4.4",
-        title: "PROCESS FRAGMENTS",
-        subtitle: "Research notes / development evidence",
-        status: "PENDING",
+        title: "ESSAY PAGE",
+        subtitle: "Essay holding page",
+        href: "/io4/essay",
+        status: "OPEN",
       },
     ],
   },

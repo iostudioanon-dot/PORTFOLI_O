@@ -16,7 +16,7 @@ function getSegmentLabel(project: ProjectRecord) {
   return project.navLabel;
 }
 
-function getTransitionClass(_project: ProjectRecord) {
+function getTransitionClass() {
   return "section-transition-link section-transition-link--boxed";
 }
 
@@ -29,7 +29,7 @@ export function SegmentLandingPage({
     <>
       <section className="segment-landing" aria-labelledby="project-title">
         <div className="segment-landing__transition page-transition-link">
-          <BackToHubLink className={getTransitionClass(project)} />
+          <BackToHubLink className={getTransitionClass()} />
         </div>
 
         {project.preTitleAction ? (

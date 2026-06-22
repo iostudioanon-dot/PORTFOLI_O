@@ -11,7 +11,6 @@ const transitionProjectOrder = ["io1", "io2", "io3", "io4"];
 const hubProjects = transitionProjectOrder
   .map((id) => projects.find((project) => project.id === id))
   .filter((project): project is NonNullable<typeof project> => Boolean(project));
-const xfmProject = projects.find((project) => project.id === "xfm");
 
 export function LayerSystem() {
   return (
@@ -39,22 +38,16 @@ export function LayerSystem() {
         </div>
       </div>
 
-      {xfmProject ? (
-        <Link
-          className="transition-route transition-route--xfm transition-route--spine io-link io-glitch-hover"
-          href={xfmProject.route}
-        >
-          <span className="transition-route__number">05</span>
-          <span className="transition-route__identifier display-type">
-            {xfmProject.navLabel}
-          </span>
-          <span className="transition-route__title display-type">
-            {xfmProject.title}
-          </span>
-          <span className="transition-route__statement">{xfmProject.subtitle}</span>
-          <span className="transition-route__action">ENTER TIMELINE I/O</span>
-        </Link>
-      ) : null}
+      <Link
+        className="transition-route transition-route--spine io-link io-glitch-hover"
+        href="/io-framework"
+      >
+        <span className="transition-route__number">05</span>
+        <span className="transition-route__identifier display-type">I/O</span>
+        <span className="transition-route__title display-type">FRAMEWORK</span>
+        <span className="transition-route__statement">PROJECT STRUCTURE / PROCESS / CONTEXT</span>
+        <span className="transition-route__action">ENTER I/O FRAMEWORK</span>
+      </Link>
     </section>
   );
 }

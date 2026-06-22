@@ -33,17 +33,63 @@ export type SectionArchiveIndexRecord = {
   archiveItems: SectionArchiveIndexItem[];
 };
 
-function indexItemFromArchiveSection(section: ArchiveSectionRecord): SectionArchiveIndexItem {
-  return {
-    id: section.label.split(" ")[0],
-    title: section.title,
-    subtitle: section.subtitle,
-    href: section.route,
-    status: section.route ? "OPEN" : "PENDING",
-  };
-}
+const io1HoldingSections: ArchiveSubsection[] = [
+  {
+    title: "PDF RECORDS",
+    note: "Content will be added here.",
+    marker: "PDF RECORDS",
+  },
+  {
+    title: "IMAGE RECORDS",
+    note: "Content will be added here.",
+    marker: "IMAGE RECORDS",
+  },
+  {
+    title: "VIDEO / LINK RECORDS",
+    note: "Content will be added here.",
+    marker: "VIDEO / LINK RECORDS",
+  },
+  {
+    title: "NOTES",
+    note: "Content will be added here.",
+    marker: "NOTES",
+  },
+];
 
 export const io1ArchiveSections: ArchiveSectionRecord[] = [
+  {
+    id: "dawn-of-man",
+    projectId: "io1",
+    label: "I/O1.1 DAWN OF MAN",
+    title: "DAWN OF MAN",
+    subtitle: "Tool / image / human threshold",
+    intro: "Content will be added here.",
+    route: "/io1/dawn-of-man",
+    status: "OPEN",
+    sections: [...io1HoldingSections],
+  },
+  {
+    id: "sputnik",
+    projectId: "io1",
+    label: "I/O1.2 SPUTNIK",
+    title: "SPUTNIK",
+    subtitle: "Orbital signal / Space Race archive",
+    intro: "Content will be added here.",
+    route: "/io1/sputnik",
+    status: "OPEN",
+    sections: [...io1HoldingSections],
+  },
+  {
+    id: "da-vinci-morysetta",
+    projectId: "io1",
+    label: "I/O1.3 DA VINCI / MORYSETTA",
+    title: "DA VINCI / MORYSETTA",
+    subtitle: "Perspective / visual influence archive",
+    intro: "Content will be added here.",
+    route: "/io1/da-vinci-morysetta",
+    status: "OPEN",
+    sections: [...io1HoldingSections],
+  },
   {
     id: "sentinel",
     projectId: "io1",
@@ -91,8 +137,8 @@ export const io1ArchiveSections: ArchiveSectionRecord[] = [
   {
     id: "kubrick",
     projectId: "io1",
-    label: "I/O1.2 STANLEY KUBRICK",
-    title: "STANLEY KUBRICK",
+    label: "I/O1.4 KUBRICK",
+    title: "KUBRICK",
     subtitle: "Cinema research archive / 2001 system",
     intro: "A cinema research record connecting 2001: A Space Odyssey to tools, intelligence, ritual, architecture, and cosmic scale.",
     route: "/io1/kubrick",
@@ -131,6 +177,17 @@ export const io1ArchiveSections: ArchiveSectionRecord[] = [
         note: "I/O1 borrows the atmosphere of signal, monolith, mission control, and unknowable contact.",
       },
     ],
+  },
+  {
+    id: "final-work",
+    projectId: "io1",
+    label: "I/O1.5 THE SENTINEL: FINAL WORK",
+    title: "THE SENTINEL: FINAL WORK",
+    subtitle: "Final artwork holding page",
+    intro: "Content will be added here.",
+    route: "/io1/final-work",
+    status: "OPEN",
+    sections: [...io1HoldingSections],
   },
   {
     id: "mouresette",
@@ -435,12 +492,39 @@ export const ioSectionArchiveIndexes: Record<"io1" | "io2" | "io3" | "io4", Sect
     sectionTitle: "THE SENTINEL",
     sectionSubtitle: "External sequence / orbital archive / visual research index",
     archiveItems: [
-      ...io1ArchiveSections.map(indexItemFromArchiveSection),
       {
-        id: "I/O1.G",
-        title: "I/O1 GALLERY",
-        subtitle: "Visual records / image sequence / media study",
-        href: "/io1/sentinel",
+        id: "I/O1.1",
+        title: "DAWN OF MAN",
+        subtitle: "Tool / image / human threshold",
+        href: "/io1/dawn-of-man",
+        status: "OPEN",
+      },
+      {
+        id: "I/O1.2",
+        title: "SPUTNIK",
+        subtitle: "Orbital signal / Space Race archive",
+        href: "/io1/sputnik",
+        status: "OPEN",
+      },
+      {
+        id: "I/O1.3",
+        title: "DA VINCI / MORYSETTA",
+        subtitle: "Perspective / visual influence archive",
+        href: "/io1/da-vinci-morysetta",
+        status: "OPEN",
+      },
+      {
+        id: "I/O1.4",
+        title: "KUBRICK",
+        subtitle: "Film / archive study",
+        href: "/io1/kubrick",
+        status: "OPEN",
+      },
+      {
+        id: "I/O1.5",
+        title: "THE SENTINEL: FINAL WORK",
+        subtitle: "Final artwork holding page",
+        href: "/io1/final-work",
         status: "OPEN",
       },
     ],

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
+import { AtmosphericButton } from "@/components/AtmosphericButton";
 import { AtmosphericFrame } from "@/components/AtmosphericFrame";
-import { BackToHubLink } from "@/components/BackToHubLink";
 import { IO2SecondaryNav } from "@/components/IO2SecondaryNav";
 import { MetadataLabel } from "@/components/MetadataLabel";
 import { io2ArchiveSectionMap, io2ArchiveSections } from "@/data/ioArchiveSections";
@@ -77,8 +77,13 @@ export default async function IO2ArchivePage({ params }: IO2ArchivePageProps) {
         }
       >
         <section className="project-hero archive-record-hero io2-archive-hero" aria-labelledby="io2-archive-title">
-          <div className="page-transition-link">
-            <BackToHubLink />
+          <div className="page-transition-link segment-landing__transition">
+            <AtmosphericButton
+              className="section-transition-link section-transition-link--boxed"
+              href="/io2"
+            >
+              RETURN TO I/O2
+            </AtmosphericButton>
           </div>
           <p className="archive-record-hero__code">{sectionCode(archiveSection.label)}</p>
           <h1 className="display-type section-title" id="io2-archive-title">

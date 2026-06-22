@@ -1,5 +1,5 @@
+import { AtmosphericButton } from "@/components/AtmosphericButton";
 import { AtmosphericFrame } from "@/components/AtmosphericFrame";
-import { BackToHubLink } from "@/components/BackToHubLink";
 import { MetadataLabel } from "@/components/MetadataLabel";
 import { SectionArchiveIndex } from "@/components/SectionArchiveIndex";
 import { io2ArchiveSectionMap, ioSectionArchiveIndexes } from "@/data/ioArchiveSections";
@@ -53,7 +53,12 @@ export default function IO2SystemPage() {
         >
         <section className="project-hero archive-record-hero io2-archive-hero" aria-labelledby="io2-system-title">
           <div className="page-transition-link segment-landing__transition">
-            <BackToHubLink className="section-transition-link section-transition-link--boxed" />
+            <AtmosphericButton
+              className="section-transition-link section-transition-link--boxed"
+              href="/io2"
+            >
+              RETURN TO I/O2
+            </AtmosphericButton>
           </div>
           <p className="archive-record-hero__code">{sectionCode(archiveSection.label)}</p>
           <h1 className="display-type section-title" id="io2-system-title">

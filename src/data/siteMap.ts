@@ -25,16 +25,24 @@ export const coreRoutes: RouteEntry[] = [
   },
 ];
 
-const projectOrder = ["io1", "io2", "io3", "io4", "xfm"];
+const projectOrder = ["io1", "io2", "io3", "io4", "io-framework"];
 
-export const projectRoutes: RouteEntry[] = projects
-  .map((project, index) => ({
+export const projectRoutes: RouteEntry[] = [
+  ...projects.filter((project) => project.id !== "xfm").map((project) => ({
     id: project.id,
     label: project.navLabel,
     route: project.route,
     status: project.status,
-    order: index + 2,
-  }))
+    order: 0,
+  })),
+  {
+    id: "io-framework",
+    label: "I/O FRAMEWORK",
+    route: "/io-framework",
+    status: "OPEN",
+    order: 0,
+  },
+]
   .sort((a, b) => projectOrder.indexOf(a.id) - projectOrder.indexOf(b.id))
   .map((entry, index) => ({
     ...entry,

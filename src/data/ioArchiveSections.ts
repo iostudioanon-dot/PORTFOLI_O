@@ -269,7 +269,7 @@ export const io1ArchiveSections: ArchiveSectionRecord[] = [
 
 export const futureArchiveSections: Record<ProjectId, string[]> = {
   io1: io1ArchiveSections.map((section) => section.title),
-  io2: ["Building The Hypogeal Landscape", "Landscape", "Julien Opie", "Architecture", "Fallingwater"],
+  io2: ["Building The Hypogeal Landscape", "Landscape", "Julian Opie", "Architecture", "Fallingwater", "I/O2 Final Work"],
   io3: ["Ionospheric Intersection", "Duga", "Chernobyl", "Atmospheric Systems", "Space Weather"],
   io4: ["Productive Failure", "Brian Eno", "Glitch Systems", "AI Hallucinations"],
   xfm: ["Historical Chronology", "Portfolio Case Studies", "Media Archaeology"],
@@ -283,7 +283,7 @@ export const io2ArchiveSections: ArchiveSectionRecord[] = [
   {
     id: "system",
     projectId: "io2",
-    label: "I/O2.1 SYSTEM",
+    label: "I/O2 SYSTEM",
     title: "BUILDING THE HYPOGEAL LANDSCAPE",
     subtitle: "Architecture and landscape archive / section index",
     intro: "An index study for the I/O2 landscape: architecture, water, site, structure, and organic environmental systems.",
@@ -319,11 +319,11 @@ export const io2ArchiveSections: ArchiveSectionRecord[] = [
   {
     id: "landscape",
     projectId: "io2",
-    label: "I/O2.2 LANDSCAPE",
+    label: "I/O2.1 LANDSCAPE",
     title: "LANDSCAPE",
     subtitle: "Primary project archive / hypogeal system",
     intro: "A primary I/O2 study of terrain, depth, water, architectural structure, and hidden environmental systems.",
-    route: "/io2-hypogeal-landscape/landscape",
+    route: "/io2/landscape",
     status: "OPEN",
     sections: [
       {
@@ -367,7 +367,7 @@ export const io2ArchiveSections: ArchiveSectionRecord[] = [
     title: "JULIAN OPIE",
     subtitle: "Research archive / simplified digital language",
     intro: "A research record on reduction, line, figure, movement, and graphic systems as ways of controlling visual information.",
-    route: "/io2-hypogeal-landscape/julien-opie",
+    route: "/io2/julian-opie",
     status: "OPEN",
     sections: [
       {
@@ -399,11 +399,11 @@ export const io2ArchiveSections: ArchiveSectionRecord[] = [
   {
     id: "architecture",
     projectId: "io2",
-    label: "I/O2.4 ARCHITECTURE",
+    label: "I/O2.2 ARCHITECTURE",
     title: "ARCHITECTURE",
     subtitle: "Research archive / built environment and organic structure",
     intro: "A study of built form as environmental structure: line, section, material, atmosphere, and landscape pressure.",
-    route: "/io2-hypogeal-landscape/architecture",
+    route: "/io2/architecture",
     status: "OPEN",
     sections: [
       {
@@ -439,11 +439,11 @@ export const io2ArchiveSections: ArchiveSectionRecord[] = [
   {
     id: "fallingwater",
     projectId: "io2",
-    label: "I/O2.5 FALLINGWATER",
+    label: "I/O2.4 FALLINGWATER",
     title: "FALLINGWATER",
     subtitle: "Research archive / water, structure, and organic architecture",
     intro: "A case study of Fallingwater as architecture suspended between water, terrain, engineering, and organic site logic.",
-    route: "/io2-hypogeal-landscape/fallingwater",
+    route: "/io2/fallingwater",
     status: "OPEN",
     sections: [
       {
@@ -477,6 +477,38 @@ export const io2ArchiveSections: ArchiveSectionRecord[] = [
       {
         title: "Influence on I/O2",
         note: "The I/O2 archive borrows its sense of depth, water, suspended structure, and organic section.",
+      },
+    ],
+  },
+  {
+    id: "final-work",
+    projectId: "io2",
+    label: "I/O2.5 I/O2 FINAL WORK",
+    title: "I/O2 FINAL WORK",
+    subtitle: "Final artwork holding page",
+    intro: "Content will be added here.",
+    route: "/io2/final-work",
+    status: "OPEN",
+    sections: [
+      {
+        title: "PDF RECORDS",
+        note: "Content will be added here.",
+        marker: "PDF RECORDS",
+      },
+      {
+        title: "IMAGE RECORDS",
+        note: "Content will be added here.",
+        marker: "IMAGE RECORDS",
+      },
+      {
+        title: "VIDEO / LINK RECORDS",
+        note: "Content will be added here.",
+        marker: "VIDEO / LINK RECORDS",
+      },
+      {
+        title: "NOTES",
+        note: "Content will be added here.",
+        marker: "NOTES",
       },
     ],
   },
@@ -536,37 +568,37 @@ export const ioSectionArchiveIndexes: Record<"io1" | "io2" | "io3" | "io4", Sect
     archiveItems: [
       {
         id: "I/O2.1",
-        title: "BUILDING THE HYPOGEAL LANDSCAPE",
-        subtitle: "Architecture and landscape archive / section index",
-        href: "/io2-hypogeal-landscape",
+        title: "LANDSCAPE",
+        subtitle: "Primary project archive / hypogeal system",
+        href: "/io2/landscape",
         status: "OPEN",
       },
       {
         id: "I/O2.2",
-        title: "LANDSCAPE",
-        subtitle: "Primary project archive / hypogeal system",
-        href: "/io2-hypogeal-landscape/landscape",
+        title: "ARCHITECTURE",
+        subtitle: "Research archive / built environment and organic structure",
+        href: "/io2/architecture",
         status: "OPEN",
       },
       {
         id: "I/O2.3",
         title: "JULIAN OPIE",
         subtitle: "Research archive / simplified digital language",
-        href: "/io2-hypogeal-landscape/julien-opie",
+        href: "/io2/julian-opie",
         status: "OPEN",
       },
       {
         id: "I/O2.4",
-        title: "ARCHITECTURE",
-        subtitle: "Research archive / built environment and organic structure",
-        href: "/io2-hypogeal-landscape/architecture",
+        title: "FALLINGWATER",
+        subtitle: "Research archive / water, structure, and organic architecture",
+        href: "/io2/fallingwater",
         status: "OPEN",
       },
       {
         id: "I/O2.5",
-        title: "FALLINGWATER",
-        subtitle: "Research archive / water, structure, and organic architecture",
-        href: "/io2-hypogeal-landscape/fallingwater",
+        title: "I/O2 FINAL WORK",
+        subtitle: "Final artwork holding page",
+        href: "/io2/final-work",
         status: "OPEN",
       },
     ],

@@ -42,7 +42,7 @@ export default function InstructionsPage() {
     <AtmosphericFrame mode="manual">
       <main className="manual-page manual-page--entry" id="main-content">
         <div className="page-transition-link instructions-transition-link manual-entry__route">
-          <BackToHubLink />
+          <BackToHubLink className="section-transition-link section-transition-link--boxed" />
         </div>
 
         <section className="manual-entry" aria-labelledby="manual-title">
@@ -71,8 +71,7 @@ export default function InstructionsPage() {
           </header>
 
           <section className="manual-entry__section" aria-labelledby="manual-access-title">
-            <p className="manual-entry__kicker">SECTION 02</p>
-            <h2 className="manual-entry__section-title" id="manual-access-title">
+            <h2 className="manual-entry__section-title manual-entry__section-title--access" id="manual-access-title">
               ACCESS MATERIAL
             </h2>
             <ul className="manual-entry__list" aria-label="Required access material">

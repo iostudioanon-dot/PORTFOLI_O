@@ -868,38 +868,9 @@ summary:focus-visible {
 }
 
 .instructions-transition-link {
+  justify-content: center;
+  margin-inline: auto;
   margin-bottom: clamp(1rem, 2vw, 1.45rem);
-}
-
-.instructions-transition-link .transmission-link {
-  animation: route-signal-breath 2.4s ease-in-out infinite;
-  border-color: rgba(160, 35, 25, 0.54);
-  box-shadow: 0 0 1.15rem rgba(160, 35, 25, 0.08);
-  color: #9f2f25;
-  font-size: clamp(0.95rem, 1vw, 1.08rem);
-  min-height: 2.55rem;
-  min-width: 0;
-  padding: 0.55rem 0;
-  text-shadow: 0 0 14px rgba(160, 35, 25, 0.2);
-}
-
-.instructions-transition-link .transmission-link::after {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(160, 35, 25, 0.65),
-    transparent
-  );
-  opacity: 0.68;
-  transform: scaleX(0.76);
-}
-
-.instructions-transition-link .transmission-link:hover,
-.instructions-transition-link .transmission-link:focus-visible {
-  border-color: rgba(160, 35, 25, 0.72);
-  box-shadow: 0 0 1.35rem rgba(160, 35, 25, 0.14);
-  color: #b7473d;
-  text-shadow: 0 0 20px rgba(160, 35, 25, 0.3);
 }
 
 .manual-page,
@@ -1017,6 +988,11 @@ summary:focus-visible {
   line-height: 1.05;
   margin: 0;
   text-transform: uppercase;
+}
+
+.manual-entry__section-title--access {
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  font-weight: 700;
 }
 
 .manual-entry__list,
@@ -2626,8 +2602,9 @@ a.instruction-qr__frame:hover {
 .transition-route__title {
   font-size: clamp(2.2rem, 6vw, 4.8rem);
   line-height: 0.9;
-  max-width: 12ch;
-  overflow-wrap: anywhere;
+  max-width: 16ch;
+  overflow-wrap: normal;
+  text-wrap: balance;
 }
 
 .transition-route__statement {
@@ -4713,12 +4690,6 @@ details p {
     justify-content: center;
     min-width: min(18rem, 100%);
     text-align: center;
-  }
-
-  .instructions-transition-link .transmission-link {
-    justify-content: flex-start;
-    min-width: 0;
-    text-align: left;
   }
 
   .landing__timeline {

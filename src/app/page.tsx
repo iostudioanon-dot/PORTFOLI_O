@@ -33,10 +33,9 @@ export default function Home() {
           <div className="landing__actions" aria-label="Entry actions">
             <div className="landing__entry">
               <AtmosphericButton
-                className="landing-primary-route-link"
+                className="section-transition-link section-transition-link--boxed"
                 dataText={landing.secondaryAction}
                 href="/instructions"
-                secondary
               >
                 {landing.secondaryAction}
               </AtmosphericButton>

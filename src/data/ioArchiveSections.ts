@@ -518,6 +518,80 @@ export const io2ArchiveSectionMap = new Map(
   io2ArchiveSections.map((section) => [section.id, section]),
 );
 
+const io3HoldingSections: ArchiveSubsection[] = [
+  {
+    title: "PDF RECORDS",
+    note: "Content will be added here.",
+    marker: "PDF RECORDS",
+  },
+  {
+    title: "IMAGE RECORDS",
+    note: "Content will be added here.",
+    marker: "IMAGE RECORDS",
+  },
+  {
+    title: "VIDEO / LINK RECORDS",
+    note: "Content will be added here.",
+    marker: "VIDEO / LINK RECORDS",
+  },
+  {
+    title: "NOTES",
+    note: "Content will be added here.",
+    marker: "NOTES",
+  },
+];
+
+export const io3ArchiveSections: ArchiveSectionRecord[] = [
+  {
+    id: "duga-radar",
+    projectId: "io3",
+    label: "I/O3.1 DUGA RADAR",
+    title: "DUGA RADAR",
+    subtitle: "Radar research holding page",
+    intro: "Content will be added here.",
+    route: "/io3/duga-radar",
+    status: "OPEN",
+    sections: [...io3HoldingSections],
+  },
+  {
+    id: "bridget-riley",
+    projectId: "io3",
+    label: "I/O3.2 BRIDGET RILEY",
+    title: "BRIDGET RILEY",
+    subtitle: "Visual research holding page",
+    intro: "Content will be added here.",
+    route: "/io3/bridget-riley",
+    status: "OPEN",
+    sections: [...io3HoldingSections],
+  },
+  {
+    id: "to-be-arranged",
+    projectId: "io3",
+    label: "I/O3.3 TO BE ARRANGED",
+    title: "TO BE ARRANGED",
+    subtitle: "Content holding page",
+    intro: "Content will be added here.",
+    route: "/io3/to-be-arranged",
+    status: "OPEN",
+    sections: [...io3HoldingSections],
+  },
+  {
+    id: "final-artwork",
+    projectId: "io3",
+    label: "I/O3.5 I/O3 FINAL ARTWORK",
+    title: "I/O3 FINAL ARTWORK",
+    subtitle: "Final artwork holding page",
+    intro: "Content will be added here.",
+    route: "/io3/final-artwork",
+    status: "OPEN",
+    sections: [...io3HoldingSections],
+  },
+];
+
+export const io3ArchiveSectionMap = new Map(
+  io3ArchiveSections.map((section) => [section.id, section]),
+);
+
 export const ioSectionArchiveIndexes: Record<"io1" | "io2" | "io3" | "io4", SectionArchiveIndexRecord> = {
   io1: {
     sectionLabel: "I/O1 ARCHIVE INDEX",
@@ -610,28 +684,38 @@ export const ioSectionArchiveIndexes: Record<"io1" | "io2" | "io3" | "io4", Sect
     archiveItems: [
       {
         id: "I/O3.1",
-        title: "IONOSPHERIC INTERSECTION",
-        subtitle: "Primary project archive / atmospheric transmission system",
-        status: "PENDING",
+        title: "DUGA RADAR",
+        subtitle: "Radar research holding page",
+        href: "/io3/duga-radar",
+        status: "OPEN",
       },
       {
         id: "I/O3.2",
-        title: "FINAL ARTWORK FIELD STUDY",
+        title: "BRIDGET RILEY",
+        subtitle: "Visual research holding page",
+        href: "/io3/bridget-riley",
+        status: "OPEN",
+      },
+      {
+        id: "I/O3.3",
+        title: "TO BE ARRANGED",
+        subtitle: "Content holding page",
+        href: "/io3/to-be-arranged",
+        status: "OPEN",
+      },
+      {
+        id: "I/O3.4",
+        title: "EXPLORE I/O3 ART WEB LINK",
         subtitle: "External transmission / in-depth artwork archive",
         href: "https://iostudioanon-dot.github.io/IO3-INFO-ART/",
         status: "OPEN",
       },
       {
-        id: "I/O3.3",
-        title: "SIGNAL RECORDS",
-        subtitle: "Recovered media records / video image research",
-        status: "PENDING",
-      },
-      {
-        id: "I/O3.4",
-        title: "PROCESS FRAGMENTS",
-        subtitle: "Evidence notes / atmospheric system references",
-        status: "PENDING",
+        id: "I/O3.5",
+        title: "I/O3 FINAL ARTWORK",
+        subtitle: "Final artwork holding page",
+        href: "/io3/final-artwork",
+        status: "OPEN",
       },
     ],
   },
